@@ -30,7 +30,62 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounterAnimation();
     initFormValidation();
     initParticleEffect();
+    initPortfolioCarousel();
 });
+
+// Portfolio Carousel Functionality
+function initPortfolioCarousel() {
+    const carousel = document.getElementById('portfolioCarousel');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    if (!carousel || !indicators.length) return;
+    
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('.portfolio-slide').length;
+
+    function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        const translateX = -slideIndex * 100;
+        carousel.style.transform = `translateX(${translateX}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === slideIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+    }
+
+    // Add click events to indicators
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+
+    // Auto-advance carousel every 4 seconds
+    setInterval(nextSlide, 4000);
+    
+    // File upload functionality
+    const fileInput = document.getElementById('foto');
+    const fileName = document.querySelector('.file-name');
+    
+    if (fileInput && fileName) {
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                fileName.textContent = file.name;
+                fileName.style.color = '#28a745';
+            } else {
+                fileName.textContent = currentLanguage === 'es' ? 'Ningún archivo seleccionado' : 'No file selected';
+                fileName.style.color = '#6c757d';
+            }
+        });
+    }
+}
 
 // Language Toggle
 function initLanguageToggle() {
