@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNexus - Educate | Elevate | Excel</title>
+    <meta name="description" content="EduNexus - Entrenamiento de inglés, coaching ontológico y herramientas de mejoramiento personal">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.ico">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="langToggle" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-translate"></i>
+            <span id="langText">English</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img src="assets/img/logo.png" alt="EduNexus Logo" height="40" class="me-2">
+                <span class="fw-bold">EduNexus</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-es="Principal" data-en="Home">Principal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-es="Nosotros" data-en="About">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" data-es="Servicios" data-en="Services">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team" data-es="Colaboradores" data-en="Team">Colaboradores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <img src="assets/img/bg/hero_bg.png" alt="Hero Background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <span class="hero-badge" data-es="Las soluciones educativas están aquí y hoy" data-en="Educational solutions are here and now">Las soluciones educativas están aquí y hoy</span>
+                        <h1 class="hero-title" data-es="Tu Potencial sin Límites: Guiados por la Sabiduría y la Acción" data-en="Your Unlimited Potential: Guided by Wisdom and Action">Tu Potencial sin Límites: Guiados por la Sabiduría y la Acción</h1>
+                        <p class="hero-subtitle" data-es="La educación es el arma más poderosa que puedes usar para cambiar el mundo. - Nelson Mandela" data-en="Education is the most powerful weapon you can use to change the world. - Nelson Mandela">La educación es el arma más poderosa que puedes usar para cambiar el mundo. - Nelson Mandela</p>
+                        
+                        <div class="hero-actions">
+                            <a href="#services" class="btn btn-primary btn-lg me-3" data-es="Explora nuestros Servicios" data-en="Explore our Services">Explora nuestros Servicios</a>
+                            <a href="#about" class="btn btn-outline-light btn-lg" data-es="Conoce más" data-en="Learn More">Conoce más</a>
+                        </div>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">220+</span>
+                                <span class="stat-label" data-es="Proyectos Completados" data-en="Completed Projects">Proyectos Completados</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label" data-es="Satisfacción al cliente" data-en="Client Satisfaction">Satisfacción al cliente</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24</span>
+                                <span class="stat-label" data-es="Horas Soporte disponible" data-en="Our Available Support">Horas Soporte disponible</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="assets/img/flag.png" alt="EduNexus Flag" class="img-fluid floating-element">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-content">
+                        <h2 class="section-title" data-es="Sobre nosotros" data-en="About Us">Sobre nosotros</h2>
+                        <p class="about-text" data-es="Somos un matrimonio argentino y sueco, residentes en Irlanda, con una trayectoria profesional como docentes, gestores de proyectos y coaches certificados. Aportamos décadas de experiencia en educación, digitalización y crecimiento personal. Con la pasión compartida empoderamos a otros, diseñamos experiencias de aprendizaje impactantes, combinando estructura y empatía para inspirar el desarrollo integral, la confianza y una transformación significativa tanto en personas independientes como en equipos de trabajo in company." data-en="We are an Argentine and Swedish couple, residents in Ireland, with a professional background as teachers, project managers and certified coaches. We bring decades of experience in education, digitalization and personal growth. With shared passion we empower others, design impactful learning experiences, combining structure and empathy to inspire integral development, confidence and significant transformation both in independent individuals and in-company work teams.">
+                            Somos un matrimonio argentino y sueco, residentes en Irlanda, con una trayectoria profesional como docentes, gestores de proyectos y coaches certificados. Aportamos décadas de experiencia en educación, digitalización y crecimiento personal. Con la pasión compartida empoderamos a otros, diseñamos experiencias de aprendizaje impactantes, combinando estructura y empatía para inspirar el desarrollo integral, la confianza y una transformación significativa tanto en personas independientes como en equipos de trabajo in company.
+                        </p>
+                        
+                        <div class="stats-container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="stat-item">
+                                        <div class="number">30+</div>
+                                        <div class="label" data-es="Años de experiencia" data-en="Years of Experience">Años de experiencia</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="stat-item">
+                                        <div class="number">220+</div>
+                                        <div class="label" data-es="Proyectos Completados" data-en="Completed Projects">Proyectos Completados</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="stat-item">
+                                        <div class="number">10</div>
+                                        <div class="label" data-es="Miembros del equipo" data-en="Team Members">Miembros del equipo</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-image">
+                        <img src="assets/img/about/about_us.png" alt="About Us" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+                <p class="section-subtitle" data-es="Ofrecemos soluciones especializadas para proyectos Erasmus+ y desarrollo educativo internacional" data-en="We offer specialized solutions for Erasmus+ projects and international educational development">Ofrecemos soluciones especializadas para proyectos Erasmus+ y desarrollo educativo internacional</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-person-heart"></i>
+                        </div>
+                        <h4 data-es="Life Coaching" data-en="Life Coaching">Life Coaching</h4>
+                        <h6 class="service-subtitle" data-es="Desarrollo Personal y Profesional para Educadores y Estudiantes" data-en="Personal and Professional Development for Educators and Students">Desarrollo Personal y Profesional para Educadores y Estudiantes</h6>
+                        <p data-es="Ofrecemos un servicio de coaching enfocado en potenciar el crecimiento personal y profesional de participantes en proyectos Erasmus+. A través de sesiones individuales y grupales, ayudamos a educadores y estudiantes a identificar sus fortalezas, superar desafíos y alcanzar sus objetivos." data-en="We offer a coaching service focused on enhancing the personal and professional growth of participants in Erasmus+ projects. Through individual and group sessions, we help educators and students identify their strengths, overcome challenges, and achieve their goals.">Ofrecemos un servicio de coaching enfocado en potenciar el crecimiento personal y profesional de participantes en proyectos Erasmus+. A través de sesiones individuales y grupales, ayudamos a educadores y estudiantes a identificar sus fortalezas, superar desafíos y alcanzar sus objetivos.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h4 data-es="Emprendimiento Organizacional" data-en="Organizational Entrepreneurship">Emprendimiento Organizacional</h4>
+                        <h6 class="service-subtitle" data-es="Talleres Prácticos y Mentoría Activa" data-en="Practical Workshops and Active Mentoring">Talleres Prácticos y Mentoría Activa</h6>
+                        <p data-es="A través de talleres prácticos y mentoría activa, empoderamos a nuestros mentoreados para desarrollar emprendimientos sostenibles con impacto social y económico, enfocándonos en el pensamiento creativo, la planificación estratégica y la gestión de recursos, transformando ideas en iniciativas viables a largo plazo." data-en="Through practical workshops and active mentoring, we empower our mentees to develop sustainable entrepreneurships with social and economic impact, focusing on creative thinking, strategic planning, and resource management, transforming ideas into long term viable initiatives.">A través de talleres prácticos y mentoría activa, empoderamos a nuestros mentoreados para desarrollar emprendimientos sostenibles con impacto social y económico, enfocándonos en el pensamiento creativo, la planificación estratégica y la gestión de recursos, transformando ideas en iniciativas viables a largo plazo.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h4 data-es="Capacitación Digital" data-en="Digital Upskilling">Capacitación Digital</h4>
+                        <h6 class="service-subtitle" data-es="Preparando para el Siglo XXI" data-en="Preparing for the 21st Century">Preparando para el Siglo XXI</h6>
+                        <p data-es="Nuestros servicios tienen como objetivo cerrar la brecha tecnológica y preparar a los miembros de la sociedad para el siglo XXI. Ofrecemos formación en habilidades digitales esenciales y avanzadas, adaptadas a las necesidades de profesionales, educadores y la sociedad en general. A través de módulos interactivos y prácticos, capacitamos a los participantes en el uso de herramientas de colaboración en línea, inteligencia artificial y plataformas educativas innovadoras en línea." data-en="Our services aim to close the technology gap and prepare members of the society for the 21st century. We offer training in essential and advanced digital skills, tailored to the needs of professionals, educators, and society as a whole. Through interactive and practical modules, we train participants in the use of online collaboration tools, artificial intelligence, and innovative educational online platforms.">Nuestros servicios tienen como objetivo cerrar la brecha tecnológica y preparar a los miembros de la sociedad para el siglo XXI. Ofrecemos formación en habilidades digitales esenciales y avanzadas, adaptadas a las necesidades de profesionales, educadores y la sociedad en general. A través de módulos interactivos y prácticos, capacitamos a los participantes en el uso de herramientas de colaboración en línea, inteligencia artificial y plataformas educativas innovadoras en línea.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h4 data-es="Creatividad en el Aprendizaje" data-en="Creativity in Learning">Creatividad en el Aprendizaje</h4>
+                        <h6 class="service-subtitle" data-es="Necesidades Educativas Especiales" data-en="Special Educational Needs">Necesidades Educativas Especiales</h6>
+                        <p data-es="A través de nuestro trabajo en Necesidades Educativas Especiales como maestros, padres y voluntarios, buscamos destacar el papel vital de sumergir la alegría, la innovación y la creatividad en las NEE. Las actividades prácticas fomentan un aprendizaje inclusivo, activo y atractivo que promueve múltiples formas de retención de información y ofrece alternativas a los patrones de aprendizaje convencionales. Al involucrar a los estudiantes en la creatividad activa, promovemos el empoderamiento, el bienestar emocional y la participación significativa para diversos aprendices de todas las edades y habilidades." data-en="Through our work in Special Educational Needs as both teachers, parents and volunteers, we aim to highlight the vital role of immersing joy, innovation and creativity into SEN. Hands-on activities foster inclusive, active and engaging learning which promotes multiple ways of information retention, and offers alternatives to mainstream learning patterns. By engaging students in active creativity, we promote empowerment, emotional well-being, and meaningful participation for diverse learners of all ages and abilities.">A través de nuestro trabajo en Necesidades Educativas Especiales como maestros, padres y voluntarios, buscamos destacar el papel vital de sumergir la alegría, la innovación y la creatividad en las NEE. Las actividades prácticas fomentan un aprendizaje inclusivo, activo y atractivo que promueve múltiples formas de retención de información y ofrece alternativas a los patrones de aprendizaje convencionales. Al involucrar a los estudiantes en la creatividad activa, promovemos el empoderamiento, el bienestar emocional y la participación significativa para diversos aprendices de todas las edades y habilidades.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-gem"></i>
+                        </div>
+                        <h4 data-es="Oro en los Años Dorados" data-en="Gold in the Golden Years">Oro en los Años Dorados</h4>
+                        <h6 class="service-subtitle" data-es="Compromiso con Todas las Edades de la Sociedad" data-en="Engagement with All Layers and Ages of Society">Compromiso con Todas las Edades de la Sociedad</h6>
+                        <p data-es="EduNexus se enorgullece de participar activamente con todas las capas y edades de la sociedad a través de proyectos que combinan actividades educativas mentales y físicas que empoderan e iluminan a los participantes y la sociedad que los rodea. A través de nuestros proyectos, fomentamos la vida consciente, el compromiso, la inclusión y la comprensión de todas las edades, especialmente los ancianos." data-en="Edu Nexus prides itself in actively engaging with all layers and ages of society through projects that combine mental and physical educational activities which empower and enlighten the participants and the society around them. Through our projects, we encourage conscious living, engagement, inclusion and understanding of all ages, especially the elderly.">EduNexus se enorgullece de participar activamente con todas las capas y edades de la sociedad a través de proyectos que combinan actividades educativas mentales y físicas que empoderan e iluminan a los participantes y la sociedad que los rodea. A través de nuestros proyectos, fomentamos la vida consciente, el compromiso, la inclusión y la comprensión de todas las edades, especialmente los ancianos.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-globe-europe-africa"></i>
+                        </div>
+                        <h4 data-es="Celebrando la Singularidad" data-en="Celebrating Uniqueness">Celebrando la Singularidad</h4>
+                        <h6 class="service-subtitle" data-es="Cultura, Idioma y Patrimonio" data-en="Culture, Language, and Heritage">Cultura, Idioma y Patrimonio</h6>
+                        <p data-es="Nuestra dedicación a preservar, proteger y promover la cultura, el idioma y el patrimonio de cada país del globo es una pasión de toda la vida para nosotros. Como hemos vivido en muchos países diferentes, entendemos el valor de la identidad nacional, apoyamos la individualidad y trabajamos con muchas organizaciones prominentes en el campo del turismo innovador y el patrimonio cultural atesorado. A través de iniciativas sociales, educativas y socioeconómicas activas, buscamos fomentar un profundo sentido de pertenencia, donde la diversidad, la integridad y la inclusión estén en primer plano, involucrando a todas las edades y capas de la sociedad." data-en="Our dedication to preserving, protecting and promoting culture, language, and heritage of each country on the globe, is a life-long passion for us. As we have lived in many different countries, we understand the value of national identity, and we support individuality, and work with many prominent organisations in the field of innovative tourism and treasured cultural heritage. Through active social, educational and socio-economical initiatives we aim to foster a deep sense of belonging, where diversity, integrity and inclusion is at the forefront, involving all ages and layers of society.">Nuestra dedicación a preservar, proteger y promover la cultura, el idioma y el patrimonio de cada país del globo es una pasión de toda la vida para nosotros. Como hemos vivido en muchos países diferentes, entendemos el valor de la identidad nacional, apoyamos la individualidad y trabajamos con muchas organizaciones prominentes en el campo del turismo innovador y el patrimonio cultural atesorado. A través de iniciativas sociales, educativas y socioeconómicas activas, buscamos fomentar un profundo sentido de pertenencia, donde la diversidad, la integridad y la inclusión estén en primer plano, involucrando a todas las edades y capas de la sociedad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title" data-es="Portfolio" data-en="Portfolio">Portfolio</h2>
+            </div>
+            
+            <div class="portfolio-carousel-container">
+                <div class="portfolio-carousel" id="portfolioCarousel">
+                    <div class="portfolio-slide active">
+                        <img src="assets/img/portfolio/Foto1.jpeg" alt="Portfolio 1" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto2.jpeg" alt="Portfolio 2" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto4.jpeg" alt="Portfolio 4" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto5.jpeg" alt="Portfolio 5" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto6.jpeg" alt="Portfolio 6" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto7.jpeg" alt="Portfolio 7" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto8.jpeg" alt="Portfolio 8" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto9.jpeg" alt="Portfolio 9" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto10.jpeg" alt="Portfolio 10" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto11.jpg" alt="Portfolio 11" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto12.jpeg" alt="Portfolio 12" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto14.jpeg" alt="Portfolio 14" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto15.jpeg" alt="Portfolio 15" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                    <div class="portfolio-slide">
+                        <img src="assets/img/portfolio/Foto16.jpeg" alt="Portfolio 16" class="portfolio-img">
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-slide="0"></div>
+                    <div class="indicator" data-slide="1"></div>
+                    <div class="indicator" data-slide="2"></div>
+                    <div class="indicator" data-slide="3"></div>
+                    <div class="indicator" data-slide="4"></div>
+                    <div class="indicator" data-slide="5"></div>
+                    <div class="indicator" data-slide="6"></div>
+                    <div class="indicator" data-slide="7"></div>
+                    <div class="indicator" data-slide="8"></div>
+                    <div class="indicator" data-slide="9"></div>
+                    <div class="indicator" data-slide="10"></div>
+                    <div class="indicator" data-slide="11"></div>
+                    <div class="indicator" data-slide="12"></div>
+                    <div class="indicator" data-slide="13"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title" data-es="Colaboradores" data-en="Team">Colaboradores</h2>
+                <p class="section-subtitle" data-es="Nuestro equipo de expertos comprometidos con la excelencia educativa" data-en="Our team of experts committed to educational excellence">Nuestro equipo de expertos comprometidos con la excelencia educativa</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/img/about/about_us_2.png" alt="Founders" class="img-fluid">
+                        </div>
+                        <div class="team-content">
+                            <h5 data-es="Fundadores EduNexus" data-en="EduNexus Founders">Fundadores EduNexus</h5>
+                            <p class="team-role" data-es="Coaches Certificados & Educadores" data-en="Certified Coaches & Educators">Coaches Certificados & Educadores</p>
+                            <p data-es="Matrimonio argentino-sueco con décadas de experiencia en educación, digitalización y crecimiento personal." data-en="Argentine-Swedish couple with decades of experience in education, digitalization and personal growth.">Matrimonio argentino-sueco con décadas de experiencia en educación, digitalización y crecimiento personal.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/img/team/KajsaKjellstrom.png" alt="Kajsa Kjellström" class="img-fluid">
+                        </div>
+                        <div class="team-content">
+                            <h5>Kajsa Kjellström</h5>
+                            <p class="team-role" data-es="Autora Emprendedora y Mentora" data-en="Entrepreneurial Author and Mentor">Autora Emprendedora y Mentora</p>
+                            <p data-es="Autora emprendedora y mentora, inspirando liderazgo activo a través de la gestión de proyectos globales." data-en="Entrepreneurial author and mentor, inspiring active leadership through global project management.">Autora emprendedora y mentora, inspirando liderazgo activo a través de la gestión de proyectos globales.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/img/team/FabianMontenegro.png" alt="Fabián Montenegro" class="img-fluid">
+                        </div>
+                        <div class="team-content">
+                            <h5>Fabian Montenegro</h5>
+                            <p class="team-role" data-es="Emprendedor y Coach Organizacional" data-en="Entrepreneur and Organizational Coach">Emprendedor y Coach Organizacional</p>
+                            <p data-es="Emprendedor, gerente apasionado por los recursos humanos, coach organizacional, inspirador del desarrollo activo de equipos a través de la gestión de proyectos." data-en="Entrepreneur, manager passionate about human resources, organizational coach, inspirer of active team development through project management.">Emprendedor, gerente apasionado por los recursos humanos, coach organizacional, inspirador del desarrollo activo de equipos a través de la gestión de proyectos.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/img/team/NereaLopezPolo.png" alt="Nerea Lopez Polo" class="img-fluid">
+                        </div>
+                        <div class="team-content">
+                            <h5>Nerea Lopez Polo</h5>
+                            <p class="team-role" data-es="Educadora Apasionada" data-en="Passionate Educator">Educadora Apasionada</p>
+                            <p data-es="Educadora apasionada que promueve la creatividad, la igualdad y la inclusión en proyectos de aprendizaje globales." data-en="Passionate educator promoting creativity, equality, and inclusion in global learning projects.">Educadora apasionada que promueve la creatividad, la igualdad y la inclusión en proyectos de aprendizaje globales.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assets/img/team/TomKinsella.png" alt="Tom Kinsella" class="img-fluid">
+                        </div>
+                        <div class="team-content">
+                            <h5>Tom Kinsella</h5>
+                            <p class="team-role" data-es="Científico Social y Líder de Proyectos" data-en="Social Scientist and Project Leader">Científico Social y Líder de Proyectos</p>
+                            <p data-es="Científico social consumado, negociador hábil y líder en gestión de proyectos globales." data-en="Accomplished social scientist, skilled negotiator, and global project management leader.">Científico social consumado, negociador hábil y líder en gestión de proyectos globales.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title" data-es="Contacto" data-en="Contact">Contacto</h2>
+                <p class="section-subtitle" data-es="¿Listo para comenzar tu transformación? Contáctanos hoy" data-en="Ready to start your transformation? Contact us today">¿Listo para comenzar tu transformación? Contáctanos hoy</p>
+            </div>
+                    <form action="https://formsubmit.co/edunexus.eu@gmail.com" method="POST" enctype="multipart/form-data">
+                      <div class="row">
+                          <div class="col-lg-8 mx-auto">
+                               <div class="contact-form" data-aos="fade-up">
+                                   <form>
+                                      <div class="row">
+                                      <div class="col-md-6 mb-3">
+										<label for="Name" data-es="Nombre" data-en="Name">Nombre:</label><br>
+										<input type="text" id="Name" name="Name" required size="40" placeholder="..."><br><br>
+
+										<label for="apellido" data-es="Apellido" data-en="Last Name">Apellido:</label><br>
+										<input type="text" id="apellido" name="apellido" size="40" placeholder="..."><br><br>
+
+										<label for="email" data-es="Correo electrónico" data-en="Email">Email:</label><br>
+										<input type="email" id="email" name="email" required size="40" placeholder="..."><br><br>
+
+										<label for="asunto" data-es="Asunto" data-en="Subject">Asunto:</label><br>
+										<input type="text" id="asunto" name="asunto" required size="40" placeholder="..."><br><br>
+
+										<label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje:</label><br>
+										<textarea id="mensaje" name="mensaje" rows="4" cols="44" required placeholder="..."></textarea><br><br>
+
+										<label for="foto" data-es="Adjuntar Foto (opcional)" data-en="Attach Photo (optional)">Adjuntar Foto (opcional):</label><br>
+										<input type="file" id="foto" name="foto"><br><br>
+									  						  
+										<button type="submit">Send / Enviar</button>
+				                 </form>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info">
+                        <i class="bi bi-envelope-fill display-4 text-primary mb-3"></i>
+                        <h5>Email</h5>
+                        <p>edunexus.eu@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info">
+                        <i class="bi bi-telephone-fill display-4 text-primary mb-3"></i>
+                        <h5 data-es="Teléfono" data-en="Phone">Teléfono</h5>
+                        <p>+353-86-3688624</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info">
+                        <i class="bi bi-geo-alt-fill display-4 text-primary mb-3"></i>
+                        <h5 data-es="Ubicación" data-en="Location">Ubicación</h5>
+                        <p data-es="Irlanda" data-en="Ireland">Irlanda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <img src="assets/img/logo.png" alt="EduNexus Logo" height="30" class="me-2">
+                        <span class="fw-bold">EduNexus</span>
+                    </div>
+                    <p class="mt-2 mb-0" data-es="Educate | Elevate | Excel" data-en="Educate | Elevate | Excel">Educate | Elevate | Excel</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61576009137009" class="social-link me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/edunexus.eu" class="social-link me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/edu-nexus" class="social-link"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <p class="mt-2 mb-0" data-es="© 2024 EduNexus. Todos los derechos reservados." data-en="© 2024 EduNexus. All rights reserved.">© 2024 EduNexus. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
+
