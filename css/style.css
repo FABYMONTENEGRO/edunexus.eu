@@ -653,7 +653,10 @@ html {
     .contact-form {
         padding: 2rem;
     }
-
+/* O puedes aplicar al contenedor principal */
+    .hero-section {
+        padding-top: 150px; /* Ajusta este valor según lo que necesites */
+    }
   
 @media (max-width: 576px) {
     .hero-title {
