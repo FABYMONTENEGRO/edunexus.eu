@@ -625,7 +625,7 @@ html {
 @media (max-width: 768px) {
     .language-toggle {
         right: auto;
-        left: 40px; 
+        left: 25px; 
     }
 
     .hero-title {
