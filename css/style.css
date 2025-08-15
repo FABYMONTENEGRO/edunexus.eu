@@ -625,7 +625,7 @@ html {
 @media (max-width: 768px) {
     .language-toggle {
         right: auto;
-        left: 2px; 
+        left: 282px; 
     }
 
     .hero-title {
@@ -660,11 +660,11 @@ html {
     }
     
     .hero-content {
-        padding-top: 95px;
+        padding-top: 25px;
     }
     
     .hero-section {
-        padding-top: 85px; 
+        padding-top: 25px; 
     }
 }
 @media (max-width: 576px) {
