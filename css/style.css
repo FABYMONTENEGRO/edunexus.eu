@@ -623,6 +623,13 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+        /* ... otros estilos para móviles ... */
+
+    .language-toggle {
+        right: auto; /* Desactiva la regla 'right' */
+        left: 20px; /* Coloca el botón a 20px del borde izquierdo */
+    }
+}
     .hero-title {
         font-size: 2.5rem;
     }
