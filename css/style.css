@@ -623,11 +623,9 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* ... otros estilos para móviles ... */
-
     .language-toggle {
-        right: auto; /* Desactiva la regla 'right' */
-        left: 53px; /* Coloca el botón a 20px del borde izquierdo */
+        right: auto;
+        left: 20px; 
     }
 
     .hero-title {
@@ -662,11 +660,25 @@ html {
     }
     
     .hero-content {
-        padding-top: 95px; /* Ajusta este valor según lo que necesites */
+        padding-top: 95px;
     }
-
+    
     .hero-section {
-        padding-top: 85px; /* Ajusta este valor según lo que necesites */
+        padding-top: 85px; 
+    }
+}
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .service-card,
+    .contact-form {
+        padding: 1.5rem;
     }
 }
 
