@@ -653,11 +653,7 @@ html {
     .contact-form {
         padding: 2rem;
     }
-  /* ---- NUEVOS ESTILOS PARA MOVILES ---- */
-    .hero-content {
-        padding-top: 5px; /* Ajusta este valor según lo que necesites */
-    }
-}
+
   
 @media (max-width: 576px) {
     .hero-title {
