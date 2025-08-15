@@ -655,12 +655,12 @@ html {
     }
   /* ---- NUEVOS ESTILOS PARA MOVILES ---- */
     .hero-content {
-        padding-top: 200px; /* Ajusta este valor según lo que necesites */
+        padding-top: 100px; /* Ajusta este valor según lo que necesites */
     }
 
     /* O puedes aplicar al contenedor principal */
     .hero-section {
-        padding-top: 200px; /* Ajusta este valor según lo que necesites */
+        padding-top: 100px; /* Ajusta este valor según lo que necesites */
     }}
   
 @media (max-width: 576px) {
