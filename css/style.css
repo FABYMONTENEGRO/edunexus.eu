@@ -627,7 +627,7 @@ html {
 
     .language-toggle {
         right: auto; /* Desactiva la regla 'right' */
-        left: 33px; /* Coloca el botón a 20px del borde izquierdo */
+        left: 53px; /* Coloca el botón a 20px del borde izquierdo */
     }
 
     .hero-title {
