@@ -629,7 +629,7 @@ html {
     
     .hero-stats {
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
     }
     
     .section-title {
