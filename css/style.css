@@ -660,7 +660,7 @@ html {
 
     /* O puedes aplicar al contenedor principal */
     .hero-section {
-        padding-top: 45px; /* Ajusta este valor según lo que necesites */
+        padding-top: 85px; /* Ajusta este valor según lo que necesites */
     }
 @media (max-width: 576px) {
     .hero-title {
