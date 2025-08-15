@@ -657,7 +657,7 @@ html {
   
 @media (max-width: 576px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1rem;
     }
     
     .section-title {
