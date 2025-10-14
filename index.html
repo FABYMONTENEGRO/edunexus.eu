@@ -439,15 +439,27 @@
     <section id="eu-info" class="eu-info-section py-4 bg-light">
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-4 col-md-6 mb-4 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-3 col-md-6 mb-4 text-center" data-aos="fade-up" data-aos-delay="100">
                     <img src="assets/img/about/europeanunioneuropean.jpg" alt="European Union Logo" class="img-fluid" style="max-height: 120px;">
                 </div>
-                <div class="col-lg-8 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-5 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="eu-info-text">
                         <h5>Edu Nexus Consulting CLG</h5>
                         <p class="mb-1">Company Reg. No: 798408</p>
                         <p class="mb-1">OID: E10404178</p>
                         <p class="mb-0">PIC: 868942879</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="calendar-icon-container" onclick="openCalendar('erasmus')" style="cursor: pointer;">
+                        <img src="assets/img/Erasmus.png" alt="Erasmus+ Calendar" class="img-fluid calendar-icon" style="max-height: 120px;">
+                        <p class="calendar-label" style="margin-top: 8px; font-weight: 600; color: #0056b3;">Calendar</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="calendar-icon-container" onclick="openCalendar('horizon')" style="cursor: pointer;">
+                        <img src="assets/img/Horizon.png" alt="Horizon Europe Calendar" class="img-fluid calendar-icon" style="max-height: 120px;">
+                        <p class="calendar-label" style="margin-top: 8px; font-weight: 600; color: #82b541;">Calendar</p>
                     </div>
                 </div>
             </div>
@@ -465,5 +477,22 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
+    
+    <!-- Calendar Password Protection Script -->
+    <script>
+        function openCalendar(type) {
+            const password = prompt('Por favor, ingrese la contraseña para acceder al calendario:');
+            
+            if (password === 'HajsaKect0r') {
+                if (type === 'erasmus') {
+                    window.open('erasmus_calls_nov_2025_dec_2026_calendar.html', '_blank');
+                } else if (type === 'horizon') {
+                    window.open('horizon_calls_nov_2025_jan_2027.html', '_blank');
+                }
+            } else if (password !== null) {
+                alert('Contraseña incorrecta. Acceso denegado.');
+            }
+        }
+    </script>
 </body>
 </html>
