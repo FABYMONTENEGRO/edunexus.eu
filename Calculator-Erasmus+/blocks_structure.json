@@ -1,0 +1,177 @@
+{
+  "1": {
+    "name": "ALINEAMIENTO ESTRATÉGICO",
+    "max_points": 25,
+    "items": [
+      {
+        "num": "1.1",
+        "description": "El proyecto responde aal menos 2 prioridades horizontales 2024â2027:",
+        "points": 6
+      },
+      {
+        "num": "1.2",
+        "description": "Incluye explÃ­citamente losObjetivos de la UniÃ³n Europea en EducaciÃ³n(incl.European Strategy for Universities,Digital Education Action Plan)",
+        "points": 4
+      },
+      {
+        "num": "1.3",
+        "description": "El tÃ­tulo y resumen usanpalabras clave estratÃ©gicasreconocibles por evaluadores (ej:green skills,inclusive mobility,sustainable HE,SDG localization)",
+        "points": 3
+      },
+      {
+        "num": "1.4",
+        "description": "Hay unajustificaciÃ³n clara y con datosde por quÃ© se trabaja con Argentina/LatinoamÃ©rica (no solo âpor interÃ©sâ) â ej: brechas de capacitaciÃ³n, sinergias",
+        "points": 5
+      },
+      {
+        "num": "1.5",
+        "description": "El proyecto se alinea con al menosuna convocatoria especÃ­fica 2025/2026(ej: KA2 Capacity Building HE, Jean Monnet Network, KA171-HED wave 2) â y se",
+        "points": 4
+      },
+      {
+        "num": "1.6",
+        "description": "Incluyeindicadores SMARTde impacto (no solo actividades)",
+        "points": 3
+      }
+    ]
+  },
+  "2": {
+    "name": "CONSORCIO Y GOBERNANZA",
+    "max_points": 20,
+    "items": [
+      {
+        "num": "2.1",
+        "description": "Edunexus actÃºa comocoordinador(ventaja clave al ser de paÃ­s del programa)",
+        "points": 4
+      },
+      {
+        "num": "2.2",
+        "description": "El consorcio tieneâ¥ 1 socio argentino fuerte(ej: UBA, UNR, UNTREF, Scalabrini Ortiz, ProYungas, RAMCC) â no solo instituciones pequeÃ±as sin",
+        "points": 3
+      },
+      {
+        "num": "2.3",
+        "description": "Presencia deâ¥ 1 socio europeo recurrente(ej: Sevilla, TuscÃ­a, Lisboa, Lille, Perpignan) â demuestra confianza y capacidad de implementaciÃ³n",
+        "points": 3
+      },
+      {
+        "num": "2.4",
+        "description": "Hayequilibrio geogrÃ¡fico y de roles: no un solo paÃ­s dominando; roles claros (coordinador, liderazgo temÃ¡tico, evaluaciÃ³n, difusiÃ³n)",
+        "points": 3
+      },
+      {
+        "num": "2.5",
+        "description": "Incluye al menos1 socio no acadÃ©mico relevante(ONG, museo, fundaciÃ³n, empresa social) â especialmente valorado en Capacity Building y redes",
+        "points": 3
+      },
+      {
+        "num": "2.6",
+        "description": "Existememorandum de entendimiento (MoU)o carta de intenciÃ³n firmada por todos los socios (adjunto en anexo)",
+        "points": 2
+      },
+      {
+        "num": "2.7",
+        "description": "DistribuciÃ³n equitativa de fondos (sin âsobrecargaâ al coordinador ni subfinanciaciÃ³n de socios clave en paÃ­ses socios)",
+        "points": 2
+      }
+    ]
+  },
+  "3": {
+    "name": "CALIDAD DE LA PROPUESTA",
+    "max_points": 30,
+    "items": [
+      {
+        "num": "3.1",
+        "description": "Lasactividades son innovadoras, no solo ârepeticiÃ³n de buenas prÃ¡cticasâ â ej: metodologÃ­as mixtas (presencial + VR), gamificaciÃ³n,",
+        "points": 5
+      },
+      {
+        "num": "3.2",
+        "description": "Incluyetransferencia de conocimiento sostenible(no solo eventos):",
+        "points": 6
+      },
+      {
+        "num": "3.3",
+        "description": "Tiene unplan de impacto claro: cÃ³mo se mide, quiÃ©n se beneficia a largo plazo, y cÃ³mo se escalarÃ¡ (local â nacional â regional)",
+        "points": 5
+      },
+      {
+        "num": "3.4",
+        "description": "Movilidad bien diseÃ±ada (si aplica KA171-HED):",
+        "points": 4
+      },
+      {
+        "num": "3.5",
+        "description": "Incluyemedidas de inclusiÃ³n concretas:",
+        "points": 4
+      },
+      {
+        "num": "3.6",
+        "description": "Sostenibilidad post-proyecto: plan de â¥ 2 aÃ±os con fuentes de financiamiento alternativas (ej: fondos nacionales, autofinanciamiento, redes",
+        "points": 4
+      },
+      {
+        "num": "3.7",
+        "description": "GÃ©nero transversal: no solo una actividad aislada, sino integrado en diseÃ±o, selecciÃ³n, monitoreo (ej: equilibrio 50/50 en movilidad, enfoque",
+        "points": 2
+      }
+    ]
+  },
+  "4": {
+    "name": "GESTIÓN Y PRESUPUESTO",
+    "max_points": 15,
+    "items": [
+      {
+        "num": "4.1",
+        "description": "Presupuestorealista y bien desglosadoâ sin gastos genÃ©ricos (âotrosâ) > 5%",
+        "points": 4
+      },
+      {
+        "num": "4.2",
+        "description": "Costes de movilidad alineados contablas oficiales de la UE(ej: Irlanda â Argentina: viaje â¬1.300 + manutenciÃ³n",
+        "points": 3
+      },
+      {
+        "num": "4.3",
+        "description": "Incluyeriesgos identificados + plan de mitigaciÃ³n(ej: crisis polÃ­tica, pandemia, cambio de gobierno en socios)",
+        "points": 3
+      },
+      {
+        "num": "4.4",
+        "description": "Equipo de gestiÃ³n conexperiencia comprobable en Erasmus+(ej: CVs de coordinador con proyectos anteriores)",
+        "points": 3
+      },
+      {
+        "num": "4.5",
+        "description": "Sistema demonitoreo y evaluaciÃ³n participativa(no solo final reports): encuestas, focus groups, revisiÃ³n intermedia",
+        "points": 2
+      }
+    ]
+  },
+  "5": {
+    "name": "DIFUSIÓN Y VISIBILIDAD",
+    "max_points": 10,
+    "items": [
+      {
+        "num": "5.1",
+        "description": "Estrategia de difusiÃ³nmulticanal: web, redes sociales, eventos presenciales en Argentina/Europa, Results Platform,",
+        "points": 3
+      },
+      {
+        "num": "5.2",
+        "description": "Uso obligatorio delogos oficiales de la UEen todo material (con guÃ­a de estilo adjunta)",
+        "points": 2
+      },
+      {
+        "num": "5.3",
+        "description": "Plan parapresentar resultados en eventos clave:",
+        "points": 3
+      },
+      {
+        "num": "5.4",
+        "description": "Compromiso depublicar al menos 1 artÃ­culo en revista indexadao policy brief con resultados",
+        "points": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Proyectos Erasmus+ - Edunexus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8f1f7 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 2px solid #0033cc;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 51, 204, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logos {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            min-width: 300px;
+        }
+
+        .header-title h1 {
+            color: #0033cc;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #0033cc;
+            background: white;
+            color: #0033cc;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: #0033cc;
+            color: white;
+        }
+
+        .lang-btn:hover {
+            background: #0033cc;
+            color: white;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0033cc, #0052ff);
+            transition: width 0.3s ease;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #0033cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0052ff;
+            box-shadow: 0 4px 12px rgba(0, 51, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0033cc;
+            border: 2px solid #0033cc;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f4f8;
+        }
+
+        .btn-success {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #16a34a;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Main Content */
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #0033cc;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        /* Project Name Input */
+        .project-input-section {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0033cc;
+            box-shadow: 0 0 0 3px rgba(0, 51, 204, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Block Info */
+        .block-info {
+            background: #f0f4f8;
+            border-left: 4px solid #0033cc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .block-info h3 {
+            color: #0033cc;
+            margin-bottom: 10px;
+        }
+
+        .block-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .block-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .block-list li:last-child {
+            border-bottom: none;
+        }
+
+        .block-name {
+            flex: 1;
+        }
+
+        .block-points {
+            font-weight: 600;
+            color: #0033cc;
+            margin-left: 20px;
+        }
+
+        .total-points {
+            font-weight: 700;
+            color: #0033cc;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Block Form */
+        .block-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .item-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        .item-card:hover {
+            border-color: #0033cc;
+            background: #f0f4f8;
+            box-shadow: 0 2px 8px rgba(0, 51, 204, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .item-description {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .item-max-points {
+            background: #0033cc;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .item-id {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .item-inputs {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            padding: 10px;
+        }
+
+        /* Subtotal */
+        .subtotal-box {
+            background: linear-gradient(135deg, #e8f1f7 0%, #d0e0f0 100%);
+            border: 2px solid #0033cc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .subtotal-box h3 {
+            color: #0033cc;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .subtotal-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0033cc;
+        }
+
+        /* Results */
+        .results-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .score-header {
+            background: linear-gradient(135deg, #0033cc 0%, #0052ff 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .score-header h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .score-display {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .score-max {
+            font-size: 28px;
+            opacity: 0.8;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: white;
+            transition: width 0.5s ease;
+        }
+
+        .evaluation-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: -20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .evaluation-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .evaluation-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .evaluation-text {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .evaluation-excellent {
+            color: #22c55e;
+        }
+
+        .evaluation-acceptable {
+            color: #f59e0b;
+        }
+
+        .evaluation-risk {
+            color: #ef4444;
+        }
+
+        /* Block Results */
+        .blocks-results {
+            display: grid;
+            gap: 15px;
+        }
+
+        .block-result {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .block-result-header {
+            background: #f0f4f8;
+            padding: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .block-result-name {
+            font-weight: 600;
+            color: #0033cc;
+        }
+
+        .block-result-score {
+            font-weight: 700;
+            color: #0033cc;
+        }
+
+        .block-result-bar {
+            height: 6px;
+            background: #e0e0e0;
+        }
+
+        .block-result-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0033cc, #0052ff);
+            transition: width 0.5s ease;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .nav-button {
+            flex: 1;
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .modal-header h2 {
+            color: #0033cc;
+            font-size: 22px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .project-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .project-item {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            border-color: #0033cc;
+            background: #f0f4f8;
+        }
+
+        .project-info h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .project-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-actions button {
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-left: 4px solid #0033cc;
+            padding: 16px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.success {
+            border-left-color: #22c55e;
+        }
+
+        .toast.error {
+            border-left-color: #ef4444;
+        }
+
+        .toast.info {
+            border-left-color: #0033cc;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .header-title h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .item-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .score-display {
+                font-size: 48px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logos">
+                    <svg class="logo-img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="95" fill="#003399" stroke="#FFD700" stroke-width="3"/>
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="#FFD700" stroke-width="2"/>
+                        <text x="100" y="110" font-size="24" font-weight="bold" fill="#FFD700" text-anchor="middle">EDUNEXUS</text>
+                    </svg>
+                    <svg class="logo-img" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="100" fill="#003399"/>
+                        <circle cx="40" cy="30" r="8" fill="#FFD700"/>
+                        <circle cx="60" cy="20" r="8" fill="#FFD700"/>
+                        <circle cx="80" cy="25" r="8" fill="#FFD700"/>
+                        <circle cx="100" cy="15" r="8" fill="#FFD700"/>
+                        <circle cx="120" cy="25" r="8" fill="#FFD700"/>
+                        <circle cx="140" cy="20" r="8" fill="#FFD700"/>
+                        <circle cx="160" cy="30" r="8" fill="#FFD700"/>
+                        <circle cx="30" cy="50" r="8" fill="#FFD700"/>
+                        <circle cx="170" cy="50" r="8" fill="#FFD700"/>
+                        <circle cx="40" cy="70" r="8" fill="#FFD700"/>
+                        <circle cx="60" cy="80" r="8" fill="#FFD700"/>
+                        <circle cx="80" cy="75" r="8" fill="#FFD700"/>
+                        <circle cx="100" cy="85" r="8" fill="#FFD700"/>
+                        <circle cx="120" cy="75" r="8" fill="#FFD700"/>
+                        <circle cx="140" cy="80" r="8" fill="#FFD700"/>
+                        <circle cx="160" cy="70" r="8" fill="#FFD700"/>
+                    </svg>
+                </div>
+                <div class="header-title">
+                    <h1 id="appTitle">Calculadora de Proyectos Erasmus+</h1>
+                </div>
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Progress -->
+        <div class="progress-section">
+            <div class="progress-info">
+                <span id="progressText">Nombre del Proyecto</span>
+                <span id="progressCount">1 / 6</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 16.67%"></div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn-secondary" id="newProjectBtn">➕ <span id="newProjectLabel">Nuevo Proyecto</span></button>
+            <button class="btn-secondary" id="loadProjectBtn">📂 <span id="loadProjectLabel">Cargar Proyecto</span></button>
+            <button class="btn-secondary" id="saveProjectBtn">💾 <span id="saveProjectLabel">Guardar Proyecto</span></button>
+            <button class="btn-secondary" id="downloadPdfBtn" style="display: none;">📥 <span id="downloadPdfLabel">Descargar PDF</span></button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content" id="mainContent">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="btn-secondary nav-button" id="prevBtn" disabled>← <span id="prevLabel">Anterior</span></button>
+            <button class="btn-primary nav-button" id="nextBtn"><span id="nextLabel">Siguiente</span> →</button>
+        </div>
+    </div>
+
+    <!-- Load Project Modal -->
+    <div class="modal" id="loadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="loadModalTitle">Proyectos Guardados</h2>
+                <button class="modal-close" onclick="closeModal('loadModal')">✕</button>
+            </div>
+            <div id="projectsList" class="project-list">
+                <!-- Projects will be listed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // DATA STRUCTURE
+        // ============================================
+
+        const blocks = [
+            {
+                id: 1,
+                name: { es: "ALINEAMIENTO ESTRATÉGICO", en: "STRATEGIC ALIGNMENT" },
+                maxPoints: 25,
+                items: [
+                    { id: "1.1", points: 6, description: { es: "El proyecto responde a al menos 2 prioridades horizontales 2024-2027: Transición verde/digital, Inclusión, Derechos humanos/democracia, ODS", en: "The project responds to at least 2 horizontal priorities 2024-2027: Green/digital transition, Inclusion, Human rights/democracy, SDGs" } },
+                    { id: "1.2", points: 4, description: { es: "Incluye explícitamente los Objetivos de la Unión Europea en Educación", en: "Explicitly includes European Union Education Objectives" } },
+                    { id: "1.3", points: 3, description: { es: "El título y resumen usan palabras clave estratégicas reconocibles por evaluadores", en: "Title and summary use strategic keywords recognizable by evaluators" } },
+                    { id: "1.4", points: 5, description: { es: "Hay una justificación clara y con datos de por qué se trabaja con Argentina/Latinoamérica", en: "Clear data-driven justification for working with Argentina/Latin America" } },
+                    { id: "1.5", points: 4, description: { es: "El proyecto se alinea con al menos una convocatoria específica 2025/2026", en: "Project aligns with at least one specific call 2025/2026" } },
+                    { id: "1.6", points: 3, description: { es: "Incluye indicadores SMART de impacto", en: "Includes SMART impact indicators" } }
+                ]
+            },
+            {
+                id: 2,
+                name: { es: "CONSORCIO Y GOBERNANZA", en: "CONSORTIUM AND GOVERNANCE" },
+                maxPoints: 20,
+                items: [
+                    { id: "2.1", points: 4, description: { es: "Edunexus actúa como coordinador", en: "Edunexus acts as coordinator" } },
+                    { id: "2.2", points: 3, description: { es: "El consorcio tiene ≥1 socio argentino fuerte", en: "Consortium has ≥1 strong Argentine partner" } },
+                    { id: "2.3", points: 3, description: { es: "Presencia de ≥1 socio europeo recurrente", en: "Presence of ≥1 recurring European partner" } },
+                    { id: "2.4", points: 3, description: { es: "Hay equilibrio geográfico y de roles", en: "Geographic and role balance" } },
+                    { id: "2.5", points: 3, description: { es: "Incluye al menos 1 socio no académico relevante", en: "Includes at least 1 relevant non-academic partner" } },
+                    { id: "2.6", points: 2, description: { es: "Existe memorandum de entendimiento (MoU) firmado", en: "Memorandum of Understanding (MoU) signed" } },
+                    { id: "2.7", points: 2, description: { es: "Distribución equitativa de fondos", en: "Equitable distribution of funds" } }
+                ]
+            },
+            {
+                id: 3,
+                name: { es: "CALIDAD DE LA PROPUESTA", en: "PROPOSAL QUALITY" },
+                maxPoints: 30,
+                items: [
+                    { id: "3.1", points: 5, description: { es: "Las actividades son innovadoras, no solo repetición de buenas prácticas", en: "Activities are innovative, not just repetition of good practices" } },
+                    { id: "3.2", points: 6, description: { es: "Incluye transferencia de conocimiento sostenible", en: "Includes sustainable knowledge transfer" } },
+                    { id: "3.3", points: 5, description: { es: "Tiene un plan de impacto claro", en: "Has clear impact plan" } },
+                    { id: "3.4", points: 4, description: { es: "Movilidad bien diseñada", en: "Well-designed mobility" } },
+                    { id: "3.5", points: 4, description: { es: "Incluye medidas de inclusión concretas", en: "Includes concrete inclusion measures" } },
+                    { id: "3.6", points: 4, description: { es: "Sostenibilidad post-proyecto", en: "Post-project sustainability" } },
+                    { id: "3.7", points: 2, description: { es: "Género transversal", en: "Mainstreamed gender" } }
+                ]
+            },
+            {
+                id: 4,
+                name: { es: "GESTIÓN Y PRESUPUESTO", en: "MANAGEMENT AND BUDGET" },
+                maxPoints: 15,
+                items: [
+                    { id: "4.1", points: 4, description: { es: "Presupuesto realista y bien desglosado", en: "Realistic and well-detailed budget" } },
+                    { id: "4.2", points: 3, description: { es: "Costes de movilidad alineados con tablas oficiales de la UE", en: "Mobility costs aligned with official EU tables" } },
+                    { id: "4.3", points: 3, description: { es: "Incluye riesgos identificados + plan de mitigación", en: "Includes identified risks + mitigation plan" } },
+                    { id: "4.4", points: 3, description: { es: "Equipo de gestión con experiencia comprobable en Erasmus+", en: "Management team with verifiable Erasmus+ experience" } },
+                    { id: "4.5", points: 2, description: { es: "Sistema de monitoreo y evaluación participativa", en: "Participatory monitoring and evaluation system" } }
+                ]
+            },
+            {
+                id: 5,
+                name: { es: "DIFUSIÓN Y VISIBILIDAD", en: "DISSEMINATION AND VISIBILITY" },
+                maxPoints: 10,
+                items: [
+                    { id: "5.1", points: 3, description: { es: "Estrategia de difusión multicanal", en: "Multi-channel dissemination strategy" } },
+                    { id: "5.2", points: 2, description: { es: "Uso obligatorio de logos oficiales de la UE", en: "Mandatory use of official EU logos" } },
+                    { id: "5.3", points: 3, description: { es: "Plan para presentar resultados en eventos clave", en: "Plan to present results at key events" } },
+                    { id: "5.4", points: 2, description: { es: "Compromiso de publicar artículos en revistas indexadas", en: "Commitment to publish in indexed journals" } }
+                ]
+            }
+        ];
+
+        const translations = {
+            es: {
+                appTitle: "Calculadora de Proyectos Erasmus+",
+                projectName: "Nombre del Proyecto",
+                projectNamePlaceholder: "Ingrese el nombre de su proyecto Erasmus+",
+                previous: "Anterior",
+                next: "Siguiente",
+                saveProject: "Guardar Proyecto",
+                downloadPDF: "Descargar PDF",
+                newProject: "Nuevo Proyecto",
+                loadProject: "Cargar Proyecto",
+                block: "Bloque",
+                of: "de",
+                maxPoints: "Puntos máximos",
+                obtainedPoints: "Puntos obtenidos",
+                subtotal: "Subtotal",
+                total: "Total",
+                points: "puntos",
+                enterPoints: "Ingrese puntos",
+                notes: "Notas/Comentarios",
+                notesPlaceholder: "Agregue notas o comentarios (opcional)",
+                results: "Resultados",
+                finalScore: "Puntuación Final",
+                evaluation: "Evaluación",
+                excellent: "Excelente - Alta probabilidad de éxito",
+                acceptable: "Aceptable - Requiere refinamiento",
+                risk: "Alto riesgo de rechazo",
+                projectSaved: "Proyecto guardado exitosamente",
+                projectLoaded: "Proyecto cargado",
+                fillProjectName: "Por favor ingrese el nombre del proyecto",
+                savedProjects: "Proyectos Guardados",
+                noProjects: "No hay proyectos guardados",
+                deleteProject: "Eliminar",
+                loadThisProject: "Cargar",
+                confirmDelete: "¿Está seguro de eliminar este proyecto?",
+                pdfTitle: "Evaluación de Proyecto Erasmus+",
+                pdfDate: "Fecha",
+                pdfProject: "Proyecto",
+                pdfSummary: "Resumen de Evaluación",
+                summary: "Resumen de los 5 bloques"
+            },
+            en: {
+                appTitle: "Erasmus+ Project Calculator",
+                projectName: "Project Name",
+                projectNamePlaceholder: "Enter your Erasmus+ project name",
+                previous: "Previous",
+                next: "Next",
+                saveProject: "Save Project",
+                downloadPDF: "Download PDF",
+                newProject: "New Project",
+                loadProject: "Load Project",
+                block: "Block",
+                of: "of",
+                maxPoints: "Maximum points",
+                obtainedPoints: "Obtained points",
+                subtotal: "Subtotal",
+                total: "Total",
+                points: "points",
+                enterPoints: "Enter points",
+                notes: "Notes/Comments",
+                notesPlaceholder: "Add notes or comments (optional)",
+                results: "Results",
+                finalScore: "Final Score",
+                evaluation: "Evaluation",
+                excellent: "Excellent - High probability of success",
+                acceptable: "Acceptable - Requires refinement",
+                risk: "High risk of rejection",
+                projectSaved: "Project saved successfully",
+                projectLoaded: "Project loaded",
+                fillProjectName: "Please enter the project name",
+                savedProjects: "Saved Projects",
+                noProjects: "No saved projects",
+                deleteProject: "Delete",
+                loadThisProject: "Load",
+                confirmDelete: "Are you sure you want to delete this project?",
+                pdfTitle: "Erasmus+ Project Evaluation",
+                pdfDate: "Date",
+                pdfProject: "Project",
+                pdfSummary: "Evaluation Summary",
+                summary: "Summary of the 5 blocks"
+            }
+        };
+
+        // ============================================
+        // STATE MANAGEMENT
+        // ============================================
+
+        let currentLanguage = localStorage.getItem('erasmus-language') || 'es';
+        let currentStep = 0;
+        let projectName = '';
+        let blockScores = {};
+        let currentProject = null;
+
+        // Initialize block scores
+        blocks.forEach(block => {
+            blockScores[block.id] = {};
+            block.items.forEach(item => {
+                blockScores[block.id][item.id] = { points: 0, notes: '' };
+            });
+        });
+
+        // ============================================
+        // TRANSLATION FUNCTION
+        // ============================================
+
+        function t(key) {
+            return translations[currentLanguage][key] || key;
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEventListeners();
+            setLanguage(currentLanguage);
+            renderStep();
+        });
+
+        function initializeEventListeners() {
+            // Language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.dataset.lang;
+                    setLanguage(lang);
+                });
+            });
+
+            // Action buttons
+            document.getElementById('newProjectBtn').addEventListener('click', newProject);
+            document.getElementById('loadProjectBtn').addEventListener('click', () => openModal('loadModal'));
+            document.getElementById('saveProjectBtn').addEventListener('click', saveProject);
+            document.getElementById('downloadPdfBtn').addEventListener('click', downloadPDF);
+
+            // Navigation buttons
+            document.getElementById('prevBtn').addEventListener('click', previousStep);
+            document.getElementById('nextBtn').addEventListener('click', nextStep);
+        }
+
+        // ============================================
+        // LANGUAGE MANAGEMENT
+        // ============================================
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('erasmus-language', lang);
+
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all text
+            document.getElementById('appTitle').textContent = t('appTitle');
+            document.getElementById('newProjectLabel').textContent = t('newProject');
+            document.getElementById('loadProjectLabel').textContent = t('loadProject');
+            document.getElementById('saveProjectLabel').textContent = t('saveProject');
+            document.getElementById('downloadPdfLabel').textContent = t('downloadPDF');
+            document.getElementById('prevLabel').textContent = t('previous');
+            document.getElementById('nextLabel').textContent = t('next');
+            document.getElementById('loadModalTitle').textContent = t('savedProjects');
+
+            // Re-render current step
+            renderStep();
+        }
+
+        // ============================================
+        // STEP MANAGEMENT
+        // ============================================
+
+        function renderStep() {
+            const content = document.getElementById('mainContent');
+            const totalSteps = blocks.length + 1;
+
+            // Update progress
+            document.getElementById('progressCount').textContent = `${currentStep + 1} / ${totalSteps}`;
+            document.getElementById('progressFill').style.width = `${((currentStep + 1) / totalSteps) * 100}%`;
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentStep === 0;
+            document.getElementById('nextBtn').disabled = currentStep === totalSteps - 1;
+
+            // Show/hide PDF button
+            document.getElementById('downloadPdfBtn').style.display = currentStep === totalSteps - 1 ? 'flex' : 'none';
+
+            if (currentStep === 0) {
+                renderProjectNameStep(content);
+            } else if (currentStep <= blocks.length) {
+                renderBlockStep(content, blocks[currentStep - 1]);
+            } else {
+                renderResultsStep(content);
+            }
+        }
+
+        function renderProjectNameStep(content) {
+            document.getElementById('progressText').textContent = t('projectName');
+
+            content.innerHTML = `
+                <h2 class="section-title">${t('projectName')}</h2>
+                <div class="project-input-section">
+                    <div class="form-group">
+                        <label for="projectNameInput">${t('projectName')}</label>
+                        <input type="text" id="projectNameInput" placeholder="${t('projectNamePlaceholder')}" value="${projectName}">
+                    </div>
+                    <div class="block-info">
+                        <h3>${t('summary')}</h3>
+                        <ul class="block-list">
+                            ${blocks.map(block => `
+                                <li>
+                                    <span class="block-name">${block.name[currentLanguage]}</span>
+                                    <span class="block-points">${block.maxPoints} ${t('points')}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <div class="total-points">${t('total')}: 100 ${t('points')}</div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('projectNameInput').addEventListener('change', (e) => {
+                projectName = e.target.value;
+            });
+        }
+
+        function renderBlockStep(content, block) {
+            document.getElementById('progressText').textContent = `${t('block')} ${block.id} ${t('of')} ${blocks.length}`;
+
+            let html = `
+                <div class="block-info">
+                    <h2 class="section-title">${block.name[currentLanguage]}</h2>
+                    <p>${t('maxPoints')}: <strong>${block.maxPoints}</strong> ${t('points')}</p>
+                </div>
+                <div class="block-form">
+            `;
+
+            block.items.forEach(item => {
+                const score = blockScores[block.id][item.id];
+                html += `
+                    <div class="item-card">
+                        <div class="item-id">${item.id}</div>
+                        <div class="item-header">
+                            <div class="item-description">${item.description[currentLanguage]}</div>
+                            <div class="item-max-points">${t('maxPoints')}: ${item.points}</div>
+                        </div>
+                        <div class="item-inputs">
+                            <div class="input-group">
+                                <label for="points-${item.id}">${t('obtainedPoints')}</label>
+                                <input type="number" id="points-${item.id}" min="0" max="${item.points}" value="${score.points}" data-item="${item.id}" data-block="${block.id}">
+                            </div>
+                            <div class="input-group">
+                                <label for="notes-${item.id}">${t('notes')}</label>
+                                <textarea id="notes-${item.id}" placeholder="${t('notesPlaceholder')}" data-item="${item.id}" data-block="${block.id}">${score.notes}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const blockTotal = calculateBlockTotal(block.id);
+            html += `
+                <div class="subtotal-box">
+                    <h3>${t('subtotal')} ${t('block')} ${block.id}</h3>
+                    <div class="subtotal-value">${blockTotal} / ${block.maxPoints} ${t('points')}</div>
+                </div>
+            `;
+
+            html += '</div>';
+            content.innerHTML = html;
+
+            // Add event listeners
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const blockId = parseInt(e.target.dataset.block);
+                    const itemId = e.target.dataset.item;
+                    const value = Math.min(Math.max(0, parseInt(e.target.value) || 0), 
+                        blocks.find(b => b.id === blockId).items.find(i => i.id === itemId).points);
+                    blockScores[blockId][itemId].points = value;
+                    e.target.value = value;
+                    renderStep(); // Re-render to update subtotal
+                });
+            });
+
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('change', (e) => {
+                    const blockId = parseInt(e.target.dataset.block);
+                    const itemId = e.target.dataset.item;
+                    blockScores[blockId][itemId].notes = e.target.value;
+                });
+            });
+        }
+
+        function renderResultsStep(content) {
+            document.getElementById('progressText').textContent = t('results');
+
+            const totalScore = calculateTotalScore();
+            const maxScore = 100;
+            const percentage = (totalScore / maxScore) * 100;
+
+            let evaluation = {};
+            if (totalScore >= 90) {
+                evaluation = { icon: '✅', text: t('excellent'), class: 'evaluation-excellent' };
+            } else if (totalScore >= 75) {
+                evaluation = { icon: '⚠️', text: t('acceptable'), class: 'evaluation-acceptable' };
+            } else {
+                evaluation = { icon: '❌', text: t('risk'), class: 'evaluation-risk' };
+            }
+
+            let html = `
+                <div class="results-container">
+                    <div class="score-header">
+                        <h2>${t('finalScore')}</h2>
+                        <div class="score-display">${totalScore}</div>
+                        <div class="score-max">/ ${maxScore} ${t('points')}</div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+
+                    <div class="evaluation-box">
+                        <div class="evaluation-icon">${evaluation.icon}</div>
+                        <div class="evaluation-label">${t('evaluation')}</div>
+                        <div class="evaluation-text ${evaluation.class}">${evaluation.text}</div>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title">${t('block')} ${t('subtotal')}</h3>
+                        <div class="blocks-results">
+            `;
+
+            blocks.forEach(block => {
+                const blockTotal = calculateBlockTotal(block.id);
+                const blockPercentage = (blockTotal / block.maxPoints) * 100;
+
+                html += `
+                    <div class="block-result">
+                        <div class="block-result-header">
+                            <span class="block-result-name">${t('block')} ${block.id}: ${block.name[currentLanguage]}</span>
+                            <span class="block-result-score">${blockTotal} / ${block.maxPoints}</span>
+                        </div>
+                        <div class="block-result-bar">
+                            <div class="block-result-bar-fill" style="width: ${blockPercentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div></div></div>';
+            content.innerHTML = html;
+        }
+
+        // ============================================
+        // CALCULATION FUNCTIONS
+        // ============================================
+
+        function calculateBlockTotal(blockId) {
+            let total = 0;
+            for (const itemId in blockScores[blockId]) {
+                total += blockScores[blockId][itemId].points;
+            }
+            return total;
+        }
+
+        function calculateTotalScore() {
+            let total = 0;
+            for (const blockId in blockScores) {
+                total += calculateBlockTotal(parseInt(blockId));
+            }
+            return total;
+        }
+
+        // ============================================
+        // PROJECT MANAGEMENT
+        // ============================================
+
+        function newProject() {
+            if (confirm('¿Crear un nuevo proyecto? Los cambios no guardados se perderán.')) {
+                projectName = '';
+                currentStep = 0;
+                blocks.forEach(block => {
+                    blockScores[block.id] = {};
+                    block.items.forEach(item => {
+                        blockScores[block.id][item.id] = { points: 0, notes: '' };
+                    });
+                });
+                currentProject = null;
+                renderStep();
+                showToast(t('projectLoaded'), 'info');
+            }
+        }
+
+        function saveProject() {
+            if (!projectName.trim()) {
+                showToast(t('fillProjectName'), 'error');
+                return;
+            }
+
+            const project = {
+                id: currentProject?.id || Date.now().toString(),
+                name: projectName,
+                createdAt: currentProject?.createdAt || new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+                blockScores: JSON.parse(JSON.stringify(blockScores))
+            };
+
+            let projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
+            const existingIndex = projects.findIndex(p => p.id === project.id);
+
+            if (existingIndex >= 0) {
+                projects[existingIndex] = project;
+            } else {
+                projects.push(project);
+            }
+
+            localStorage.setItem('erasmus-projects', JSON.stringify(projects));
+            currentProject = project;
+            showToast(t('projectSaved'), 'success');
+        }
+
+        function loadProjectFromStorage(projectId) {
+            const projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
+            const project = projects.find(p => p.id === projectId);
+
+            if (project) {
+                currentProject = project;
+                projectName = project.name;
+                blockScores = JSON.parse(JSON.stringify(project.blockScores));
+                currentStep = 0;
+                renderStep();
+                closeModal('loadModal');
+                showToast(t('projectLoaded'), 'success');
+            }
+        }
+
+        function deleteProjectFromStorage(projectId) {
+            if (confirm(t('confirmDelete'))) {
+                let projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
+                projects = projects.filter(p => p.id !== projectId);
+                localStorage.setItem('erasmus-projects', JSON.stringify(projects));
+                loadSavedProjects();
+                showToast('Proyecto eliminado', 'success');
+            }
+        }
+
+        function loadSavedProjects() {
+            const projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
+            const projectsList = document.getElementById('projectsList');
+
+            if (projects.length === 0) {
+                projectsList.innerHTML = `<p style="text-align: center; color: #999; padding: 20px;">${t('noProjects')}</p>`;
+                return;
+            }
+
+            projectsList.innerHTML = projects.map(project => `
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>${project.name}</h3>
+                        <p class="project-date">${new Date(project.updatedAt).toLocaleDateString()}</p>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn-primary" onclick="loadProjectFromStorage('${project.id}')">${t('loadThisProject')}</button>
+                        <button class="btn-danger" onclick="deleteProjectFromStorage('${project.id}')">${t('deleteProject')}</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================
+        // PDF GENERATION
+        // ============================================
+
+        function downloadPDF() {
+            if (!projectName.trim()) {
+                showToast(t('fillProjectName'), 'error');
+                return;
+            }
+
+            try {
+                const totalScore = calculateTotalScore();
+                const maxScore = 100;
+
+                let evaluation = '';
+                if (totalScore >= 90) {
+                    evaluation = t('excellent');
+                } else if (totalScore >= 75) {
+                    evaluation = t('acceptable');
+                } else {
+                    evaluation = t('risk');
+                }
+
+                // Create a simple HTML document for printing
+                const printWindow = window.open('', '', 'height=600,width=800');
+                const currentDate = new Date().toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                let html = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${t('pdfTitle')}</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+                            h1 { color: #0033cc; text-align: center; margin-bottom: 30px; }
+                            h2 { color: #0033cc; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #0033cc; padding-bottom: 10px; }
+                            .info { margin-bottom: 20px; }
+                            .info-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+                            .label { font-weight: bold; }
+                            .score-box { background: #f0f4f8; border-left: 4px solid #0033cc; padding: 20px; margin: 20px 0; border-radius: 6px; }
+                            .score-value { font-size: 32px; font-weight: bold; color: #0033cc; }
+                            .evaluation { font-size: 18px; font-weight: bold; margin-top: 10px; }
+                            .excellent { color: #22c55e; }
+                            .acceptable { color: #f59e0b; }
+                            .risk { color: #ef4444; }
+                            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                            th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+                            th { background: #f0f4f8; font-weight: bold; color: #0033cc; }
+                            .page-break { page-break-after: always; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>${t('pdfTitle')}</h1>
+                        
+                        <div class="info">
+                            <div class="info-row">
+                                <span class="label">${t('pdfDate')}:</span>
+                                <span>${currentDate}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">${t('pdfProject')}:</span>
+                                <span><strong>${projectName}</strong></span>
+                            </div>
+                        </div>
+
+                        <h2>${t('pdfSummary')}</h2>
+                        
+                        <div class="score-box">
+                            <div>${t('finalScore')}</div>
+                            <div class="score-value">${totalScore} / ${maxScore}</div>
+                            <div class="evaluation ${totalScore >= 90 ? 'excellent' : totalScore >= 75 ? 'acceptable' : 'risk'}">
+                                ${t('evaluation')}: ${evaluation}
+                            </div>
+                        </div>
+
+                        <h2>${t('block')} ${t('subtotal')}</h2>
+                        <table>
+                            <tr>
+                                <th>${t('block')}</th>
+                                <th>${t('obtainedPoints')}</th>
+                                <th>${t('maxPoints')}</th>
+                            </tr>
+                `;
+
+                blocks.forEach(block => {
+                    const blockTotal = calculateBlockTotal(block.id);
+                    html += `
+                        <tr>
+                            <td>${block.name[currentLanguage]}</td>
+                            <td><strong>${blockTotal}</strong></td>
+                            <td>${block.maxPoints}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                        </table>
+
+                        <h2>Detalles por Item</h2>
+                `;
+
+                blocks.forEach(block => {
+                    html += `
+                        <h3 style="color: #0033cc; margin-top: 20px;">${block.name[currentLanguage]}</h3>
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>${t('obtainedPoints')}</th>
+                                <th>${t('maxPoints')}</th>
+                            </tr>
+                    `;
+
+                    block.items.forEach(item => {
+                        const score = blockScores[block.id][item.id];
+                        html += `
+                            <tr>
+                                <td>${item.id}</td>
+                                <td>${score.points}</td>
+                                <td>${item.points}</td>
+                            </tr>
+                        `;
+                    });
+
+                    html += '</table>';
+                });
+
+                html += `
+                    </body>
+                    </html>
+                `;
+
+                printWindow.document.write(html);
+                printWindow.document.close();
+                printWindow.print();
+
+                showToast('PDF generado exitosamente', 'success');
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                showToast('Error al generar el PDF', 'error');
+            }
+        }
+
+        // ============================================
+        // NAVIGATION
+        // ============================================
+
+        function nextStep() {
+            if (currentStep === 0 && !projectName.trim()) {
+                showToast(t('fillProjectName'), 'error');
+                return;
+            }
+            const totalSteps = blocks.length + 1;
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                renderStep();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                renderStep();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // ============================================
+        // MODAL MANAGEMENT
+        // ============================================
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            if (modalId === 'loadModal') {
+                loadSavedProjects();
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+        }
+
+        // ============================================
+        // NOTIFICATIONS
+        // ============================================
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
