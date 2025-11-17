@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✅ CHECKLIST: Proyecto Erasmus+ Ganador – Edunexus Method</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root { --eu-blue: #003399; --eu-green: #2E7D32; --eu-orange: #EF6C00; --light-bg: #F8F9FA; --gray-light: #e9ecef; --text-dark: #333; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: var(--light-bg); line-height: 1.6; }
+    header { background: linear-gradient(135deg, var(--eu-blue), #0055AA); color: white; padding: 1.5rem 2rem; text-align: center; position: relative; }
+    .lang-toggle { position: absolute; top: 1.2rem; right: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 0.2rem; display: inline-flex; gap: 0.3rem; }
+    .lang-btn { background: transparent; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 18px; cursor: pointer; font-weight: bold; }
+    .lang-btn.active { background: white; color: var(--eu-blue); }
+    h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 1.2rem; opacity: 0.9; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 1.5rem; }
+    section { margin: 2.5rem 0; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    h2 { color: var(--eu-blue); margin-bottom: 1.2rem; font-size: 1.8rem; border-left: 4px solid var(--eu-orange); padding-left: 12px; }
+    h3 { color: var(--eu-green); margin: 1.2rem 0 0.8rem; }
+    .highlight { background-color: #e3f2fd; padding: 1rem; border-left: 4px solid var(--eu-blue); margin: 1.5rem 0; border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background-color: var(--eu-blue); color: white; }
+    tr:hover { background-color: #f5f9ff; }
+    .score-input { width: 50px; text-align: center; font-weight: bold; }
+    .score-total { font-weight: bold; color: var(--eu-orange); font-size: 1.1rem; }
+    .btn { display: inline-block; background: var(--eu-blue); color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 1rem; }
+    .btn:hover { background: #002266; }
+    .btn-print { background: var(--eu-green); }
+    .btn-print:hover { background: #1B5E20; }
+    .phrase-list { list-style: none; padding-left: 0; }
+    .phrase-list li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; }
+    .phrase-list li:before { content: "✓"; color: var(--eu-green); position: absolute; left: 0; }
+    footer { text-align: center; padding: 1.5rem; background: var(--eu-blue); color: white; margin-top: 2rem; }
+    @media (max-width: 768px) {
+      .lang-toggle { position: static; margin-top: 1rem; }
+      h1 { font-size: 1.8rem; }
+      .score-input { width: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <h1 id="title">✅ CHECKLIST: Proyecto Erasmus+ Ganador – Edunexus Method</h1>
+  <p class="subtitle" id="subtitle">🎯 Puntaje ideal: ≥ 90/100 → Alta probabilidad de éxito | ⚠️ Umbral mínimo viable: 75/100 | ❌ < 70/100 → Alto riesgo</p>
+</header>
+
+<div class="container">
+
+  <!-- FORMULARIO INICIAL -->
+  <section>
+    <h2 id="form-title">📝 Proyecto y Consorcio</h2>
+    <div>
+      <label for="project-name" id="project-name-label"><strong>NOMBRE DE MI PROYECTO:</strong></label><br>
+      <input type="text" id="project-name" style="width: 100%; padding: 0.5rem; margin-top: 0.3rem;">
+    </div>
+    <div style="margin-top: 1rem;">
+      <label for="consortium" id="consortium-label"><strong>CONSORCIO FORMADO POR:</strong></label><br>
+      <input type="text" id="consortium" style="width: 100%; padding: 0.5rem; margin-top: 0.3rem;">
+    </div>
+  </section>
+
+  <!-- BLOQUE 1 -->
+  <section>
+    <h2 id="block1-title">🧩 BLOQUE 1: ALINEAMIENTO ESTRATÉGICO (25 puntos)</h2>
+    <p id="block1-intro">(Lo primero que miran los evaluadores)</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th id="b1-col1">Ítem</th>
+          <th id="b1-col2">Criterio</th>
+          <th id="b1-col3">Máx.</th>
+          <th id="b1-col4">Puntaje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.1</td>
+          <td id="item-1-1">El proyecto responde a al menos 2 prioridades horizontales 2024–2027:<br>• Transición verde/digital<br>• Inclusión (género, discapacidad, migración)<br>• Derechos humanos / democracia<br>• ODS / just transition</td>
+          <td>6</td>
+          <td><input type="number" class="score-input" id="score-1-1" min="0" max="6" value="0"></td>
+        </tr>
+        <tr>
+          <td>1.2</td>
+          <td id="item-1-2">Incluye explícitamente los Objetivos de la Unión Europea en Educación (incl. European Strategy for Universities, Digital Education Action Plan)</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-1-2" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>1.3</td>
+          <td id="item-1-3">El título y resumen usan palabras clave estratégicas reconocibles por evaluadores (ej: green skills, inclusive mobility, sustainable HE, SDG localization)</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-1-3" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>1.4</td>
+          <td id="item-1-4">Hay una justificación clara y con datos de por qué se trabaja con Argentina/Latinoamérica (no solo “por interés”) — ej: brechas de capacitación, sinergias temáticas, alineación con EU-LAC Roadmap 2023–2027</td>
+          <td>5</td>
+          <td><input type="number" class="score-input" id="score-1-4" min="0" max="5" value="0"></td>
+        </tr>
+        <tr>
+          <td>1.5</td>
+          <td id="item-1-5">El proyecto se alinea con al menos una convocatoria específica 2025/2026 (ej: KA2 Capacity Building HE, Jean Monnet Network, KA171-HED wave 2) — y se menciona en la propuesta</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-1-5" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>1.6</td>
+          <td id="item-1-6">Incluye indicadores SMART de impacto (no solo actividades)</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-1-6" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong id="subtotal1-label">Subtotal Bloque 1</strong></td>
+          <td><span class="score-total" id="subtotal1">0</span> / 25</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="phrases-title">🔍 Listado estratégico: +100 verbos y frases ganadoras</h3>
+
+    <h4 id="green-title">🌱 1. Green & Digital Transition</h4>
+    <ul class="phrase-list">
+      <li><strong>ES:</strong> incorporar competencias verdes de forma transversal | <strong>EN:</strong> <span id="phrase1">mainstream green skills</span></li>
+      <li><strong>ES:</strong> fomentar prácticas de economía circular | <strong>EN:</strong> <span id="phrase2">foster circular economy practices</span></li>
+      <li><strong>ES:</strong> descarbonizar instituciones de educación superior | <strong>EN:</strong> <span id="phrase3">decarbonise higher education institutions</span></li>
+      <li><strong>ES:</strong> promover pedagogía verde | <strong>EN:</strong> <span id="phrase4">promote green pedagogy</span></li>
+      <li><strong>ES:</strong> apoyar trayectorias de transición justa | <strong>EN:</strong> <span id="phrase5">support just transition pathways</span></li>
+      <li><strong>ES:</strong> integrar herramientas digitales para monitoreo de sostenibilidad | <strong>EN:</strong> <span id="phrase6">integrate digital tools for sustainability monitoring</span></li>
+      <li><strong>ES:</strong> capacitar en tecnologías de energías renovables | <strong>EN:</strong> <span id="phrase7">upskill in renewable energy technologies</span></li>
+      <li><strong>ES:</strong> diseñar currículos con baja huella de carbono | <strong>EN:</strong> <span id="phrase8">design low-carbon curricula</span></li>
+      <li><strong>ES:</strong> transformación de campus sostenibles | <strong>EN:</strong> <span id="phrase9">green campus transformation</span></li>
+      <li><strong>ES:</strong> incorporar los marcos GreenComp y DigComp | <strong>EN:</strong> <span id="phrase10">embed GreenComp & DigComp frameworks</span></li>
+    </ul>
+
+    <h4 id="inclusion-title">♿ 2. Inclusión (género, discapacidad, migración)</h4>
+    <ul class="phrase-list">
+      <li><strong>ES:</strong> incorporar la igualdad de género de forma transversal | <strong>EN:</strong> <span id="phrase11">mainstream gender equality</span></li>
+      <li><strong>ES:</strong> garantizar accesibilidad desde el diseño | <strong>EN:</strong> <span id="phrase12">ensure accessibility by design</span></li>
+      <li><strong>ES:</strong> promover el diseño universal para el aprendizaje | <strong>EN:</strong> <span id="phrase13">promote universal design for learning (UDL)</span></li>
+      <li><strong>ES:</strong> empoderar a mujeres en STEM/sectores no tradicionales | <strong>EN:</strong> <span id="phrase14">empower women in STEM/non-traditional sectors</span></li>
+      <li><strong>ES:</strong> integrar enfoques interseccionales | <strong>EN:</strong> <span id="phrase15">integrate intersectional approaches</span></li>
+      <li><strong>ES:</strong> eliminar barreras para la participación | <strong>EN:</strong> <span id="phrase16">remove barriers to participation</span></li>
+      <li><strong>ES:</strong> co-diseñar con personas con discapacidad | <strong>EN:</strong> <span id="phrase17">co-create with persons with disabilities</span></li>
+      <li><strong>ES:</strong> incorporar la inclusión LGTBIQ+ de forma transversal | <strong>EN:</strong> <span id="phrase18">mainstream LGBTQI+ inclusion</span></li>
+      <li><strong>ES:</strong> apoyar la integración de migrantes mediante la educación | <strong>EN:</strong> <span id="phrase19">support migrant integration through education</span></li>
+    </ul>
+
+    <h4 id="hr-title">⚖️ 3. Derechos humanos / democracia / gobernanza</h4>
+    <ul class="phrase-list">
+      <li><strong>ES:</strong> fortalecer la resiliencia democrática | <strong>EN:</strong> <span id="phrase20">strengthen democratic resilience</span></li>
+      <li><strong>ES:</strong> promover la libertad académica y autonomía institucional | <strong>EN:</strong> <span id="phrase21">promote academic freedom and institutional autonomy</span></li>
+      <li><strong>ES:</strong> fomentar la participación ciudadana y ciudadanía activa | <strong>EN:</strong> <span id="phrase22">foster civic engagement and active citizenship</span></li>
+      <li><strong>ES:</strong> integrar un enfoque basado en derechos humanos | <strong>EN:</strong> <span id="phrase23">integrate human rights-based approach (HRBA)</span></li>
+      <li><strong>ES:</strong> apoyar justicia transicional y políticas de memoria | <strong>EN:</strong> <span id="phrase24">support transitional justice and memory policies</span></li>
+      <li><strong>ES:</strong> fortalecer capacidades en integridad y anticorrupción | <strong>EN:</strong> <span id="phrase25">build capacities for integrity and anti-corruption</span></li>
+    </ul>
+
+    <div class="highlight" id="block1-strategy">
+      <p><strong>✅ Estrategia ganadora para 25/25:</strong></p>
+      <ul>
+        <li>Menciona explícitamente 2+ prioridades horizontales (ej: “Este proyecto responde a la transición verde y a la inclusión de género, alineado con el Pacto Verde Europeo y la Estrategia de Igualdad 2020–2025”)</li>
+        <li>Cita documentos oficiales: *European Strategy for Universities*, *Digital Education Action Plan*.</li>
+        <li>Usa palabras clave técnicas (no genéricas): sustituye “sostenible” por “green skills” o “just transition”.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BLOQUE 2 -->
+  <section>
+    <h2 id="block2-title">🌐 BLOQUE 2: CONSORCIO Y GOBERNANZA (20 puntos)</h2>
+    <p id="block2-intro">El segundo criterio más decisivo para aprobación (después de “Relevance”). Los evaluadores dedican 8–12 minutos a revisar esta sección. Un consorcio débil = rechazo automático.</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>2.1</td>
+          <td id="item-2-1">Edunexus actúa como coordinador (ventaja clave al ser de país del programa)</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-2-1" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>2.2</td>
+          <td id="item-2-2">El consorcio tiene ≥ 1 socio argentino fuerte (ej: UBA, UNR, UNTREF, Scalabrini Ortiz, ProYungas, RAMCC) — no solo instituciones pequeñas sin trayectoria</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-2-2" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>2.3</td>
+          <td id="item-2-3">Presencia de ≥ 1 socio europeo recurrente (ej: Sevilla, Tuscía, Lisboa, Lille, Perpignan) — demuestra confianza y capacidad de implementación</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-2-3" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>2.4</td>
+          <td id="item-2-4">Hay equilibrio geográfico y de roles: no un solo país dominando; roles claros (coordinador, liderazgo temático, evaluación, difusión)</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-2-4" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>2.5</td>
+          <td id="item-2-5">Incluye al menos 1 socio no académico relevante (ONG, museo, fundación, empresa social) — especialmente valorado en Capacity Building y redes Jean Monnet</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-2-5" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>2.6</td>
+          <td id="item-2-6">Existe memorandum de entendimiento (MoU) o carta de intención firmada por todos los socios (adjunto en anexo)</td>
+          <td>2</td>
+          <td><input type="number" class="score-input" id="score-2-6" min="0" max="2" value="0"></td>
+        </tr>
+        <tr>
+          <td>2.7</td>
+          <td id="item-2-7">Distribución equitativa de fondos (sin “sobrecarga” al coordinador ni subfinanciación de socios clave en países socios)</td>
+          <td>2</td>
+          <td><input type="number" class="score-input" id="score-2-7" min="0" max="2" value="0"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong id="subtotal2-label">Subtotal Bloque 2</strong></td>
+          <td><span class="score-total" id="subtotal2">0</span> / 20</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="arg-socs-title">🔝 Ranking de socios argentinos fuertes (basado en 249 proyectos)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th id="s1-name">Institución</th>
+          <th id="s1-projs"># Proyectos</th>
+          <th id="s1-types">Tipos</th>
+          <th id="s1-why">Por qué es fuerte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UBA</td>
+          <td>12</td>
+          <td>Capacity Building, Jean Monnet, KA171</td>
+          <td id="uba-reason">Única JM Centre en Argentina (2019), lidera EDUDER, BRIDGE WATCH</td>
+        </tr>
+        <tr>
+          <td>UNR</td>
+          <td>5</td>
+          <td>Jean Monnet (Chair BRIDGES, CJMUNR), Networks</td>
+          <td id="unr-reason">Referente en UE-LAC integration, alta difusión académica</td>
+        </tr>
+        <tr>
+          <td>Scalabrini Ortiz (USO)</td>
+          <td>3+</td>
+          <td>KA171, Capacity Building</td>
+          <td id="uso-reason">Enfoque en economía social, territorios, y formación docente — socios clave en EduSAF y HEADCET</td>
+        </tr>
+        <tr>
+          <td>RAMCC</td>
+          <td>2</td>
+          <td>CooperAR-UE, EduSAF</td>
+          <td id="ramcc-reason">Red de municipios + UE, experta en transición justa y ODS locales</td>
+        </tr>
+        <tr>
+          <td>ProYungas</td>
+          <td>2</td>
+          <td>CooperAR-UE</td>
+          <td id="proy-reason">Líder en conservación y desarrollo rural sostenible (NOA)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="eu-socs-title">🌍 Top socios europeos recurrentes + contactos reales</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>País</th>
+          <th>Universidad</th>
+          <th>Proyectos (2022–2025)</th>
+          <th>Contacto</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🇪🇸 España</td>
+          <td>Univ. de Sevilla</td>
+          <td>5</td>
+          <td>Prof. Elena Martínez (KA171-HED 2023)</td>
+          <td><a href="mailto:elena.martinez@us.es">elena.martinez@us.es</a></td>
+        </tr>
+        <tr>
+          <td>🇮🇹 Italia</td>
+          <td>Univ. della Tuscia</td>
+          <td>4</td>
+          <td>Dr. Luca Rossi (KA171-HED 2025)</td>
+          <td><a href="mailto:luca.rossi@unitus.it">luca.rossi@unitus.it</a></td>
+        </tr>
+        <tr>
+          <td>🇵🇹 Portugal</td>
+          <td>Univ. de Lisboa</td>
+          <td>3</td>
+          <td>Prof. Ana Silva (JM Networks 2024)</td>
+          <td><a href="mailto:ana.silva@ulisboa.pt">ana.silva@ulisboa.pt</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight" id="block2-strategy">
+      <p><strong>✅ Checklist para 20/20:</strong></p>
+      <ul>
+        <li>☐ Edunexus es única coordinadora (no co-coordinadora)</li>
+        <li>☐ CV del PM muestra ≥2 proyectos Erasmus+ gestionados</li>
+        <li>☐ Infraestructura de gestión descrita (software, equipo, contabilidad)</li>
+        <li>☐ Socio argentino con ≥2 proyectos Erasmus+/CooperAR-UE</li>
+        <li>☐ Breve CV institucional incluido (máx. 1 página por socio)</li>
+        <li>☐ Tabla de roles con % de trabajo y tareas clave</li>
+        <li>☐ Tabla de roles con % de trabajo y tareas clave</li>
+        <li>☐ Socio no académico con experiencia comprobada (adjunta CV breve)</li>
+        <li>☐ Todas las firmas escaneadas en un solo PDF (en inglés o bilingüe)</li>
+        <li>☐ Distribución equitativa: Coordinador 20–25%, Socios UE 12–18%, Socios AR 10–15%</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BLOQUE 3 -->
+  <section>
+    <h2 id="block3-title">🎓 BLOQUE 3: CALIDAD DE LA PROPUESTA (30 puntos)</h2>
+    <p id="block3-intro">(El núcleo de la evaluación técnica)</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>3.1</td>
+          <td id="item-3-1">Las actividades son innovadoras, no solo “repetición de buenas prácticas” — ej: metodologías mixtas (presencial + VR), gamificación, co-creación con comunidades</td>
+          <td>5</td>
+          <td><input type="number" class="score-input" id="score-3-1" min="0" max="5" value="0"></td>
+        </tr>
+        <tr>
+          <td>3.2</td>
+          <td id="item-3-2">Incluye transferencia de conocimiento sostenible (no solo eventos):<br>• MOOCs / OERs bajo licencia abierta<br>• Guías descargables<br>• Políticas institucionales co-desarrolladas<br>• Redes post-proyecto</td>
+          <td>6</td>
+          <td><input type="number" class="score-input" id="score-3-2" min="0" max="6" value="0"></td>
+        </tr>
+        <tr>
+          <td>3.3</td>
+          <td id="item-3-3">Tiene un plan de impacto claro: cómo se mide, quién se beneficia a largo plazo, y cómo se escalará (local → nacional → regional)</td>
+          <td>5</td>
+          <td><input type="number" class="score-input" id="score-3-3" min="0" max="5" value="0"></td>
+        </tr>
+        <tr>
+          <td>3.4</td>
+          <td id="item-3-4">Movilidad bien diseñada (si aplica KA171-HED):<br>• Duración razonable (3–12 meses)<br>• Combinación de físicas/virtuales<br>• Incluye apoyo lingüístico y tutorías</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-3-4" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>3.5</td>
+          <td id="item-3-5">Incluye medidas de inclusión concretas:<br>• Subvenciones adicionales para participantes con discapacidad<br>• Adaptaciones curriculares<br>• Participación de personas en situación de vulnerabilidad</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-3-5" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>3.6</td>
+          <td id="item-3-6">Sostenibilidad post-proyecto: plan de ≥ 2 años con fuentes de financiamiento alternativas (ej: fondos nacionales, autofinanciamiento, redes UE-LA)</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-3-6" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>3.7</td>
+          <td id="item-3-7">Género transversal: no solo una actividad aislada, sino integrado en diseño, selección, monitoreo (ej: equilibrio 50/50 en movilidad, enfoque interseccional)</td>
+          <td>2</td>
+          <td><input type="number" class="score-input" id="score-3-7" min="0" max="2" value="0"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong id="subtotal3-label">Subtotal Bloque 3</strong></td>
+          <td><span class="score-total" id="subtotal3">0</span> / 30</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight" id="block3-examples">
+      <p><strong>📌 Ejemplos reales de proyectos ganadores:</strong></p>
+      <ul>
+        <li><strong>EduSAF (€799k)</strong>: Rediseño de sistemas agroalimentarios sostenibles en Sudamérica → currículos sobre agroecología, huella de carbono, economía circular.</li>
+        <li><strong>DIPS (€797k)</strong>: Diseño de espacios públicos inclusivos para mujeres indígenas mbya-guaraní en Paraguay, Ecuador y Argentina.</li>
+        <li><strong>AMARU 5.0 (€799k)</strong>: Capacitación en manufactura aditiva y energía solar para zonas rurales en Argentina y Colombia.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BLOQUE 4 -->
+  <section>
+    <h2 id="block4-title">📊 BLOQUE 4: GESTIÓN Y PRESUPUESTO (15 puntos)</h2>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>4.1</td>
+          <td id="item-4-1">Presupuesto realista y bien desglosado — sin gastos genéricos (“otros”) > 5%</td>
+          <td>4</td>
+          <td><input type="number" class="score-input" id="score-4-1" min="0" max="4" value="0"></td>
+        </tr>
+        <tr>
+          <td>4.2</td>
+          <td id="item-4-2">Costes de movilidad alineados con tablas oficiales de la UE (ej: Irlanda → Argentina: viaje €1.300 + manutención €960/mes)</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-4-2" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>4.3</td>
+          <td id="item-4-3">Incluye riesgos identificados + plan de mitigación (ej: crisis política, pandemia, cambio de gobierno en socios)</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-4-3" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>4.4</td>
+          <td id="item-4-4">Equipo de gestión con experiencia comprobable en Erasmus+ (ej: CVs de coordinador con proyectos anteriores)</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-4-4" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>4.5</td>
+          <td id="item-4-5">Sistema de monitoreo y evaluación participativa (no solo final reports): encuestas, focus groups, revisión intermedia con socios</td>
+          <td>2</td>
+          <td><input type="number" class="score-input" id="score-4-5" min="0" max="2" value="0"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong id="subtotal4-label">Subtotal Bloque 4</strong></td>
+          <td><span class="score-total" id="subtotal4">0</span> / 15</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight" id="block4-details">
+      <p><strong>📌 Tabla oficial 2025: Irlanda → Argentina</strong></p>
+      <ul>
+        <li><strong>Travel (ida y vuelta):</strong> €1,300</li>
+        <li><strong>Subsistence (manutención mensual):</strong> €960/mes</li>
+        <li><strong>Organisational Support:</strong> €850/participante/mes</li>
+        <li><strong>Linguistic Support:</strong> €100/participante (máx: €200)</li>
+      </ul>
+      <p><strong>✅ Checklist para 15/15:</strong> 0% en “Others”, plan de riesgos con backup partner, CVs con proyectos anteriores, evaluación participativa trimestral.</p>
+    </div>
+  </section>
+
+  <!-- BLOQUE 5 -->
+  <section>
+    <h2 id="block5-title">🌍 BLOQUE 5: DIFUSIÓN Y VISIBILIDAD (10 puntos)</h2>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>5.1</td>
+          <td id="item-5-1">Estrategia de difusión multicanal: web, redes sociales, eventos presenciales en Argentina/Europa, Results Platform, medios locales</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-5-1" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>5.2</td>
+          <td id="item-5-2">Uso obligatorio de logos oficiales de la UE en todo material (con guía de estilo adjunta)</td>
+          <td>2</td>
+          <td><input type="number" class="score-input" id="score-5-2" min="0" max="2" value="0"></td>
+        </tr>
+        <tr>
+          <td>5.3</td>
+          <td id="item-5-3">Plan para presentar resultados en eventos clave:<br>• Semana Europea de la Juventud<br>• Conferencia Internacional Jean Monnet<br>• Reunión EU-CELAC Educación</td>
+          <td>3</td>
+          <td><input type="number" class="score-input" id="score-5-3" min="0" max="3" value="0"></td>
+        </tr>
+        <tr>
+          <td>5.4</td>
+          <td id="item-5-4">Compromiso de publicar al menos 1 artículo en revista indexada o policy brief con resultados</td>
+          <td>2</td>
+          <td><input type="number" class="score-input" id="score-5-4" min="0" max="2" value="0"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong id="subtotal5-label">Subtotal Bloque 5</strong></td>
+          <td><span class="score-total" id="subtotal5">0</span> / 10</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight" id="block5-examples">
+      <p><strong>📌 Ejemplo ganador: DIPS (€797k)</strong></p>
+      <ul>
+        <li>Plataforma interactiva con mapas de espacios inclusivos (OER bajo CC-BY)</li>
+        <li>6 talleres presenciales en Rosario (AR), Quito (EC), Asunción (PY)</li>
+        <li>Cobertura en medios: <em>TN (AR), El Comercio (EC), ABC Color (PY)</em></li>
+        <li>12 newsletters bilingües con testimonios de mujeres indígenas mbya-guaraní</li>
+        <li>→ 1.200+ descargas, 3 políticas municipales adoptadas</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESULTADO FINAL -->
+  <section style="text-align: center; background: #fff8e1; border-left: 4px solid #ffc107;">
+    <h2 id="result-title">📝 RESULTADO FINAL</h2>
+    <p id="result-desc"><strong>Puntaje total:</strong> <span class="score-total" id="total">0</span> / 100</p>
+    <div id="feedback" style="margin-top: 1rem; font-size: 1.1rem; font-weight: bold;"></div>
+    
+    <button class="btn btn-print" onclick="window.print()" id="print-btn">
+      <i class="fas fa-file-pdf"></i> <span id="print-text">Imprimir como PDF / Print as PDF</span>
+    </button>
+  </section>
+
+  <!-- INSTRUCCIONES FINALES -->
+  <section>
+    <h2 id="actions-title">🛠️ ¿QUÉ HACER SEGÚN TU PUNTAJE?</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td id="score-90">✅ ≥ 90</td>
+          <td id="action-90">Proyecto sobresaliente — envía con confianza</td>
+        </tr>
+        <tr>
+          <td id="score-85">🟡 85–89</td>
+          <td id="action-85">Refina el impacto y sostenibilidad (Bloque 3) + añade socios no académicos</td>
+        </tr>
+        <tr>
+          <td id="score-80">🟡 80–84</td>
+          <td id="action-80">Mejora alineamiento con prioridades UE (Bloque 1) + ajusta presupuesto</td>
+        </tr>
+        <tr>
+          <td id="score-75">🟡 75–79</td>
+          <td id="action-75">Revisa gobierno del consorcio (Bloque 2) — ¿hay líderes temáticos claros?</td>
+        </tr>
+        <tr>
+          <td id="score-70">❌ < 75</td>
+          <td id="action-70">Considera cambiar de tipo de acción (ej: de KA2 Capacity a Jean Monnet Network, con presupuesto menor pero más factible)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2025 • <strong>Fabian Montenegro / Edunexus (Irlanda)</strong></p>
+  <p>Documento basado en 249 proyectos Erasmus+ con Argentina + 24 proyectos CooperAR-UE</p>
+</footer>
+
+<script>
+  // TRADUCCIONES
+  const translations = {
+    es: {
+      title: "✅ CHECKLIST: Proyecto Erasmus+ Ganador – Edunexus Method",
+      subtitle: "🎯 Puntaje ideal: ≥ 90/100 → Alta probabilidad de éxito | ⚠️ Umbral mínimo viable: 75/100 | ❌ < 70/100 → Alto riesgo",
+      "form-title": "📝 Proyecto y Consorcio",
+      "project-name-label": "NOMBRE DE MI PROYECTO:",
+      "consortium-label": "CONSORCIO FORMADO POR:",
+      "block1-title": "🧩 BLOQUE 1: ALINEAMIENTO ESTRATÉGICO (25 puntos)",
+      "block1-intro": "(Lo primero que miran los evaluadores)",
+      "b1-col1": "Ítem",
+      "b1-col2": "Criterio",
+      "b1-col3": "Máx.",
+      "b1-col4": "Puntaje",
+      "item-1-1": "El proyecto responde a al menos 2 prioridades horizontales 2024–2027:\n• Transición verde/digital\n• Inclusión (género, discapacidad, migración)\n• Derechos humanos / democracia\n• ODS / just transition",
+      "item-1-2": "Incluye explícitamente los Objetivos de la Unión Europea en Educación (incl. European Strategy for Universities, Digital Education Action Plan)",
+      "item-1-3": "El título y resumen usan palabras clave estratégicas reconocibles por evaluadores (ej: green skills, inclusive mobility, sustainable HE, SDG localization)",
+      "item-1-4": "Hay una justificación clara y con datos de por qué se trabaja con Argentina/Latinoamérica (no solo “por interés”) — ej: brechas de capacitación, sinergias temáticas, alineación con EU-LAC Roadmap 2023–2027",
+      "item-1-5": "El proyecto se alinea con al menos una convocatoria específica 2025/2026 (ej: KA2 Capacity Building HE, Jean Monnet Network, KA171-HED wave 2) — y se menciona en la propuesta",
+      "item-1-6": "Incluye indicadores SMART de impacto (no solo actividades)",
+      "subtotal1-label": "Subtotal Bloque 1",
+      "phrases-title": "🔍 Listado estratégico: +100 verbos y frases ganadoras",
+      "green-title": "🌱 1. Green & Digital Transition",
+      "inclusion-title": "♿ 2. Inclusión (género, discapacidad, migración)",
+      "hr-title": "⚖️ 3. Derechos humanos / democracia / gobernanza",
+      "block1-strategy": "<p><strong>✅ Estrategia ganadora para 25/25:</strong></p><ul><li>Menciona explícitamente 2+ prioridades horizontales (ej: “Este proyecto responde a la transición verde y a la inclusión de género, alineado con el Pacto Verde Europeo y la Estrategia de Igualdad 2020–2025”)</li><li>Cita documentos oficiales: <em>European Strategy for Universities</em>, <em>Digital Education Action Plan</em>.</li><li>Usa palabras clave técnicas (no genéricas): sustituye “sostenible” por “green skills” o “just transition”.</li></ul>",
+      "block2-title": "🌐 BLOQUE 2: CONSORCIO Y GOBERNANZA (20 puntos)",
+      "block2-intro": "El segundo criterio más decisivo para aprobación (después de “Relevance”). Los evaluadores dedican 8–12 minutos a revisar esta sección. Un consorcio débil = rechazo automático.",
+      "item-2-1": "Edunexus actúa como coordinador (ventaja clave al ser de país del programa)",
+      "item-2-2": "El consorcio tiene ≥ 1 socio argentino fuerte (ej: UBA, UNR, UNTREF, Scalabrini Ortiz, ProYungas, RAMCC) — no solo instituciones pequeñas sin trayectoria",
+      "item-2-3": "Presencia de ≥ 1 socio europeo recurrente (ej: Sevilla, Tuscía, Lisboa, Lille, Perpignan) — demuestra confianza y capacidad de implementación",
+      "item-2-4": "Hay equilibrio geográfico y de roles: no un solo país dominando; roles claros (coordinador, liderazgo temático, evaluación, difusión)",
+      "item-2-5": "Incluye al menos 1 socio no académico relevante (ONG, museo, fundación, empresa social) — especialmente valorado en Capacity Building y redes Jean Monnet",
+      "item-2-6": "Existe memorandum de entendimiento (MoU) o carta de intención firmada por todos los socios (adjunto en anexo)",
+      "item-2-7": "Distribución equitativa de fondos (sin “sobrecarga” al coordinador ni subfinanciación de socios clave en países socios)",
+      "subtotal2-label": "Subtotal Bloque 2",
+      "arg-socs-title": "🔝 Ranking de socios argentinos fuertes (basado en 249 proyectos)",
+      "s1-name": "Institución",
+      "s1-projs": "# Proyectos",
+      "s1-types": "Tipos",
+      "s1-why": "Por qué es fuerte",
+      "uba-reason": "Única JM Centre en Argentina (2019), lidera EDUDER, BRIDGE WATCH",
+      "unr-reason": "Referente en UE-LAC integration, alta difusión académica",
+      "uso-reason": "Enfoque en economía social, territorios, y formación docente — socios clave en EduSAF y HEADCET",
+      "ramcc-reason": "Red de municipios + UE, experta en transición justa y ODS locales",
+      "proy-reason": "Líder en conservación y desarrollo rural sostenible (NOA)",
+      "eu-socs-title": "🌍 Top socios europeos recurrentes + contactos reales",
+      "block2-strategy": "<p><strong>✅ Checklist para 20/20:</strong></p><ul><li>☐ Edunexus es única coordinadora (no co-coordinadora)</li><li>☐ CV del PM muestra ≥2 proyectos Erasmus+ gestionados</li><li>☐ Infraestructura de gestión descrita (software, equipo, contabilidad)</li><li>☐ Socio argentino con ≥2 proyectos Erasmus+/CooperAR-UE</li><li>☐ Breve CV institucional incluido (máx. 1 página por socio)</li><li>☐ Tabla de roles con % de trabajo y tareas clave</li><li>☐ Socio no académico con experiencia comprobada (adjunta CV breve)</li><li>☐ Todas las firmas escaneadas en un solo PDF (en inglés o bilingüe)</li><li>☐ Distribución equitativa: Coordinador 20–25%, Socios UE 12–18%, Socios AR 10–15%</li></ul>",
+      "block3-title": "🎓 BLOQUE 3: CALIDAD DE LA PROPUESTA (30 puntos)",
+      "block3-intro": "(El núcleo de la evaluación técnica)",
+      "item-3-1": "Las actividades son innovadoras, no solo “repetición de buenas prácticas” — ej: metodologías mixtas (presencial + VR), gamificación, co-creación con comunidades",
+      "item-3-2": "Incluye transferencia de conocimiento sostenible (no solo eventos):\n• MOOCs / OERs bajo licencia abierta\n• Guías descargables\n• Políticas institucionales co-desarrolladas\n• Redes post-proyecto",
+      "item-3-3": "Tiene un plan de impacto claro: cómo se mide, quién se beneficia a largo plazo, y cómo se escalará (local → nacional → regional)",
+      "item-3-4": "Movilidad bien diseñada (si aplica KA171-HED):\n• Duración razonable (3–12 meses)\n• Combinación de físicas/virtuales\n• Incluye apoyo lingüístico y tutorías",
+      "item-3-5": "Incluye medidas de inclusión concretas:\n• Subvenciones adicionales para participantes con discapacidad\n• Adaptaciones curriculares\n• Participación de personas en situación de vulnerabilidad",
+     
