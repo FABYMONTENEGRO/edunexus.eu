@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -274,7 +274,6 @@
         }
 
         .block-points {
-            font-weight: 600;
             color: #0033cc;
             margin-left: 20px;
         }
@@ -312,6 +311,7 @@
             align-items: start;
             margin-bottom: 15px;
             gap: 15px;
+            cursor: pointer;
         }
 
         .item-description {
@@ -355,6 +355,84 @@
 
         .input-group input {
             padding: 10px;
+        }
+
+        /* Información ampliada */
+        .item-expanded {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .item-expanded.active {
+            display: block;
+        }
+
+        .expanded-content {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .expanded-content h4 {
+            color: #0033cc;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .expanded-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .expanded-content li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .expanded-content li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0052ff;
+            font-weight: bold;
+        }
+
+        .tips-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .tips-box-title {
+            font-weight: bold;
+            color: #ff9800;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .tips-box-content {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .toggle-icon {
+            display: inline-block;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
         }
 
         /* Subtotal */
@@ -629,8 +707,8 @@
             right: 20px;
             background: white;
             border-left: 4px solid #0033cc;
-            padding: 16px 20px;
             border-radius: 6px;
+            padding: 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             z-index: 2000;
             animation: slideIn 0.3s ease;
@@ -768,7 +846,7 @@
 
     <script>
         // ============================================
-        // DATA STRUCTURE
+        // DATA STRUCTURE WITH EXPANDED INFORMATION
         // ============================================
 
         const blocks = [
@@ -777,12 +855,168 @@
                 name: { es: "ALINEAMIENTO ESTRATÉGICO", en: "STRATEGIC ALIGNMENT" },
                 maxPoints: 25,
                 items: [
-                    { id: "1.1", points: 6, description: { es: "El proyecto responde a al menos 2 prioridades horizontales 2024-2027: Transición verde/digital, Inclusión, Derechos humanos/democracia, ODS", en: "The project responds to at least 2 horizontal priorities 2024-2027: Green/digital transition, Inclusion, Human rights/democracy, SDGs" } },
-                    { id: "1.2", points: 4, description: { es: "Incluye explícitamente los Objetivos de la Unión Europea en Educación", en: "Explicitly includes European Union Education Objectives" } },
-                    { id: "1.3", points: 3, description: { es: "El título y resumen usan palabras clave estratégicas reconocibles por evaluadores", en: "Title and summary use strategic keywords recognizable by evaluators" } },
-                    { id: "1.4", points: 5, description: { es: "Hay una justificación clara y con datos de por qué se trabaja con Argentina/Latinoamérica", en: "Clear data-driven justification for working with Argentina/Latin America" } },
-                    { id: "1.5", points: 4, description: { es: "El proyecto se alinea con al menos una convocatoria específica 2025/2026", en: "Project aligns with at least one specific call 2025/2026" } },
-                    { id: "1.6", points: 3, description: { es: "Incluye indicadores SMART de impacto", en: "Includes SMART impact indicators" } }
+                    {
+                        id: "1.1",
+                        points: 6,
+                        description: { es: "El proyecto responde a al menos 2 prioridades horizontales 2024-2027", en: "The project responds to at least 2 horizontal priorities 2024-2027" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Identifica explícitamente qué 2+ prioridades horizontales se abordan",
+                                    "Proporciona datos/evidencia de por qué estas prioridades son relevantes",
+                                    "Demuestra cómo el proyecto contribuye a cada prioridad",
+                                    "Alinea objetivos específicos con indicadores medibles",
+                                    "Incluye referencias a documentos estratégicos de la UE"
+                                ],
+                                tip: "No basta mencionar; demuestra conexiones explícitas. Ejemplo: 'Transición verde: reducir huella de carbono en campus mediante...' + datos cuantitativos."
+                            },
+                            en: {
+                                requirements: [
+                                    "Explicitly identifies which 2+ horizontal priorities are addressed",
+                                    "Provides data/evidence of why these priorities are relevant",
+                                    "Demonstrates how the project contributes to each priority",
+                                    "Aligns specific objectives with measurable indicators",
+                                    "Includes references to EU strategic documents"
+                                ],
+                                tip: "Don't just mention; demonstrate explicit connections. Example: 'Green transition: reduce campus carbon footprint through...' + quantitative data."
+                            }
+                        }
+                    },
+                    {
+                        id: "1.2",
+                        points: 4,
+                        description: { es: "Incluye explícitamente los Objetivos de la UE en Educación", en: "Explicitly includes European Union Education Objectives" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Cita los 6 objetivos de la UE en educación",
+                                    "Conecta cada objetivo con actividades específicas del proyecto",
+                                    "Incluye referencias a la Estrategia Europea para Universidades",
+                                    "Menciona el Plan de Acción de Educación Digital",
+                                    "Demuestra cómo el proyecto contribuye a la modernización de la educación superior"
+                                ],
+                                tip: "Los 6 objetivos son: inclusión, transición verde, transformación digital, competencias, movilidad, y excelencia. Cada uno debe aparecer en tu propuesta."
+                            },
+                            en: {
+                                requirements: [
+                                    "Cites the 6 EU education objectives",
+                                    "Connects each objective with specific project activities",
+                                    "Includes references to the European Strategy for Universities",
+                                    "Mentions the Digital Education Action Plan",
+                                    "Demonstrates how the project contributes to modernizing higher education"
+                                ],
+                                tip: "The 6 objectives are: inclusion, green transition, digital transformation, skills, mobility, and excellence. Each must appear in your proposal."
+                            }
+                        }
+                    },
+                    {
+                        id: "1.3",
+                        points: 3,
+                        description: { es: "El título y resumen usan palabras clave estratégicas", en: "Title and summary use strategic keywords" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Usa términos como 'green skills', 'inclusive mobility', 'sustainable HE'",
+                                    "Incluye acrónimos reconocidos (STEM, STEAM, ODS, HE, VET)",
+                                    "El título es conciso pero descriptivo (máx. 15 palabras)",
+                                    "El resumen contiene palabras clave en primeras 50 palabras",
+                                    "Evita jerga local; usa lenguaje técnico internacional"
+                                ],
+                                tip: "Los evaluadores escanean títulos en 5 segundos. Si no ven palabras clave, pasan al siguiente. Ejemplo bueno: 'GreenSkills4LAC: Capacitación en competencias verdes para transición justa'"
+                            },
+                            en: {
+                                requirements: [
+                                    "Uses terms like 'green skills', 'inclusive mobility', 'sustainable HE'",
+                                    "Includes recognized acronyms (STEM, STEAM, SDGs, HE, VET)",
+                                    "Title is concise but descriptive (max. 15 words)",
+                                    "Summary contains keywords in first 50 words",
+                                    "Avoids local jargon; uses international technical language"
+                                ],
+                                tip: "Evaluators scan titles in 5 seconds. If they don't see keywords, they move on. Good example: 'GreenSkills4LAC: Green Skills Training for Just Transition'"
+                            }
+                        }
+                    },
+                    {
+                        id: "1.4",
+                        points: 5,
+                        description: { es: "Hay una justificación clara y con datos de por qué se trabaja con Argentina/Latinoamérica", en: "Clear data-driven justification for working with Argentina/Latin America" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Proporciona datos sobre brechas de capacitación en el sector",
+                                    "Cita documentos estratégicos relevantes (EU-LAC Roadmap, CELAC Education Plan)",
+                                    "Demuestra sinergias temáticas con prioridades nacionales/regionales",
+                                    "Incluye evidencia de demanda del sector (encuestas, reportes de empleadores)",
+                                    "Explica por qué Argentina específicamente (no solo 'Latinoamérica en general')"
+                                ],
+                                tip: "Busca datos en: INDEC (Argentina), CEPAL, BID, reportes de empleadores. Ejemplo: 'En Argentina, solo el 15% de profesionales en energías renovables tienen certificación internacional'"
+                            },
+                            en: {
+                                requirements: [
+                                    "Provides data on training gaps in the sector",
+                                    "Cites relevant strategic documents (EU-LAC Roadmap, CELAC Education Plan)",
+                                    "Demonstrates thematic synergies with national/regional priorities",
+                                    "Includes evidence of sector demand (surveys, employer reports)",
+                                    "Explains why Argentina specifically (not just 'Latin America in general')"
+                                ],
+                                tip: "Search for data in: INDEC (Argentina), CEPAL, IDB, employer reports. Example: 'In Argentina, only 15% of renewable energy professionals have international certification'"
+                            }
+                        }
+                    },
+                    {
+                        id: "1.5",
+                        points: 4,
+                        description: { es: "El proyecto se alinea con al menos una convocatoria específica 2025/2026", en: "Project aligns with at least one specific call 2025/2026" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Identifica la convocatoria específica (ej: KA2 Capacity Building HE)",
+                                    "Cita el número de convocatoria y año",
+                                    "Explica cómo el proyecto responde a los criterios de esa convocatoria",
+                                    "Demuestra alineación con prioridades temáticas de la convocatoria",
+                                    "Menciona explícitamente la convocatoria en el resumen ejecutivo"
+                                ],
+                                tip: "No digas 'es para Erasmus+'. Sé específico: 'KA2-Capacity Building in Higher Education 2025, Priority 3: Green Transition'. Los evaluadores saben si encajas o no."
+                            },
+                            en: {
+                                requirements: [
+                                    "Identifies the specific call (e.g., KA2 Capacity Building HE)",
+                                    "Cites the call number and year",
+                                    "Explains how the project responds to that call's criteria",
+                                    "Demonstrates alignment with the call's thematic priorities",
+                                    "Explicitly mentions the call in the executive summary"
+                                ],
+                                tip: "Don't say 'it's for Erasmus+'. Be specific: 'KA2-Capacity Building in Higher Education 2025, Priority 3: Green Transition'. Evaluators know if you fit or not."
+                            }
+                        }
+                    },
+                    {
+                        id: "1.6",
+                        points: 3,
+                        description: { es: "Incluye indicadores SMART de impacto", en: "Includes SMART impact indicators" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Define indicadores Específicos (no genéricos como 'mejorar')",
+                                    "Incluye Medibles (números, porcentajes, escalas)",
+                                    "Establece metas Alcanzables (realistas para 24-36 meses)",
+                                    "Vincula a Resultados concretos (no solo actividades)",
+                                    "Incluye Temporalidad clara (cuándo se medirá cada indicador)"
+                                ],
+                                tip: "Malo: 'Mejorar competencias verdes'. Bueno: 'Al menos 80% de 150 participantes completarán el curso con calificación ≥7/10 en evaluación final'"
+                            },
+                            en: {
+                                requirements: [
+                                    "Defines Specific indicators (not generic like 'improve')",
+                                    "Includes Measurable (numbers, percentages, scales)",
+                                    "Establishes Achievable targets (realistic for 24-36 months)",
+                                    "Links to concrete Results (not just activities)",
+                                    "Includes clear Timeline (when each indicator will be measured)"
+                                ],
+                                tip: "Bad: 'Improve green skills'. Good: 'At least 80% of 150 participants will complete the course with a score ≥7/10 on final evaluation'"
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -790,13 +1024,195 @@
                 name: { es: "CONSORCIO Y GOBERNANZA", en: "CONSORTIUM AND GOVERNANCE" },
                 maxPoints: 20,
                 items: [
-                    { id: "2.1", points: 4, description: { es: "Edunexus actúa como coordinador", en: "Edunexus acts as coordinator" } },
-                    { id: "2.2", points: 3, description: { es: "El consorcio tiene ≥1 socio argentino fuerte", en: "Consortium has ≥1 strong Argentine partner" } },
-                    { id: "2.3", points: 3, description: { es: "Presencia de ≥1 socio europeo recurrente", en: "Presence of ≥1 recurring European partner" } },
-                    { id: "2.4", points: 3, description: { es: "Hay equilibrio geográfico y de roles", en: "Geographic and role balance" } },
-                    { id: "2.5", points: 3, description: { es: "Incluye al menos 1 socio no académico relevante", en: "Includes at least 1 relevant non-academic partner" } },
-                    { id: "2.6", points: 2, description: { es: "Existe memorandum de entendimiento (MoU) firmado", en: "Memorandum of Understanding (MoU) signed" } },
-                    { id: "2.7", points: 2, description: { es: "Distribución equitativa de fondos", en: "Equitable distribution of funds" } }
+                    {
+                        id: "2.1",
+                        points: 4,
+                        description: { es: "Edunexus actúa como coordinador", en: "Edunexus acts as coordinator" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Edunexus es designado como único coordinador (no co-coordinador)",
+                                    "Se demuestra experiencia previa en gestión de proyectos Erasmus+",
+                                    "Se incluye CV del Project Manager con ≥2 proyectos anteriores",
+                                    "Se describe infraestructura de gestión (software, equipo, contabilidad)",
+                                    "Se incluye organigrama claro con responsabilidades"
+                                ],
+                                tip: "Ser coordinador de país del programa es una ventaja ENORME. Aprovéchalo: demuestra que conoces la burocracia local, tienes contactos, y puedes resolver problemas rápidamente."
+                            },
+                            en: {
+                                requirements: [
+                                    "Edunexus is designated as sole coordinator (not co-coordinator)",
+                                    "Previous experience in Erasmus+ project management is demonstrated",
+                                    "CV of Project Manager included with ≥2 previous projects",
+                                    "Management infrastructure described (software, team, accounting)",
+                                    "Clear organizational chart with responsibilities included"
+                                ],
+                                tip: "Being a coordinator from a programme country is a HUGE advantage. Leverage it: show you know local bureaucracy, have contacts, and can solve problems quickly."
+                            }
+                        }
+                    },
+                    {
+                        id: "2.2",
+                        points: 3,
+                        description: { es: "El consorcio tiene ≥1 socio argentino fuerte", en: "Consortium has ≥1 strong Argentine partner" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Socio argentino tiene ≥2 proyectos Erasmus+ previos (verificable en EACEA)",
+                                    "Institución tiene trayectoria reconocida en el tema del proyecto",
+                                    "Se incluye CV institucional (máx. 1 página) con logros relevantes",
+                                    "Existe Memorándum de Entendimiento (MoU) firmado",
+                                    "Se demuestra capacidad de co-financiamiento o aporte en especie"
+                                ],
+                                tip: "Las universidades grandes (UBA, UNR) son más seguras pero más competidas. Considera socios medianos con trayectoria específica en tu tema. Mejor un socio 'pequeño pero experto' que uno 'grande pero genérico'."
+                            },
+                            en: {
+                                requirements: [
+                                    "Argentine partner has ≥2 previous Erasmus+ projects (verifiable in EACEA)",
+                                    "Institution has recognized track record in project topic",
+                                    "Institutional CV included (max. 1 page) with relevant achievements",
+                                    "Memorandum of Understanding (MoU) signed",
+                                    "Co-financing capacity or in-kind contribution demonstrated"
+                                ],
+                                tip: "Large universities (UBA, UNR) are safer but more competitive. Consider mid-sized partners with specific track record in your topic. Better a 'small but expert' partner than a 'large but generic' one."
+                            }
+                        }
+                    },
+                    {
+                        id: "2.3",
+                        points: 3,
+                        description: { es: "Presencia de ≥1 socio europeo recurrente", en: "Presence of ≥1 recurring European partner" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Socio europeo tiene ≥3 proyectos Erasmus+ con socios latinoamericanos",
+                                    "Existe relación previa documentada (proyectos anteriores, publicaciones conjuntas)",
+                                    "Se incluye contacto directo del responsable académico",
+                                    "Se demuestra complementariedad temática con el socio europeo",
+                                    "Se describe plan de colaboración específico (no genérico)"
+                                ],
+                                tip: "Los socios recurrentes son GOLD. Significa que la UE confía en ellos. Si tienes contacto con Sevilla o Lisboa, úsalo. Si no, busca en la base de datos de proyectos anteriores."
+                            },
+                            en: {
+                                requirements: [
+                                    "European partner has ≥3 Erasmus+ projects with Latin American partners",
+                                    "Previous relationship documented (previous projects, joint publications)",
+                                    "Direct contact of academic responsible included",
+                                    "Thematic complementarity with European partner demonstrated",
+                                    "Specific collaboration plan described (not generic)"
+                                ],
+                                tip: "Recurring partners are GOLD. It means the EU trusts them. If you have contact with Seville or Lisbon, use it. If not, search the previous projects database."
+                            }
+                        }
+                    },
+                    {
+                        id: "2.4",
+                        points: 3,
+                        description: { es: "Hay equilibrio geográfico y de roles", en: "Geographic and role balance" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Consorcio incluye ≥3 países diferentes",
+                                    "Ningún país tiene >40% de los fondos",
+                                    "Cada socio tiene rol específico documentado",
+                                    "Tabla de distribución de responsabilidades con % de trabajo",
+                                    "Plan de comunicación y gobernanza clara"
+                                ],
+                                tip: "Un consorcio desequilibrado (ej: 70% España, 30% Argentina) levanta banderas rojas. Los evaluadores sospechan que Argentina es solo 'decoración'. Distribuye equitativamente."
+                            },
+                            en: {
+                                requirements: [
+                                    "Consortium includes ≥3 different countries",
+                                    "No country has >40% of funds",
+                                    "Each partner has specific documented role",
+                                    "Distribution table of responsibilities with % of work",
+                                    "Clear communication and governance plan"
+                                ],
+                                tip: "An unbalanced consortium (e.g., 70% Spain, 30% Argentina) raises red flags. Evaluators suspect Argentina is just 'decoration'. Distribute equitably."
+                            }
+                        }
+                    },
+                    {
+                        id: "2.5",
+                        points: 3,
+                        description: { es: "Incluye al menos 1 socio no académico relevante", en: "Includes at least 1 relevant non-academic partner" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Socio no académico tiene experiencia comprobada en el tema",
+                                    "Se incluye CV breve (máx. 1 página) con logros relevantes",
+                                    "Se demuestra rol específico en el proyecto (no solo 'participante')",
+                                    "Se describe cómo el socio aporta perspectiva práctica/comunitaria",
+                                    "Se incluye MoU firmado"
+                                ],
+                                tip: "Los evaluadores ADORAN socios no académicos porque muestran que el proyecto tiene impacto real fuera de la universidad. Una ONG local, un museo, una empresa social = +credibilidad."
+                            },
+                            en: {
+                                requirements: [
+                                    "Non-academic partner has proven experience in the topic",
+                                    "Brief CV included (max. 1 page) with relevant achievements",
+                                    "Specific role in the project demonstrated (not just 'participant')",
+                                    "How the partner brings practical/community perspective described",
+                                    "Signed MoU included"
+                                ],
+                                tip: "Evaluators LOVE non-academic partners because they show the project has real impact outside the university. A local NGO, a museum, a social enterprise = +credibility."
+                            }
+                        }
+                    },
+                    {
+                        id: "2.6",
+                        points: 2,
+                        description: { es: "Existe memorandum de entendimiento (MoU) firmado", en: "Memorandum of Understanding (MoU) signed" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "MoU incluye compromisos específicos de cada socio",
+                                    "MoU especifica duración, presupuesto, y roles",
+                                    "Todas las firmas están escaneadas en un solo PDF",
+                                    "MoU está en inglés o es bilingüe",
+                                    "Se incluye en anexos de la propuesta"
+                                ],
+                                tip: "Sin MoU = propuesta rechazada automáticamente. Es OBLIGATORIO. Usa un template estándar y asegúrate de que TODOS los socios firmen (no solo el coordinador)."
+                            },
+                            en: {
+                                requirements: [
+                                    "MoU includes specific commitments from each partner",
+                                    "MoU specifies duration, budget, and roles",
+                                    "All signatures scanned in a single PDF",
+                                    "MoU is in English or bilingual",
+                                    "Included in proposal annexes"
+                                ],
+                                tip: "No MoU = proposal automatically rejected. It's MANDATORY. Use a standard template and ensure ALL partners sign (not just the coordinator)."
+                            }
+                        }
+                    },
+                    {
+                        id: "2.7",
+                        points: 2,
+                        description: { es: "Distribución equitativa de fondos", en: "Equitable distribution of funds" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Coordinador: 20-25% del presupuesto total",
+                                    "Socios europeos: 12-18% cada uno",
+                                    "Socios argentinos: 10-15% cada uno",
+                                    "Presupuesto justificado por actividades específicas",
+                                    "No hay 'gastos genéricos' > 5% del total"
+                                ],
+                                tip: "Si el coordinador se queda con 50% y Argentina con 5%, los evaluadores lo ven como un proyecto 'europeo con apéndice argentino'. Distribuye justamente."
+                            },
+                            en: {
+                                requirements: [
+                                    "Coordinator: 20-25% of total budget",
+                                    "European partners: 12-18% each",
+                                    "Argentine partners: 10-15% each",
+                                    "Budget justified by specific activities",
+                                    "No 'generic expenses' > 5% of total"
+                                ],
+                                tip: "If the coordinator keeps 50% and Argentina gets 5%, evaluators see it as a 'European project with Argentine appendix'. Distribute fairly."
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -804,13 +1220,195 @@
                 name: { es: "CALIDAD DE LA PROPUESTA", en: "PROPOSAL QUALITY" },
                 maxPoints: 30,
                 items: [
-                    { id: "3.1", points: 5, description: { es: "Las actividades son innovadoras, no solo repetición de buenas prácticas", en: "Activities are innovative, not just repetition of good practices" } },
-                    { id: "3.2", points: 6, description: { es: "Incluye transferencia de conocimiento sostenible", en: "Includes sustainable knowledge transfer" } },
-                    { id: "3.3", points: 5, description: { es: "Tiene un plan de impacto claro", en: "Has clear impact plan" } },
-                    { id: "3.4", points: 4, description: { es: "Movilidad bien diseñada", en: "Well-designed mobility" } },
-                    { id: "3.5", points: 4, description: { es: "Incluye medidas de inclusión concretas", en: "Includes concrete inclusion measures" } },
-                    { id: "3.6", points: 4, description: { es: "Sostenibilidad post-proyecto", en: "Post-project sustainability" } },
-                    { id: "3.7", points: 2, description: { es: "Género transversal", en: "Mainstreamed gender" } }
+                    {
+                        id: "3.1",
+                        points: 5,
+                        description: { es: "Las actividades son innovadoras, no solo repetición de buenas prácticas", en: "Activities are innovative, not just repetition of good practices" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Incluye metodologías mixtas (presencial + VR/realidad aumentada)",
+                                    "Incorpora gamificación o elementos de aprendizaje experiencial",
+                                    "Demuestra co-creación con comunidades/beneficiarios",
+                                    "Utiliza tecnologías emergentes (IA, blockchain, IoT) si es relevante",
+                                    "Propone enfoques que no existen en proyectos previos"
+                                ],
+                                tip: "No basta decir 'usaremos metodología innovadora'. Sé específico: 'Desarrollaremos un MOOC interactivo con simulaciones VR de sistemas agroecológicos'."
+                            },
+                            en: {
+                                requirements: [
+                                    "Includes mixed methodologies (face-to-face + VR/augmented reality)",
+                                    "Incorporates gamification or experiential learning elements",
+                                    "Demonstrates co-creation with communities/beneficiaries",
+                                    "Uses emerging technologies (AI, blockchain, IoT) if relevant",
+                                    "Proposes approaches not found in previous projects"
+                                ],
+                                tip: "Don't just say 'we'll use innovative methodology'. Be specific: 'We'll develop an interactive MOOC with VR simulations of agroecological systems'."
+                            }
+                        }
+                    },
+                    {
+                        id: "3.2",
+                        points: 6,
+                        description: { es: "Incluye transferencia de conocimiento sostenible", en: "Includes sustainable knowledge transfer" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Desarrollo de MOOCs o REA (Recursos Educativos Abiertos) bajo licencia CC",
+                                    "Guías descargables, manuales, toolkits para instituciones",
+                                    "Políticas institucionales co-desarrolladas con socios",
+                                    "Redes post-proyecto formalizadas (ej: Red de universidades verdes)",
+                                    "Plan de mantenimiento de plataformas digitales (≥2 años post-proyecto)"
+                                ],
+                                tip: "Los evaluadores odian proyectos que terminan cuando se acaba el dinero. Demuestra que tus productos vivirán después. Un MOOC en Coursera o una red de universidades que continúa = GOLD."
+                            },
+                            en: {
+                                requirements: [
+                                    "Development of MOOCs or OER (Open Educational Resources) under CC license",
+                                    "Downloadable guides, manuals, toolkits for institutions",
+                                    "Institutional policies co-developed with partners",
+                                    "Formalized post-project networks (e.g., Green Universities Network)",
+                                    "Maintenance plan for digital platforms (≥2 years post-project)"
+                                ],
+                                tip: "Evaluators hate projects that end when the money runs out. Show your products will live on. A MOOC on Coursera or a continuing university network = GOLD."
+                            }
+                        }
+                    },
+                    {
+                        id: "3.3",
+                        points: 5,
+                        description: { es: "Tiene un plan de impacto claro", en: "Has clear impact plan" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Define beneficiarios directos (ej: 150 estudiantes) e indirectos (ej: 5.000 profesionales vía MOOC)",
+                                    "Especifica cómo se medirá impacto (encuestas, evaluaciones, seguimiento post-proyecto)",
+                                    "Incluye plan de escalamiento: local → nacional → regional",
+                                    "Demuestra cómo resultados se replicarán en otras instituciones",
+                                    "Establece timeline de impacto (corto plazo: 24 meses; largo plazo: 5 años)"
+                                ],
+                                tip: "Impacto no es 'mejorar la educación'. Es '150 docentes capacitados → 7.500 estudiantes alcanzados → 3 nuevas políticas institucionales → replicación en 10 universidades en 3 años'."
+                            },
+                            en: {
+                                requirements: [
+                                    "Defines direct beneficiaries (e.g., 150 students) and indirect (e.g., 5,000 professionals via MOOC)",
+                                    "Specifies how impact will be measured (surveys, evaluations, post-project follow-up)",
+                                    "Includes scaling plan: local → national → regional",
+                                    "Demonstrates how results will be replicated in other institutions",
+                                    "Establishes impact timeline (short-term: 24 months; long-term: 5 years)"
+                                ],
+                                tip: "Impact is not 'improve education'. It's '150 trained teachers → 7,500 students reached → 3 new institutional policies → replication in 10 universities in 3 years'."
+                            }
+                        }
+                    },
+                    {
+                        id: "3.4",
+                        points: 4,
+                        description: { es: "Movilidad bien diseñada", en: "Well-designed mobility" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Duración razonable (3-12 meses, no 2 semanas)",
+                                    "Combinación de movilidades físicas y virtuales",
+                                    "Incluye apoyo lingüístico (cursos de idioma previos)",
+                                    "Tutorías académicas durante y después de la movilidad",
+                                    "Reconocimiento académico (ECTS, créditos) garantizado"
+                                ],
+                                tip: "Movilidades cortas (1-2 semanas) = bajo impacto. Erasmus+ prefiere movilidades de 3+ meses. Si es KA171, demuestra que los estudiantes argentinos tendrán tutor europeo y viceversa."
+                            },
+                            en: {
+                                requirements: [
+                                    "Reasonable duration (3-12 months, not 2 weeks)",
+                                    "Combination of physical and virtual mobilities",
+                                    "Includes linguistic support (prior language courses)",
+                                    "Academic tutoring during and after mobility",
+                                    "Academic recognition (ECTS, credits) guaranteed"
+                                ],
+                                tip: "Short mobilities (1-2 weeks) = low impact. Erasmus+ prefers 3+ month mobilities. If KA171, show Argentine students will have European tutor and vice versa."
+                            }
+                        }
+                    },
+                    {
+                        id: "3.5",
+                        points: 4,
+                        description: { es: "Incluye medidas de inclusión concretas", en: "Includes concrete inclusion measures" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Subvenciones adicionales para participantes con discapacidad (≥25% extra)",
+                                    "Adaptaciones curriculares específicas (materiales en Braille, intérpretes, etc.)",
+                                    "Participación de personas en situación de vulnerabilidad (migrantes, mujeres, LGTBIQ+)",
+                                    "Presupuesto específico para apoyo de inclusión (≥5% del total)",
+                                    "Plan de seguimiento de participantes vulnerables"
+                                ],
+                                tip: "La inclusión no es un 'bonus'. Es un REQUISITO. Si tu proyecto no tiene plan específico para personas con discapacidad, mujeres en STEM, o migrantes, pierdes puntos automáticamente."
+                            },
+                            en: {
+                                requirements: [
+                                    "Additional grants for participants with disabilities (≥25% extra)",
+                                    "Specific curriculum adaptations (Braille materials, interpreters, etc.)",
+                                    "Participation of vulnerable people (migrants, women, LGBTIQ+)",
+                                    "Specific budget for inclusion support (≥5% of total)",
+                                    "Follow-up plan for vulnerable participants"
+                                ],
+                                tip: "Inclusion is not a 'bonus'. It's a REQUIREMENT. If your project doesn't have a specific plan for people with disabilities, women in STEM, or migrants, you lose points automatically."
+                            }
+                        }
+                    },
+                    {
+                        id: "3.6",
+                        points: 4,
+                        description: { es: "Sostenibilidad post-proyecto", en: "Post-project sustainability" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Identifica fuentes de financiamiento post-proyecto (fondos nacionales, redes UE-LA, autofinanciamiento)",
+                                    "Demuestra compromiso institucional (cartas de apoyo de rectores)",
+                                    "Incluye plan de mantenimiento de infraestructura (servidores, plataformas)",
+                                    "Especifica cómo se continuarán actividades clave",
+                                    "Establece métricas de sostenibilidad (ej: MOOC con ≥100 inscritos/año)"
+                                ],
+                                tip: "Sin plan de sostenibilidad, tu proyecto es un 'fuego de artificio': brilla 24 meses y desaparece. Los evaluadores quieren legado. Demuestra que tu MOOC vivirá, tu red continuará, tu política se implementará."
+                            },
+                            en: {
+                                requirements: [
+                                    "Identifies post-project funding sources (national funds, EU-LA networks, self-financing)",
+                                    "Demonstrates institutional commitment (support letters from rectors)",
+                                    "Includes infrastructure maintenance plan (servers, platforms)",
+                                    "Specifies how key activities will continue",
+                                    "Establishes sustainability metrics (e.g., MOOC with ≥100 enrollees/year)"
+                                ],
+                                tip: "Without a sustainability plan, your project is a 'firework': shines for 24 months and disappears. Evaluators want legacy. Show your MOOC will live, your network will continue, your policy will be implemented."
+                            }
+                        }
+                    },
+                    {
+                        id: "3.7",
+                        points: 2,
+                        description: { es: "Género transversal", en: "Mainstreamed gender" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Análisis de género en diagnóstico inicial (ej: brecha salarial en sector)",
+                                    "Objetivos específicos de género (ej: 50% participación de mujeres)",
+                                    "Medidas concretas (ej: mentorías de mujeres líderes, cuotas en selección)",
+                                    "Enfoque interseccional (género + discapacidad + migración)",
+                                    "Indicadores de género en monitoreo"
+                                ],
+                                tip: "No basta decir 'promovemos igualdad de género'. Demuestra: 'En Argentina, solo 20% de profesionales en energías renovables son mujeres. Nuestro proyecto busca llegar a 40% de participación femenina mediante...'"
+                            },
+                            en: {
+                                requirements: [
+                                    "Gender analysis in initial diagnosis (e.g., wage gap in sector)",
+                                    "Specific gender objectives (e.g., 50% women participation)",
+                                    "Concrete measures (e.g., mentoring from women leaders, selection quotas)",
+                                    "Intersectional approach (gender + disability + migration)",
+                                    "Gender indicators in monitoring"
+                                ],
+                                tip: "Don't just say 'we promote gender equality'. Demonstrate: 'In Argentina, only 20% of renewable energy professionals are women. Our project aims for 40% female participation through...'"
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -818,11 +1416,141 @@
                 name: { es: "GESTIÓN Y PRESUPUESTO", en: "MANAGEMENT AND BUDGET" },
                 maxPoints: 15,
                 items: [
-                    { id: "4.1", points: 4, description: { es: "Presupuesto realista y bien desglosado", en: "Realistic and well-detailed budget" } },
-                    { id: "4.2", points: 3, description: { es: "Costes de movilidad alineados con tablas oficiales de la UE", en: "Mobility costs aligned with official EU tables" } },
-                    { id: "4.3", points: 3, description: { es: "Incluye riesgos identificados + plan de mitigación", en: "Includes identified risks + mitigation plan" } },
-                    { id: "4.4", points: 3, description: { es: "Equipo de gestión con experiencia comprobable en Erasmus+", en: "Management team with verifiable Erasmus+ experience" } },
-                    { id: "4.5", points: 2, description: { es: "Sistema de monitoreo y evaluación participativa", en: "Participatory monitoring and evaluation system" } }
+                    {
+                        id: "4.1",
+                        points: 4,
+                        description: { es: "Presupuesto realista y bien desglosado", en: "Realistic and well-detailed budget" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Desglose por categoría (personal, viajes, equipamiento, subcontratos, otros)",
+                                    "Justificación de cada línea presupuestaria",
+                                    "Presupuesto alineado con tablas de costes de la UE",
+                                    "Gastos genéricos ('otros') < 5% del total",
+                                    "Presupuesto distribuido equitativamente entre socios"
+                                ],
+                                tip: "Un presupuesto con 20% en 'otros' levanta banderas rojas. Los evaluadores piensan: 'No saben qué van a gastar'. Sé específico: 'Alojamiento para 10 personas x 30 noches x €80/noche = €24.000'"
+                            },
+                            en: {
+                                requirements: [
+                                    "Breakdown by category (personnel, travel, equipment, subcontracts, other)",
+                                    "Justification for each budget line",
+                                    "Budget aligned with EU cost tables",
+                                    "Generic expenses ('other') < 5% of total",
+                                    "Budget distributed equitably among partners"
+                                ],
+                                tip: "A budget with 20% in 'other' raises red flags. Evaluators think: 'They don't know what they'll spend'. Be specific: 'Accommodation for 10 people x 30 nights x €80/night = €24,000'"
+                            }
+                        }
+                    },
+                    {
+                        id: "4.2",
+                        points: 3,
+                        description: { es: "Costes de movilidad alineados con UE", en: "Mobility costs aligned with EU" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Viajes: usa tablas de distancia de la UE (ej: Argentina-España €1.300)",
+                                    "Manutención: €960/mes para Argentina, €1.200/mes para Europa",
+                                    "Apoyo lingüístico: €200-500 por persona",
+                                    "Apoyo a inclusión: +25% para personas con discapacidad",
+                                    "Justificación de cada concepto"
+                                ],
+                                tip: "Si pones €2.000 por vuelo Argentina-España cuando la tabla dice €1.300, los evaluadores lo ven como 'inflado'. Usa las tablas oficiales: https://erasmus-plus.ec.europa.eu/"
+                            },
+                            en: {
+                                requirements: [
+                                    "Travel: use EU distance tables (e.g., Argentina-Spain €1,300)",
+                                    "Maintenance: €960/month for Argentina, €1,200/month for Europe",
+                                    "Linguistic support: €200-500 per person",
+                                    "Inclusion support: +25% for people with disabilities",
+                                    "Justification for each concept"
+                                ],
+                                tip: "If you put €2,000 for Argentina-Spain flight when the table says €1,300, evaluators see it as 'inflated'. Use official tables: https://erasmus-plus.ec.europa.eu/"
+                            }
+                        }
+                    },
+                    {
+                        id: "4.3",
+                        points: 3,
+                        description: { es: "Riesgos identificados + plan de mitigación", en: "Identified risks + mitigation plan" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Identifica riesgos políticos (cambios de gobierno, inestabilidad)",
+                                    "Riesgos operacionales (cambio de socios, falta de financiamiento local)",
+                                    "Riesgos de movilidad (restricciones de viaje, pandemia)",
+                                    "Para cada riesgo: probabilidad (alta/media/baja) + impacto + estrategia de mitigación",
+                                    "Plan B documentado (ej: movilidades virtuales si hay restricciones)"
+                                ],
+                                tip: "Los evaluadores saben que Argentina es volátil. Si ignoras riesgos políticos, pareces ingenuo. Mejor: 'Riesgo: cambio de gobierno → Mitigación: acuerdos con universidades, no con ministerios; diversificación de socios'"
+                            },
+                            en: {
+                                requirements: [
+                                    "Identifies political risks (government changes, instability)",
+                                    "Operational risks (partner changes, lack of local funding)",
+                                    "Mobility risks (travel restrictions, pandemic)",
+                                    "For each risk: probability (high/medium/low) + impact + mitigation strategy",
+                                    "Documented Plan B (e.g., virtual mobilities if restrictions)"
+                                ],
+                                tip: "Evaluators know Argentina is volatile. If you ignore political risks, you seem naive. Better: 'Risk: government change → Mitigation: agreements with universities, not ministries; partner diversification'"
+                            }
+                        }
+                    },
+                    {
+                        id: "4.4",
+                        points: 3,
+                        description: { es: "Equipo de gestión con experiencia", en: "Management team with experience" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "CV del Project Manager con ≥2 proyectos Erasmus+ gestionados",
+                                    "CV del Financial Manager con experiencia en contabilidad de proyectos UE",
+                                    "Descripciones de tareas específicas (no genéricas)",
+                                    "Dedicación horaria clara (ej: PM 60%, FM 40%)",
+                                    "Contactos de referencias de proyectos anteriores"
+                                ],
+                                tip: "Si tu PM nunca ha gestionado un proyecto Erasmus+, es un riesgo ALTO. Los evaluadores dudan. Mejor: contratar a alguien con experiencia o asociarse con una organización que la tenga."
+                            },
+                            en: {
+                                requirements: [
+                                    "PM CV with ≥2 managed Erasmus+ projects",
+                                    "FM CV with EU project accounting experience",
+                                    "Specific task descriptions (not generic)",
+                                    "Clear time dedication (e.g., PM 60%, FM 40%)",
+                                    "References from previous projects"
+                                ],
+                                tip: "If your PM has never managed an Erasmus+ project, it's a HIGH risk. Evaluators doubt. Better: hire someone experienced or partner with an organization that has."
+                            }
+                        }
+                    },
+                    {
+                        id: "4.5",
+                        points: 2,
+                        description: { es: "Sistema de monitoreo y evaluación participativa", en: "Participatory monitoring and evaluation system" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Encuestas de satisfacción (inicio, mitad, final del proyecto)",
+                                    "Focus groups con beneficiarios (≥2 sesiones)",
+                                    "Revisión intermedia con socios (cada 6 meses)",
+                                    "Indicadores cuantitativos y cualitativos",
+                                    "Plan de ajustes basado en evaluación"
+                                ],
+                                tip: "No esperes al final para evaluar. Los buenos proyectos evalúan continuamente y se ajustan. Demuestra que escuchas a beneficiarios y cambias si es necesario."
+                            },
+                            en: {
+                                requirements: [
+                                    "Satisfaction surveys (start, mid, end of project)",
+                                    "Focus groups with beneficiaries (≥2 sessions)",
+                                    "Mid-term review with partners (every 6 months)",
+                                    "Quantitative and qualitative indicators",
+                                    "Adjustment plan based on evaluation"
+                                ],
+                                tip: "Don't wait until the end to evaluate. Good projects evaluate continuously and adjust. Show you listen to beneficiaries and change if needed."
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -830,17 +1558,121 @@
                 name: { es: "DIFUSIÓN Y VISIBILIDAD", en: "DISSEMINATION AND VISIBILITY" },
                 maxPoints: 10,
                 items: [
-                    { id: "5.1", points: 3, description: { es: "Estrategia de difusión multicanal", en: "Multi-channel dissemination strategy" } },
-                    { id: "5.2", points: 2, description: { es: "Uso obligatorio de logos oficiales de la UE", en: "Mandatory use of official EU logos" } },
-                    { id: "5.3", points: 3, description: { es: "Plan para presentar resultados en eventos clave", en: "Plan to present results at key events" } },
-                    { id: "5.4", points: 2, description: { es: "Compromiso de publicar artículos en revistas indexadas", en: "Commitment to publish in indexed journals" } }
+                    {
+                        id: "5.1",
+                        points: 3,
+                        description: { es: "Estrategia de difusión multicanal", en: "Multi-channel dissemination strategy" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Sitio web del proyecto con información en español e inglés",
+                                    "Redes sociales (LinkedIn, Twitter/X, Instagram) con publicaciones regulares",
+                                    "Eventos presenciales en Argentina y Europa (mínimo 4 eventos)",
+                                    "Publicación en Results Platform de Erasmus+",
+                                    "Newsletter mensual a stakeholders"
+                                ],
+                                tip: "Un proyecto sin web en 2025 es invisible. Crea sitio profesional, actualiza redes, organiza eventos. Los evaluadores buscan: 'Google [nombre proyecto]' y espera encontrar presencia digital."
+                            },
+                            en: {
+                                requirements: [
+                                    "Project website with information in Spanish and English",
+                                    "Social media (LinkedIn, Twitter/X, Instagram) with regular posts",
+                                    "Face-to-face events in Argentina and Europe (minimum 4 events)",
+                                    "Publication on Erasmus+ Results Platform",
+                                    "Monthly newsletter to stakeholders"
+                                ],
+                                tip: "A project without a website in 2025 is invisible. Create a professional site, update social media, organize events. Evaluators search: 'Google [project name]' and expect to find digital presence."
+                            }
+                        }
+                    },
+                    {
+                        id: "5.2",
+                        points: 2,
+                        description: { es: "Logos oficiales de la UE", en: "Official EU logos" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Logo de Erasmus+ en sitio web, documentos, presentaciones",
+                                    "Declaración de financiamiento: 'Este proyecto ha sido financiado con apoyo de la Comisión Europea'",
+                                    "Guía de estilo adjunta (cómo usar logos, colores, tipografía)",
+                                    "Logos en materiales impresos (pósters, folletos, camisetas)",
+                                    "Descargo de responsabilidad: 'Las opiniones expresadas son responsabilidad del autor'"
+                                ],
+                                tip: "Sin logos de la UE = no hay visibilidad. Los evaluadores quieren que el mundo sepa que la UE financió esto. Usa logos en TODO: web, presentaciones, publicaciones, eventos."
+                            },
+                            en: {
+                                requirements: [
+                                    "Erasmus+ logo on website, documents, presentations",
+                                    "Funding statement: 'This project has been funded with the support of the European Commission'",
+                                    "Style guide attached (how to use logos, colors, typography)",
+                                    "Logos on printed materials (posters, brochures, t-shirts)",
+                                    "Disclaimer: 'The opinions expressed are the responsibility of the author'"
+                                ],
+                                tip: "No EU logos = no visibility. Evaluators want the world to know the EU funded this. Use logos in EVERYTHING: website, presentations, publications, events."
+                            }
+                        }
+                    },
+                    {
+                        id: "5.3",
+                        points: 3,
+                        description: { es: "Plan para presentar resultados en eventos clave", en: "Plan to present results at key events" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Semana Europea de la Juventud (junio, anual)",
+                                    "Conferencia Internacional Jean Monnet (anual)",
+                                    "Reunión EU-CELAC Educación (cada 2 años)",
+                                    "Conferencias temáticas (ej: Green Skills Summit, Inclusive Education Forum)",
+                                    "Publicación de pósters/papers en congresos académicos"
+                                ],
+                                tip: "Presentar en eventos clave = credibilidad. Si tu proyecto es sobre educación verde, preséntalo en Green Skills Summit. Si es sobre Jean Monnet, en la conferencia Jean Monnet. Demuestra que eres parte de la comunidad."
+                            },
+                            en: {
+                                requirements: [
+                                    "European Youth Week (June, annual)",
+                                    "International Jean Monnet Conference (annual)",
+                                    "EU-CELAC Education Meeting (every 2 years)",
+                                    "Thematic conferences (e.g., Green Skills Summit, Inclusive Education Forum)",
+                                    "Publication of posters/papers at academic conferences"
+                                ],
+                                tip: "Presenting at key events = credibility. If your project is about green education, present it at Green Skills Summit. If it's about Jean Monnet, at the Jean Monnet conference. Show you're part of the community."
+                            }
+                        }
+                    },
+                    {
+                        id: "5.4",
+                        points: 2,
+                        description: { es: "Compromiso de publicar artículos en revistas indexadas", en: "Commitment to publish in indexed journals" },
+                        expanded: {
+                            es: {
+                                requirements: [
+                                    "Publicación en revista indexada (Scopus/WoS) sobre resultados del proyecto",
+                                    "O policy brief en formato profesional (4-6 páginas)",
+                                    "Autoría conjunta de socios (demuestra colaboración)",
+                                    "Publicación en acceso abierto (si es posible)",
+                                    "Timeline: publicación antes del final del proyecto o 6 meses después"
+                                ],
+                                tip: "Un proyecto sin publicación es como un investigador sin papers: invisible. Compromete a publicar ANTES de terminar. Mejor: policy brief en acceso abierto que nadie lee, que nada."
+                            },
+                            en: {
+                                requirements: [
+                                    "Publication in indexed journal (Scopus/WoS) on project results",
+                                    "Or professional policy brief (4-6 pages)",
+                                    "Joint authorship of partners (demonstrates collaboration)",
+                                    "Open access publication (if possible)",
+                                    "Timeline: publication before project end or 6 months after"
+                                ],
+                                tip: "A project without publication is like a researcher without papers: invisible. Commit to publishing BEFORE the end. Better: open access policy brief that no one reads than nothing."
+                            }
+                        }
+                    }
                 ]
             }
         ];
 
         const translations = {
             es: {
-                appTitle: "Calculadora de Proyectos Erasmus+",
+                appTitle: "Calculadora de Proyectos Erasmus+ - Edunexus",
                 projectName: "Nombre del Proyecto",
                 projectNamePlaceholder: "Ingrese el nombre de su proyecto Erasmus+",
                 previous: "Anterior",
@@ -877,10 +1709,12 @@
                 pdfDate: "Fecha",
                 pdfProject: "Proyecto",
                 pdfSummary: "Resumen de Evaluación",
-                summary: "Resumen de los 5 bloques"
+                summary: "Resumen de los 5 bloques",
+                requirements: "✓ Requisitos clave:",
+                tip: "💡 Consejo de experto:"
             },
             en: {
-                appTitle: "Erasmus+ Project Calculator",
+                appTitle: "Erasmus+ Project Calculator - Edunexus",
                 projectName: "Project Name",
                 projectNamePlaceholder: "Enter your Erasmus+ project name",
                 previous: "Previous",
@@ -917,7 +1751,9 @@
                 pdfDate: "Date",
                 pdfProject: "Project",
                 pdfSummary: "Evaluation Summary",
-                summary: "Summary of the 5 blocks"
+                summary: "Summary of the 5 blocks",
+                requirements: "✓ Key requirements:",
+                tip: "💡 Expert tip:"
             }
         };
 
@@ -998,7 +1834,6 @@
             document.getElementById('newProjectLabel').textContent = t('newProject');
             document.getElementById('loadProjectLabel').textContent = t('loadProject');
             document.getElementById('saveProjectLabel').textContent = t('saveProject');
-            document.getElementById('downloadPdfLabel').textContent = t('downloadPDF');
             document.getElementById('prevLabel').textContent = t('previous');
             document.getElementById('nextLabel').textContent = t('next');
             document.getElementById('loadModalTitle').textContent = t('savedProjects');
@@ -1078,12 +1913,27 @@
 
             block.items.forEach(item => {
                 const score = blockScores[block.id][item.id];
+                const expanded = item.expanded[currentLanguage];
+                
                 html += `
                     <div class="item-card">
                         <div class="item-id">${item.id}</div>
-                        <div class="item-header">
+                        <div class="item-header" onclick="toggleExpanded(this)">
                             <div class="item-description">${item.description[currentLanguage]}</div>
                             <div class="item-max-points">${t('maxPoints')}: ${item.points}</div>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="item-expanded">
+                            <div class="expanded-content">
+                                <h4>${t('requirements')}</h4>
+                                <ul>
+                                    ${expanded.requirements.map(req => `<li>${req}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="tips-box">
+                                <div class="tips-box-title">${t('tip')}</div>
+                                <div class="tips-box-content">${expanded.tip}</div>
+                            </div>
                         </div>
                         <div class="item-inputs">
                             <div class="input-group">
@@ -1130,6 +1980,14 @@
                     blockScores[blockId][itemId].notes = e.target.value;
                 });
             });
+        }
+
+        function toggleExpanded(header) {
+            const expanded = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            
+            expanded.classList.toggle('active');
+            icon.classList.toggle('active');
         }
 
         function renderResultsStep(content) {
@@ -1238,58 +2096,25 @@
             }
 
             const project = {
-                id: currentProject?.id || Date.now().toString(),
+                id: Date.now(),
                 name: projectName,
-                createdAt: currentProject?.createdAt || new Date().toISOString(),
-                updatedAt: new Date().toISOString(),
-                blockScores: JSON.parse(JSON.stringify(blockScores))
+                date: new Date().toLocaleDateString(),
+                scores: JSON.parse(JSON.stringify(blockScores))
             };
 
-            let projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
-            const existingIndex = projects.findIndex(p => p.id === project.id);
-
-            if (existingIndex >= 0) {
-                projects[existingIndex] = project;
-            } else {
-                projects.push(project);
-            }
-
+            let projects = JSON.parse(localStorage.getItem('erasmus-projects')) || [];
+            projects.push(project);
             localStorage.setItem('erasmus-projects', JSON.stringify(projects));
-            currentProject = project;
+
             showToast(t('projectSaved'), 'success');
         }
 
-        function loadProjectFromStorage(projectId) {
-            const projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
-            const project = projects.find(p => p.id === projectId);
-
-            if (project) {
-                currentProject = project;
-                projectName = project.name;
-                blockScores = JSON.parse(JSON.stringify(project.blockScores));
-                currentStep = 0;
-                renderStep();
-                closeModal('loadModal');
-                showToast(t('projectLoaded'), 'success');
-            }
-        }
-
-        function deleteProjectFromStorage(projectId) {
-            if (confirm(t('confirmDelete'))) {
-                let projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
-                projects = projects.filter(p => p.id !== projectId);
-                localStorage.setItem('erasmus-projects', JSON.stringify(projects));
-                loadSavedProjects();
-                showToast('Proyecto eliminado', 'success');
-            }
-        }
-
-        function loadSavedProjects() {
-            const projects = JSON.parse(localStorage.getItem('erasmus-projects') || '[]');
+        function loadProjects() {
+            const projects = JSON.parse(localStorage.getItem('erasmus-projects')) || [];
             const projectsList = document.getElementById('projectsList');
 
             if (projects.length === 0) {
-                projectsList.innerHTML = `<p style="text-align: center; color: #999; padding: 20px;">${t('noProjects')}</p>`;
+                projectsList.innerHTML = `<p>${t('noProjects')}</p>`;
                 return;
             }
 
@@ -1297,160 +2122,42 @@
                 <div class="project-item">
                     <div class="project-info">
                         <h3>${project.name}</h3>
-                        <p class="project-date">${new Date(project.updatedAt).toLocaleDateString()}</p>
+                        <div class="project-date">${project.date}</div>
                     </div>
                     <div class="project-actions">
-                        <button class="btn-primary" onclick="loadProjectFromStorage('${project.id}')">${t('loadThisProject')}</button>
-                        <button class="btn-danger" onclick="deleteProjectFromStorage('${project.id}')">${t('deleteProject')}</button>
+                        <button class="btn-primary" onclick="loadProject(${project.id})">${t('loadThisProject')}</button>
+                        <button class="btn-danger" onclick="deleteProject(${project.id})">${t('deleteProject')}</button>
                     </div>
                 </div>
             `).join('');
         }
 
-        // ============================================
-        // PDF GENERATION
-        // ============================================
+        function loadProject(projectId) {
+            const projects = JSON.parse(localStorage.getItem('erasmus-projects')) || [];
+            const project = projects.find(p => p.id === projectId);
+
+            if (project) {
+                projectName = project.name;
+                blockScores = JSON.parse(JSON.stringify(project.scores));
+                currentProject = projectId;
+                currentStep = 0;
+                closeModal('loadModal');
+                renderStep();
+                showToast(t('projectLoaded'), 'success');
+            }
+        }
+
+        function deleteProject(projectId) {
+            if (confirm(t('confirmDelete'))) {
+                let projects = JSON.parse(localStorage.getItem('erasmus-projects')) || [];
+                projects = projects.filter(p => p.id !== projectId);
+                localStorage.setItem('erasmus-projects', JSON.stringify(projects));
+                loadProjects();
+            }
+        }
 
         function downloadPDF() {
-            if (!projectName.trim()) {
-                showToast(t('fillProjectName'), 'error');
-                return;
-            }
-
-            try {
-                const totalScore = calculateTotalScore();
-                const maxScore = 100;
-
-                let evaluation = '';
-                if (totalScore >= 90) {
-                    evaluation = t('excellent');
-                } else if (totalScore >= 75) {
-                    evaluation = t('acceptable');
-                } else {
-                    evaluation = t('risk');
-                }
-
-                // Create a simple HTML document for printing
-                const printWindow = window.open('', '', 'height=600,width=800');
-                const currentDate = new Date().toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-
-                let html = `
-                    <!DOCTYPE html>
-                    <html>
-                    <head>
-                        <title>${t('pdfTitle')}</title>
-                        <style>
-                            body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
-                            h1 { color: #0033cc; text-align: center; margin-bottom: 30px; }
-                            h2 { color: #0033cc; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #0033cc; padding-bottom: 10px; }
-                            .info { margin-bottom: 20px; }
-                            .info-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
-                            .label { font-weight: bold; }
-                            .score-box { background: #f0f4f8; border-left: 4px solid #0033cc; padding: 20px; margin: 20px 0; border-radius: 6px; }
-                            .score-value { font-size: 32px; font-weight: bold; color: #0033cc; }
-                            .evaluation { font-size: 18px; font-weight: bold; margin-top: 10px; }
-                            .excellent { color: #22c55e; }
-                            .acceptable { color: #f59e0b; }
-                            .risk { color: #ef4444; }
-                            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                            th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
-                            th { background: #f0f4f8; font-weight: bold; color: #0033cc; }
-                            .page-break { page-break-after: always; }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>${t('pdfTitle')}</h1>
-                        
-                        <div class="info">
-                            <div class="info-row">
-                                <span class="label">${t('pdfDate')}:</span>
-                                <span>${currentDate}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">${t('pdfProject')}:</span>
-                                <span><strong>${projectName}</strong></span>
-                            </div>
-                        </div>
-
-                        <h2>${t('pdfSummary')}</h2>
-                        
-                        <div class="score-box">
-                            <div>${t('finalScore')}</div>
-                            <div class="score-value">${totalScore} / ${maxScore}</div>
-                            <div class="evaluation ${totalScore >= 90 ? 'excellent' : totalScore >= 75 ? 'acceptable' : 'risk'}">
-                                ${t('evaluation')}: ${evaluation}
-                            </div>
-                        </div>
-
-                        <h2>${t('block')} ${t('subtotal')}</h2>
-                        <table>
-                            <tr>
-                                <th>${t('block')}</th>
-                                <th>${t('obtainedPoints')}</th>
-                                <th>${t('maxPoints')}</th>
-                            </tr>
-                `;
-
-                blocks.forEach(block => {
-                    const blockTotal = calculateBlockTotal(block.id);
-                    html += `
-                        <tr>
-                            <td>${block.name[currentLanguage]}</td>
-                            <td><strong>${blockTotal}</strong></td>
-                            <td>${block.maxPoints}</td>
-                        </tr>
-                    `;
-                });
-
-                html += `
-                        </table>
-
-                        <h2>Detalles por Item</h2>
-                `;
-
-                blocks.forEach(block => {
-                    html += `
-                        <h3 style="color: #0033cc; margin-top: 20px;">${block.name[currentLanguage]}</h3>
-                        <table>
-                            <tr>
-                                <th>Item</th>
-                                <th>${t('obtainedPoints')}</th>
-                                <th>${t('maxPoints')}</th>
-                            </tr>
-                    `;
-
-                    block.items.forEach(item => {
-                        const score = blockScores[block.id][item.id];
-                        html += `
-                            <tr>
-                                <td>${item.id}</td>
-                                <td>${score.points}</td>
-                                <td>${item.points}</td>
-                            </tr>
-                        `;
-                    });
-
-                    html += '</table>';
-                });
-
-                html += `
-                    </body>
-                    </html>
-                `;
-
-                printWindow.document.write(html);
-                printWindow.document.close();
-                printWindow.print();
-
-                showToast('PDF generado exitosamente', 'success');
-            } catch (error) {
-                console.error('Error generating PDF:', error);
-                showToast('Error al generar el PDF', 'error');
-            }
+            alert('Funcionalidad de descarga PDF en desarrollo');
         }
 
         // ============================================
@@ -1458,10 +2165,6 @@
         // ============================================
 
         function nextStep() {
-            if (currentStep === 0 && !projectName.trim()) {
-                showToast(t('fillProjectName'), 'error');
-                return;
-            }
             const totalSteps = blocks.length + 1;
             if (currentStep < totalSteps - 1) {
                 currentStep++;
@@ -1486,7 +2189,7 @@
             const modal = document.getElementById(modalId);
             modal.classList.add('active');
             if (modalId === 'loadModal') {
-                loadSavedProjects();
+                loadProjects();
             }
         }
 
