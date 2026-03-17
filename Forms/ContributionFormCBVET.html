@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contribución - Erasmus+ Capacity Building</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f2f2f2;
+            margin: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #003399;
+            margin-bottom: 10px;
+            font-size: 26px;
+            border-bottom: 2px solid #003399;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0066cc;
+            margin: 25px 0 10px;
+            font-size: 20px;
+            border-left: 6px solid #0066cc;
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 18px;
+            margin: 15px 0 5px;
+            color: #333;
+        }
+        .instruction-box {
+            background: #f9f9f9;
+            border: 1px dashed #999;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .instruction-box p {
+            margin: 5px 0;
+        }
+        .bilingual {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .bilingual > div {
+            flex: 1 1 250px;
+        }
+        .lang {
+            font-weight: bold;
+            color: #003399;
+        }
+        small {
+            font-size: 11px;
+            color: #666;
+        }
+        .campo {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        .label-small {
+            font-size: 12px;
+            font-weight: normal;
+            color: #444;
+        }
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            transition: border 0.2s;
+        }
+        input:focus, textarea:focus {
+            border-color: #0066cc;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,102,204,0.3);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .page-sim {
+            border: 2px dotted #aaa;
+            padding: 20px;
+            margin: 30px 0;
+            background: #fefefe;
+            page-break-inside: avoid;
+        }
+        .page-sim p.pagina {
+            text-align: right;
+            font-size: 12px;
+            color: #888;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .especialista {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+        }
+        .row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .col {
+            flex: 1 1 250px;
+        }
+        .button-print {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 10px;
+        }
+        .btn {
+            background: #003399;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid #002266;
+        }
+        .btn:hover {
+            background: #002266;
+        }
+        @media print {
+            body { background: white; margin: 0; }
+            .container { box-shadow: none; padding: 15px; max-width: 100%; }
+            .btn { display: none; }
+            .instruction-box { background: #f9f9f9; border: 1px solid #aaa; }
+            input, textarea { border: 1px solid black; background: transparent; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Erasmus+ Capacity Building Vocacional<br>Formulario de Aportación / Contribution Form</h1>
+
+    <!-- Instrucciones bilingües en letra pequeña -->
+    <div class="instruction-box">
+        <div class="bilingual">
+            <div>
+                <span class="lang">ESPAÑOL:</span>
+                <p><small>Complete este formulario con letra clara o digitalmente. Se esperan aproximadamente 3 páginas de contenido sustancial. Incluya ejemplos concretos y casos de éxito relacionados con la formación vocacional. Los campos marcados con * son obligatorios. Puede adjuntar hojas adicionales si lo necesita. Las instrucciones detalladas:</small></p>
+                <ul>
+                    <li><small>Datos del participante: nombre completo y PIC (Código de identificación de la organización).</small></li>
+                    <li><small>Especialistas: indique hasta tres personas clave, con un resumen de su CV (máx. 200 palabras cada uno).</small></li>
+                    <li><small>Contribución personal: describa cómo piensa aportar al proyecto desde su experiencia, incluya ejemplos de logros previos en proyectos similares, casos de éxito, lecciones aprendidas y cualquier idea innovadora. Extensión sugerida: 2-3 páginas.</small></li>
+                </ul>
+            </div>
+            <div>
+                <span class="lang">ENGLISH:</span>
+                <p><small>Fill out this form clearly or digitally. Approximately 3 pages of substantial content are expected. Include concrete examples and success stories related to vocational training. Fields marked with * are mandatory. You may attach additional sheets if needed. Detailed instructions:</small></p>
+                <ul>
+                    <li><small>Participant details: full name and PIC (Participant Identification Code).</small></li>
+                    <li><small>Specialists: list up to three key people, with a summary of their CV (max. 200 words each).</small></li>
+                    <li><small>Personal contribution: describe how you intend to contribute to the project from your perspective, including examples of previous achievements in similar projects, success stories, lessons learned, and any innovative ideas. Suggested length: 2-3 pages.</small></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 1: DATOS DEL PARTICIPANTE -->
+    <h2>1. Participante / Participant</h2>
+    <div class="row">
+        <div class="col">
+            <label>Nombre completo / Full name *</label>
+            <input type="text" placeholder="Ej. María García López" required>
+        </div>
+        <div class="col">
+            <label>PIC (Código de identificación) / Participant Identification Code *</label>
+            <input type="text" placeholder="Ej. 123456789" required>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 2: ESPECIALISTAS (hasta 3) -->
+    <h2>2. Especialistas involucrados / Specialists involved</h2>
+    <p class="label-small">Indique hasta tres especialistas que participarán y su CV resumido. / List up to three specialists who will participate and a summary of their CV.</p>
+
+    <!-- Especialista 1 -->
+    <div class="especialista">
+        <h3>Especialista 1 / Specialist 1</h3>
+        <div class="row">
+            <div class="col">
+                <label>Nombre / Name</label>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+            <div class="col">
+                <label>Rol / Role</label>
+                <input type="text" placeholder="Ej. Experto en formación dual">
+            </div>
+			<div class="col">
+                <label>@mail / @mail</label>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+			<div class="col">
+                <label>WhatsApps / WhatsApps Number</label>
+                <input type="text" placeholder="+5491112345678 completo">
+            </div>
+        </div>
+        <label>Resumen del CV / CV summary (máx. 200 palabras) </label>
+        <textarea rows="4" placeholder="Experiencia relevante, logros, publicaciones..."></textarea>
+    </div>
+
+    <!-- Especialista 2 -->
+    <div class="especialista">
+        <h3>Especialista 2 / Specialist 2 Mandatory</h3>
+        <div class="row">
+            <div class="col">
+                <label>Nombre / Name</label>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+            <div class="col">
+                <label>Rol / Role</label>
+                <input type="text" placeholder="Ej. Coordinador de movilidad">
+            </div>
+						<div class="col">
+                <label>@mail / @mail</label>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+			<div class="col">
+                <label>WhatsApps / WhatsApps Number</label>
+                <input type="text" placeholder="+5491112345678 completo">
+            </div>
+        </div>
+        <label>Resumen del CV / CV summary</label>
+        <textarea rows="4" placeholder="..."></textarea>
+    </div>
+
+    <!-- Especialista 3 -->
+    <div class="especialista">
+        <h3>Especialista 3 / Specialist 3 (opcional / optional)</h3>
+        <div class="row">
+            <div class="col">
+                <label>Nombre / Name</label>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+            <div class="col">
+                <label>Rol / Role</label>
+                <input type="text" placeholder="Ej. Experto en evaluación">
+            </div>
+						<div class="col">
+                <label>@mail / @mail</label>
+                <input type="text" placeholder="Nombre completo">
+            </div>
+			<div class="col">
+                <label>WhatsApps / WhatsApps Number</label>
+                <input type="text" placeholder="+5491112345678 completo">
+            </div>
+        </div>
+        <label>Resumen del CV / CV summary</label>
+        <textarea rows="4" placeholder="..."></textarea>
+    </div>
+
+    <!-- SECCIÓN 3: CONTRIBUCIÓN Y CASOS DE ÉXITO (3 PÁGINAS SIMULADAS) -->
+    <h2>3. Contribución personal y casos de éxito / Personal contribution & success stories</h2>
+    <p class="label-small">Describa detalladamente cómo piensa contribuir al proyecto. Incluya ejemplos de experiencias previas, casos de éxito, lecciones aprendidas y cualquier idea innovadora. Utilice las siguientes páginas (aproximadamente 3 hojas). / Describe in detail how you intend to contribute to the project. Include examples of previous experiences, success stories, lessons learned and any innovative ideas. Use the following pages (approximately 3 sheets).</p>
+
+    <!-- Página 1 simulada -->
+    <div class="page-sim">
+        <p class="pagina">Página 1 de 3 / Page 1 of 3</p>
+        <textarea rows="18" placeholder="Escriba aquí su contribución (parte 1) / Write your contribution here (part 1)"></textarea>
+    </div>
+
+    <!-- Página 2 simulada -->
+    <div class="page-sim">
+        <p class="pagina">Página 2 de 3 / Page 2 of 3</p>
+        <textarea rows="18" placeholder="Escriba aquí su contribución (parte 2) / Write your contribution here (part 2)"></textarea>
+    </div>
+
+    <!-- Página 3 simulada -->
+    <div class="page-sim">
+        <p class="pagina">Página 3 de 3 / Page 3 of 3</p>
+        <textarea rows="18" placeholder="Escriba aquí su contribución (parte 3) / Write your contribution here (part 3)"></textarea>
+    </div>
+
+    <!-- Sección extra para ejemplos destacados (opcional) -->
+    <h2>4. Ejemplos adicionales / Additional examples (opcional)</h2>
+    <div style="margin-bottom: 20px;">
+        <textarea rows="8" placeholder="Si necesita más espacio para describir casos de éxito o ejemplos concretos, utilice esta área. / If you need more space to describe success stories or concrete examples, use this area."></textarea>
+    </div>
+
+    <!-- Botón para imprimir / guardar PDF -->
+    <div class="button-print">
+        <button class="btn" onclick="window.print()">📄 Guardar como PDF Subir a la Carpeta Compartida - Upload to Shared Folder / Imprimir - Print</button>
+    </div>
+
+    <p style="text-align: center; font-size: 12px; color: #777; margin-top: 30px;">Erasmus+ Capacity Building Vocacional – Formulario de aportación v1.0<br>Puede guardar esta página como PDF usando el botón superior. Para Word, copie el contenido o imprima y guarde como .doc.</p>
+</div>
+
+<script>
+    // Opcional: ajustar altura automática de textareas (no necesario, pero mejora experiencia)
+    // No se implementa para mantener simplicidad.
+</script>
+
+</body>
+</html>
