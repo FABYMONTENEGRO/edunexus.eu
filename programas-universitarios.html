@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Programs — EduNexusLingo</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sparkles" id="sparkles"></div>
+
+  <header>
+    <div class="logo-group">
+      <a href="index-EduNexusLingo.html" class="logo">
+        <img src="img/EduLingo-1.jpg" alt="EduNexusLingo Logo">
+      </a>
+      <a href="https://www.Edunexuslingo.com/LingoPok/index.html" class="logo">
+        <img src="img/pok.png" alt="POK">
+      </a>
+    </div>
+    <div class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="mainNav">
+      <div class="lang-selector">
+        <img src="https://flagcdn.com/w40/es.png" class="lang-flag active" data-lang="es" onclick="changeLanguage('es')" alt="ES">
+        <img src="https://flagcdn.com/w40/gb.png" class="lang-flag" data-lang="en" onclick="changeLanguage('en')" alt="EN">
+        <img src="https://flagcdn.com/w40/fr.png" class="lang-flag" data-lang="fr" onclick="changeLanguage('fr')" alt="FR">
+        <img src="https://flagcdn.com/w40/cn.png" class="lang-flag" data-lang="zh" onclick="changeLanguage('zh')" alt="ZH">
+        <img src="https://flagcdn.com/w40/gr.png" class="lang-flag" data-lang="el" onclick="changeLanguage('el')" alt="EL">
+        <img src="https://flagcdn.com/w40/ua.png" class="lang-flag" data-lang="uk" onclick="changeLanguage('uk')" alt="UK">
+        <img src="https://flagcdn.com/w40/mn.png" class="lang-flag" data-lang="mn" onclick="changeLanguage('mn')" alt="MN">
+        <img src="https://flagcdn.com/w40/jp.png" class="lang-flag" data-lang="ja" onclick="changeLanguage('ja')" alt="JP">
+      </div>
+      <a href="index-EduNexusLingo.html#inicio" data-i18n="nav_home">Start</a>
+      <a href="index-EduNexusLingo.html#destinos" data-i18n="nav_destinations">Destinations</a>
+      <a href="index-EduNexusLingo.html#precios" data-i18n="nav_prices">Prices</a>
+      <a href="index-EduNexusLingo.html#contacto" class="btn-contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="min-height: 60vh;">
+    <div class="hero-content">
+      <h1 data-i18n="bridge_h1">Our University Programs in each country</h1>
+      <p data-i18n="bridge_p">Select your dream destination to begin your university education.</p>
+    </div>
+  </section>
+
+  <section id="destinos" style="padding: 6rem 5%; background: var(--ivory);">
+    <div class="destinos-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <!-- Irlanda -->
+      <div class="destino-item fade-in" onclick="window.location.href='universidad.irlanda.html'" style="cursor: pointer;">
+        <img src="img/ireland-pubs-exg6C2oexUAKjvK6kmYnQ3.webp" alt="Irlanda" loading="lazy">
+        <div class="destino-overlay">
+          <span class="dest-badge" data-i18n="dest_badge_ireland">Emerald Island</span>
+          <h3 data-i18n="dest_ireland_h3">Ireland</h3>
+          <p data-i18n="ireland_p">Recognized as the best in Europe.</p>
+        </div>
+      </div>
+      <!-- Inglaterra -->
+      <div class="destino-item fade-in" onclick="window.location.href='universidad.inglaterra.html'" style="cursor: pointer;">
+        <img src="img/london-success-HGUcQo6Qdw6Pi3VwciHoGw.webp" alt="Inglaterra" loading="lazy">
+        <div class="destino-overlay">
+          <span class="dest-badge" data-i18n="dest_badge_london">Reino Unido</span>
+          <h3 data-i18n="dest_england_h3">England</h3>
+          <p data-i18n="england_p">Long British tradition of academic excellence...</p>
+        </div>
+      </div>
+      <!-- Estados Unidos -->
+      <div class="destino-item fade-in" onclick="window.location.href='universidad.usa.html'" style="cursor: pointer;">
+        <img src="img/NY1.jpg" alt="Estados Unidos" loading="lazy">
+        <div class="destino-overlay">
+          <span class="dest-badge" data-i18n="dest_badge_usa">America</span>
+          <h3 data-i18n="dest_usa_h3">United States</h3>
+          <p data-i18n="usa_p">The American dream exists, come and get it</p>
+        </div>
+      </div>
+      <!-- España -->
+      <div class="destino-item fade-in" onclick="window.location.href='universidad.espana.html'" style="cursor: pointer;">
+        <img src="img/malta-experience-bzTgddDa5z9JB8RhwkDAfs.webp" alt="España" loading="lazy">
+        <div class="destino-overlay">
+          <span class="dest-badge" data-i18n="dest_badge_spain">Europa</span>
+          <h3 data-i18n="dest_spain_h3">Espain</h3>
+          <p data-i18n="spain_p">Create your Vocational Training (VET) qualification. Obtain your Study and Work Visa...</p>
+        </div>
+      </div>
+      <!-- Malta -->
+      <div class="destino-item fade-in" onclick="window.location.href='universidad.malta.html'" style="cursor: pointer;">
+        <img src="img/malta1.jpg" alt="Malta" loading="lazy">
+        <div class="destino-overlay">
+          <span class="dest-badge" data-i18n="dest_badge_malta">Mediterranean</span>
+          <h3 data-i18n="dest_malta_h3">Malta</h3>
+          <p data-i18n="malta_p">Vive el sol y la historia en el corazón del Mediterráneo...</p>
+        </div>
+      </div>
+      <!-- Chipre -->
+      <div class="destino-item fade-in" onclick="window.location.href='universidad.chipre.html'" style="cursor: pointer;">
+        <img src="img/chipre1.jpg" alt="Chipre" loading="lazy">
+        <div class="destino-overlay">
+          <span class="dest-badge" data-i18n="dest_badge_cyprus">Mediterráneo</span>
+          <h3 data-i18n="dest_cyprus_h3">Cyprus</h3>
+          <p data-i18n="cyprus_p">Academic excellence at competitive prices...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-bottom">
+        <p data-i18n="footer_rights">© 2026 EduNexusLingo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

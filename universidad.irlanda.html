@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degrees in Ireland — EduNexusLingo</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    :root {
+      --primary: #003366;
+      --secondary: #001f3f;
+      --accent: #d4af37;
+      --light: #fdfdfd;
+      --dark: #1a1a1a;
+      --white: #ffffff;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    /* ── PAGE HERO ── */
+    .ireland-course-header {
+      padding: 140px 5% 80px;
+      background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 31, 63, 0.85)), url('img/dublin.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+    }
+    .ireland-course-header h1 { font-size: clamp(2.3rem, 5vw, 4.5rem); margin-bottom: 1rem; }
+    .ireland-course-header p  { max-width: 900px; margin: .35rem auto; font-size: 1.15rem; }
+
+    /* ── LOGO CAROUSEL ── */
+    .logos-carousel-section {
+      background: #fdfdfd;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+      overflow: hidden;
+      position: relative;
+      margin-top: 100px;
+    }
+    .logos-carousel-section::before,
+    .logos-carousel-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .logos-carousel-section::before { left: 0;  background: linear-gradient(to right, #fff 0%, transparent 100%); }
+    .logos-carousel-section::after  { right: 0; background: linear-gradient(to left,  #fff 0%, transparent 100%); }
+    .logos-track-wrapper { overflow: hidden; width: 100%; }
+    .logos-track {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      width: max-content;
+      animation: scrollLogos 55s linear infinite;
+    }
+    .logos-track:hover { animation-play-state: paused; }
+    @keyframes scrollLogos {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .logo-item {
+      flex-shrink: 0;
+      width: 160px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+      cursor: pointer;
+    }
+    .logo-item img {
+      max-width: 140px;
+      max-height: 75px;
+      object-fit: contain;
+      filter: grayscale(50%) brightness(0.65);
+      transition: filter .4s ease, transform .4s ease;
+    }
+    .logo-item:hover img { filter: grayscale(0%) brightness(1); transform: scale(1.13); }
+    .logo-item:hover { box-shadow: 0 6px 22px rgba(0,102,204,.18); background: #f0f7ff; transform: translateY(-3px); }
+
+    /* ── CONTENT ── */
+    .content-section { padding: 60px 5%; background-color: #f4f7f6; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .back-link { display: inline-block; margin-bottom: 20px; color: var(--primary); font-weight: 700; text-decoration: none; }
+    .section-title    { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: var(--dark); }
+    .section-subtitle { color: #666; margin-bottom: 28px; font-size: .95rem; }
+
+    /* ── FILTERS ── */
+    .filters { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 25px;
+      border: 1px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      cursor: pointer;
+      transition: all .3s;
+      font-weight: 700;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--primary); color: white; }
+
+    /* ── INSTITUTION GRID ── */
+    .institution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .institution-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .3s ease, box-shadow .3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .institution-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,.15); }
+    .card-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .card-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 800;
+    }
+    .card-content { padding: 20px; flex-grow: 1; }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .card-title img { max-width: 90px; max-height: 50px; object-fit: contain; margin-left: auto; }
+    .card-info { font-size: .88rem; color: #666; margin-bottom: 10px; }
+    .card-desc { font-size: .88rem; color: #555; line-height: 1.55; margin-bottom: 12px; }
+
+    /* ── MINI TABLE ── */
+    .card-table { width: 100%; border-collapse: collapse; font-size: .82rem; margin-top: 8px; }
+    .card-table th {
+      background: var(--primary);
+      color: white;
+      padding: 6px 10px;
+      text-align: left;
+      font-weight: 700;
+    }
+    .card-table td { padding: 5px 10px; border-bottom: 1px solid #eee; color: #444; }
+    .card-table tr:last-child td { border-bottom: none; }
+    .card-table tr:nth-child(even) td { background: #f5f8fc; }
+
+    .card-footer {
+      padding: 15px 20px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-card { padding: 8px 15px; border-radius: 6px; font-size: .85rem; font-weight: 700; text-decoration: none; transition: all .2s; }
+    .btn-more { background: var(--primary); color: white; }
+    .btn-more:hover { background: var(--secondary); }
+    .btn-web  { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+    .btn-web:hover { background: var(--primary); color: white; }
+
+    /* ── FEATURED STAR EFFECT ── */
+    .institution-card.is-featured { position: relative; overflow: hidden; }
+    .star-particle {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 10;
+      line-height: 1;
+      animation: starBurst 0.85s ease-out forwards;
+    }
+    @keyframes starBurst {
+      0%   { opacity: 1; transform: translate(0,0) scale(1.2); }
+      60%  { opacity: .8; }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,.7);
+      backdrop-filter: blur(8px);
+      display: none; justify-content: center; align-items: center;
+      z-index: 2000; opacity: 0;
+      transition: opacity .3s ease;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .modal-container {
+      background: white; width: 100%; max-width: 560px;
+      border-radius: 20px; position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,.3);
+      transform: scale(.8);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal-overlay.active .modal-container { transform: scale(1); }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 34px; height: 34px;
+      background: white; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      cursor: pointer; z-index: 10; font-size: 20px; font-weight: bold;
+      color: #333; border: none;
+    }
+    .modal-content .institution-card { box-shadow: none; border-radius: 0; transform: none !important; }
+
+    /* ── HEADER FLAGS ── */
+    .header-left { display: flex; align-items: center; gap: 15px; }
+    .header-flags { display: flex; gap: 8px; margin-left: 10px; align-items: center; }
+    .header-flags img {
+      width: 28px; height: 18px;
+      cursor: pointer; border-radius: 3px;
+      transition: transform .2s, border .2s;
+      border: 2px solid transparent;
+      object-fit: cover;
+    }
+    .header-flags img.active { border-color: var(--accent); transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .header-left { gap: 10px; }
+      .logo-group img { height: 35px !important; }
+      .header-flags img { width: 24px; height: 16px; }
+      .ireland-course-header h1 { font-size: 1.8rem; }
+      .institution-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles" id="sparkles"></div>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER  (same structure as ingles.irlanda.html)
+  ══════════════════════════════════════════════ -->
+  <header>
+    <div class="header-left">
+      <div class="logo-group">
+        <a href="index-EduNexusLingo.html" class="logo">
+          <img src="img/EduLingo-1.jpg" alt="EduNexusLingo Logo">
+        </a>
+        <a href="https://www.Edunexuslingo.com/LingoPok/index.html" class="logo">
+          <img src="img/pok.png" alt="POK">
+        </a>
+      </div>
+      <div class="header-flags">
+        <img src="https://flagcdn.com/w40/es.png" class="lang-flag" data-lang="es" onclick="window.changeLanguage('es')" alt="ES">
+        <img src="https://flagcdn.com/w40/gb.png" class="lang-flag" data-lang="en" onclick="window.changeLanguage('en')" alt="EN">
+      </div>
+    </div>
+    <div class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="mainNav">
+      <a href="index.html#inicio"    data-i18n="nav_home">Home</a>
+      <a href="index.html#destinos"  data-i18n="nav_destinations">Destinations</a>
+      <a href="index.html#precios"   data-i18n="nav_prices">Prices</a>
+      <a href="index.html#contacto"  class="btn-contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════════
+       LOGO CAROUSEL
+  ══════════════════════════════════════════════ -->
+  <section class="logos-carousel-section">
+    <div class="logos-track-wrapper">
+      <div class="logos-track" id="logosTrack">
+        <!-- First pass -->
+        <div class="logo-item" data-uni="ucd"><img src="img2/ucd.png" alt="UCD"></div>
+        <div class="logo-item" data-uni="tcd"><img src="img2/trinitycollege.png" alt="Trinity College Dublin"></div>
+        <div class="logo-item" data-uni="ucc"><img src="img2/ucc.png" alt="UCC"></div>
+        <div class="logo-item" data-uni="dcu"><img src="img2/dcu.png" alt="DCU"></div>
+        <div class="logo-item" data-uni="ul"><img src="img2/universityoflimerick.png" alt="University of Limerick"></div>
+        <div class="logo-item" data-uni="maynooth"><img src="img2/maynoothuniversity.png" alt="Maynooth University"></div>
+        <div class="logo-item" data-uni="nuig"><img src="img2/nuigalway.png" alt="NUI Galway"></div>
+        <div class="logo-item" data-uni="tudublin"><img src="img2/tudublin.png" alt="TU Dublin"></div>
+        <div class="logo-item" data-uni="atu"><img src="img2/atu.png" alt="ATU"></div>
+        <div class="logo-item" data-uni="mtu"><img src="img2/munstertechnologicaluniversity.png" alt="MTU"></div>
+        <div class="logo-item" data-uni="setu"><img src="img2/setu.png" alt="SETU"></div>
+        <div class="logo-item" data-uni="tus"><img src="img2/tus.png" alt="TUS"></div>
+        <div class="logo-item" data-uni="dkit"><img src="img2/dundalkinstituteoftechnology.png" alt="DKIT"></div>
+        <div class="logo-item" data-uni="rcsi"><img src="img2/rcsi.png" alt="RCSI"></div>
+        <div class="logo-item" data-uni="griffith"><img src="img2/griffithcollege.png" alt="Griffith College"></div>
+        <div class="logo-item" data-uni="dbs"><img src="img2/dbs.png" alt="DBS"></div>
+        <div class="logo-item" data-uni="nci"><img src="img2/nationalcollegeofireland.png" alt="NCI"></div>
+        <div class="logo-item" data-uni="ibat"><img src="img2/ibat.png" alt="IBAT"></div>
+        <div class="logo-item" data-uni="cct"><img src="img2/cct.png" alt="CCT College"></div>
+        <div class="logo-item" data-uni="difc"><img src="img2/difc.png" alt="DIFC"></div>
+        <div class="logo-item" data-uni="dorset"><img src="img2/dorsetcollege.png" alt="Dorset College"></div>
+        <div class="logo-item" data-uni="independent"><img src="img2/independentcollege.png" alt="Independent College"></div>
+        <div class="logo-item" data-uni="icd"><img src="img2/icdbusinessschool.png" alt="ICD Business School"></div>
+        <div class="logo-item" data-uni="citygroup"><img src="img2/cityeducationgroup.png" alt="City Education Group"></div>
+        <div class="logo-item" data-uni="holmes"><img src="img2/holmesInstitute.png" alt="Holmes Institute"></div>
+        <div class="logo-item" data-uni="gbs"><img src="img2/galwaybusinessschool.png" alt="Galway Business School"></div>
+        <div class="logo-item" data-uni="shannon"><img src="img2/shannoncollege.png" alt="Shannon College"></div>
+        <!-- Second pass (duplicate for infinite loop) -->
+        <div class="logo-item" data-uni="ucd"><img src="img2/ucd.png" alt="UCD"></div>
+        <div class="logo-item" data-uni="tcd"><img src="img2/trinitycollege.png" alt="Trinity College Dublin"></div>
+        <div class="logo-item" data-uni="ucc"><img src="img2/ucc.png" alt="UCC"></div>
+        <div class="logo-item" data-uni="dcu"><img src="img2/dcu.png" alt="DCU"></div>
+        <div class="logo-item" data-uni="ul"><img src="img2/universityoflimerick.png" alt="University of Limerick"></div>
+        <div class="logo-item" data-uni="maynooth"><img src="img2/maynoothuniversity.png" alt="Maynooth University"></div>
+        <div class="logo-item" data-uni="nuig"><img src="img2/nuigalway.png" alt="NUI Galway"></div>
+        <div class="logo-item" data-uni="tudublin"><img src="img2/tudublin.png" alt="TU Dublin"></div>
+        <div class="logo-item" data-uni="atu"><img src="img2/atu.png" alt="ATU"></div>
+        <div class="logo-item" data-uni="mtu"><img src="img2/munstertechnologicaluniversity.png" alt="MTU"></div>
+        <div class="logo-item" data-uni="setu"><img src="img2/setu.png" alt="SETU"></div>
+        <div class="logo-item" data-uni="tus"><img src="img2/tus.png" alt="TUS"></div>
+        <div class="logo-item" data-uni="dkit"><img src="img2/dundalkinstituteoftechnology.png" alt="DKIT"></div>
+        <div class="logo-item" data-uni="rcsi"><img src="img2/rcsi.png" alt="RCSI"></div>
+        <div class="logo-item" data-uni="griffith"><img src="img2/griffithcollege.png" alt="Griffith College"></div>
+        <div class="logo-item" data-uni="dbs"><img src="img2/dbs.png" alt="DBS"></div>
+        <div class="logo-item" data-uni="nci"><img src="img2/nationalcollegeofireland.png" alt="NCI"></div>
+        <div class="logo-item" data-uni="ibat"><img src="img2/ibat.png" alt="IBAT"></div>
+        <div class="logo-item" data-uni="cct"><img src="img2/cct.png" alt="CCT College"></div>
+        <div class="logo-item" data-uni="difc"><img src="img2/difc.png" alt="DIFC"></div>
+        <div class="logo-item" data-uni="dorset"><img src="img2/dorsetcollege.png" alt="Dorset College"></div>
+        <div class="logo-item" data-uni="independent"><img src="img2/independentcollege.png" alt="Independent College"></div>
+        <div class="logo-item" data-uni="icd"><img src="img2/icdbusinessschool.png" alt="ICD Business School"></div>
+        <div class="logo-item" data-uni="citygroup"><img src="img2/cityeducationgroup.png" alt="City Education Group"></div>
+        <div class="logo-item" data-uni="holmes"><img src="img2/holmesInstitute.png" alt="Holmes Institute"></div>
+        <div class="logo-item" data-uni="gbs"><img src="img2/galwaybusinessschool.png" alt="Galway Business School"></div>
+        <div class="logo-item" data-uni="shannon"><img src="img2/shannoncollege.png" alt="Shannon College"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════════ -->
+  <section class="ireland-course-header">
+    <h1 data-i18n="grado_h1">Bachelor's &amp; Master's Degrees in Ireland</h1>
+    <p data-i18n="grado_p1">Explore undergraduate and postgraduate programmes at Ireland's leading universities and colleges.</p>
+    <p data-i18n="grado_p2">We negotiate the best offer tailored to your profile and budget.</p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════ -->
+  <section class="content-section">
+    <div class="container">
+      <a href="index-EduNexusLingo.html" class="back-link" data-i18n="grado_back">← Back to Home</a>
+
+      <h2 class="section-title" data-i18n="grado_section_title">Universities &amp; Colleges</h2>
+      <p class="section-subtitle" data-i18n="grado_section_subtitle">Click on any institution to view the full list of undergraduate and postgraduate programmes available.</p>
+
+      <!-- FILTERS -->
+      <div class="filters">
+        <button class="filter-btn active" data-type="all"        data-i18n="filter_all">All</button>
+        <button class="filter-btn"        data-type="public"     data-i18n="filter_public">Public Universities</button>
+        <button class="filter-btn"        data-type="tech"       data-i18n="filter_tech">Technological Universities</button>
+        <button class="filter-btn"        data-type="private"    data-i18n="filter_private">Private Colleges</button>
+        <button class="filter-btn"        data-type="specialist" data-i18n="filter_specialist">Specialist</button>
+      </div>
+
+      <!-- INSTITUTION GRID -->
+      <div class="institution-grid">
+
+        <!-- 1. UCD -->
+        <div id="uni-ucd" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/ucd-2.png');"><span class="card-badge">Russell Group</span></div>
+          <div class="card-content">
+            <h3 class="card-title">University College Dublin <img src="img2/ucd.png" alt="UCD Logo"></h3>
+            <div class="card-info">📍 Belfield, Dublin 4 &nbsp;|&nbsp; Est. 1854</div>
+            <p class="card-desc" data-i18n="uni_ucd_desc">Ireland's largest university and a member of the prestigious Research Universities Ireland network, offering over 500 programmes across all disciplines.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Arts, Science, Commerce, Engineering, Law, Medicine</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Data Analytics, LLM, MA International Relations</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €18,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/UCD.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.ucd.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 2. Trinity College Dublin -->
+        <div id="uni-tcd" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/trinitycollege-2.png');"><span class="card-badge" data-i18n="badge_top_ranked">Top Ranked</span></div>
+          <div class="card-content">
+            <h3 class="card-title">Trinity College Dublin <img src="img2/trinitycollege.png" alt="TCD Logo"></h3>
+            <div class="card-info">📍 College Green, Dublin 2 &nbsp;|&nbsp; Est. 1592</div>
+            <p class="card-desc" data-i18n="uni_tcd_desc">Ireland's oldest university and consistently ranked among the world's top 100, renowned for research excellence and its historic campus in the heart of Dublin.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Arts, Science, Engineering, Law, Medicine, Business</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Computer Science, MBA, LLM, MA Global Affairs</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €20,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/TCD.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.tcd.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 3. UCC -->
+        <div id="uni-ucc" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/ucc-2.png');"><span class="card-badge" data-i18n="badge_top_ranked">Top Ranked</span></div>
+          <div class="card-content">
+            <h3 class="card-title">University College Cork <img src="img2/ucc.png" alt="UCC Logo"></h3>
+            <div class="card-info">📍 Cork City &nbsp;|&nbsp; Est. 1845</div>
+            <p class="card-desc" data-i18n="uni_ucc_desc">A world-class research university in the heart of Cork, offering a wide range of programmes with a strong focus on sustainability and innovation.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Pharmacy, Engineering, Arts, Science, Law, Food Science</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Sustainable Energy, MBA, LLM, MA Film Studies</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €15,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/UCC.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.ucc.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 4. DCU -->
+        <div id="uni-dcu" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/dcu-2.png');"><span class="card-badge" data-i18n="badge_innovation">Innovation Leader</span></div>
+          <div class="card-content">
+            <h3 class="card-title">Dublin City University <img src="img2/dcu.png" alt="DCU Logo"></h3>
+            <div class="card-info">📍 Glasnevin, Dublin 9 &nbsp;|&nbsp; Est. 1989</div>
+            <p class="card-desc" data-i18n="uni_dcu_desc">A young, dynamic university with a strong focus on technology, business and communications, known for its industry partnerships and high graduate employment rates.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Computing, Business, Journalism, Biotechnology, Education</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc AI, MBA, MA Journalism, MSc Biotechnology</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €14,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/DCU.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.dcu.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 5. University of Limerick -->
+        <div id="uni-ul" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/universityoflimerick-2.png');"><span class="card-badge" data-i18n="badge_coop">Co-op Leader</span></div>
+          <div class="card-content">
+            <h3 class="card-title">University of Limerick <img src="img2/universityoflimerick.png" alt="UL Logo"></h3>
+            <div class="card-info">📍 Limerick City &nbsp;|&nbsp; Est. 1972</div>
+            <p class="card-desc" data-i18n="uni_ul_desc">Renowned for its cooperative education model, UL offers students real-world work placements integrated into their degree programmes.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Engineering, Business, Sports Science, Nursing, Law</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Finance, MA Education, MSc Engineering</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_4coop_12">4 yrs (UG, incl. co-op) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €14,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/UL.htm"               class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.ul.ie"    class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 6. Maynooth University -->
+        <div id="uni-maynooth" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/maynoothuniversity-2.png');"><span class="card-badge" data-i18n="badge_humanities">Humanities Hub</span></div>
+          <div class="card-content">
+            <h3 class="card-title">Maynooth University <img src="img2/maynoothuniversity.png" alt="Maynooth Logo"></h3>
+            <div class="card-info">📍 Maynooth, Co. Kildare &nbsp;|&nbsp; Est. 1997</div>
+            <p class="card-desc" data-i18n="uni_maynooth_desc">A vibrant campus university 25 km from Dublin, celebrated for its humanities, social sciences and computer science programmes.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Arts, Computer Science, Law, Mathematics, Psychology</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MA Philosophy, MSc Computer Science, LLM, MA Sociology</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €13,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/Maynooth.htm"                    class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.maynoothuniversity.ie" class="btn-card btn-web" target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 7. NUI Galway (University of Galway) -->
+        <div id="uni-nuig" class="institution-card is-featured" data-type="public">
+          <div class="card-image" style="background-image: url('img2/nuigalway-2.png');"><span class="card-badge" data-i18n="badge_research">Research Leader</span></div>
+          <div class="card-content">
+            <h3 class="card-title">University of Galway <img src="img2/nuigalway.png" alt="NUI Galway Logo"></h3>
+            <div class="card-info">📍 Galway City &nbsp;|&nbsp; Est. 1845</div>
+            <p class="card-desc" data-i18n="uni_nuig_desc">Located in one of Ireland's most vibrant cities, the University of Galway is a leading research institution with a strong international community.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Medicine, Law, Engineering, Arts, Science, Commerce</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Marine Science, MBA, LLM, MA Irish Studies</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €14,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/NUIG.htm"                          class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.universityofgalway.ie" class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 8. TU Dublin -->
+        <div id="uni-tudublin" class="institution-card" data-type="tech">
+          <div class="card-image" style="background-image: url('img2/tudublin-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">TU Dublin <img src="img2/tudublin.png" alt="TU Dublin Logo"></h3>
+            <div class="card-info">📍 Dublin (Grangegorman &amp; City Campus) &nbsp;|&nbsp; Est. 2019</div>
+            <p class="card-desc" data-i18n="uni_tudublin_desc">Ireland's first technological university, offering a broad range of applied and professional programmes across science, technology, business and the arts.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Computing, Architecture, Tourism, Business, Engineering</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Data Science, MBA, MA Design, MSc Environmental Science</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €12,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/TUDublin.htm"            class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.tudublin.ie" class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 9. ATU -->
+        <div id="uni-atu" class="institution-card" data-type="tech">
+          <div class="card-image" style="background-image: url('img2/atu-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Atlantic Technological University <img src="img2/atu.png" alt="ATU Logo"></h3>
+            <div class="card-info">📍 Galway, Sligo &amp; Letterkenny &nbsp;|&nbsp; Est. 2022</div>
+            <p class="card-desc" data-i18n="uni_atu_desc">A multi-campus technological university serving the west and north-west of Ireland, with strong links to regional industry and enterprise.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Engineering, Nursing, Business, Computing, Science</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Cybersecurity, MBA, MSc Renewable Energy, MA Education</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €11,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/ATU.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.atu.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 10. MTU -->
+        <div id="uni-mtu" class="institution-card" data-type="tech">
+          <div class="card-image" style="background-image: url('img2/munstertechnologicaluniversity-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Munster Technological University <img src="img2/munstertechnologicaluniversity.png" alt="MTU Logo"></h3>
+            <div class="card-info">📍 Cork &amp; Kerry &nbsp;|&nbsp; Est. 2021</div>
+            <p class="card-desc" data-i18n="uni_mtu_desc">MTU combines the strengths of Cork IT and IT Tralee to deliver applied programmes with a strong focus on industry collaboration and innovation.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Computing, Engineering, Business, Science, Arts</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Software Development, MBA, MSc Cybersecurity</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €11,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/MTU.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.mtu.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 11. SETU -->
+        <div id="uni-setu" class="institution-card" data-type="tech">
+          <div class="card-image" style="background-image: url('img2/setu-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">SETU – South East Technological University <img src="img2/setu.png" alt="SETU Logo"></h3>
+            <div class="card-info">📍 Waterford &amp; Carlow &nbsp;|&nbsp; Est. 2022</div>
+            <p class="card-desc" data-i18n="uni_setu_desc">SETU serves the south-east of Ireland with a wide portfolio of applied programmes and a growing research profile in health, engineering and business.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Nursing, Engineering, Business, Computing, Science</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Health Informatics, MBA, MSc Engineering Management</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €11,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/SETU.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.setu.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 12. TUS -->
+        <div id="uni-tus" class="institution-card" data-type="tech">
+          <div class="card-image" style="background-image: url('img2/tus-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">TUS – Technological University of the Shannon <img src="img2/tus.png" alt="TUS Logo"></h3>
+            <div class="card-info">📍 Limerick, Athlone &amp; Thurles &nbsp;|&nbsp; Est. 2021</div>
+            <p class="card-desc" data-i18n="uni_tus_desc">TUS is Ireland's midlands and midwest technological university, offering career-focused programmes with strong industry connections across the Shannon region.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Engineering, Business, Computing, Science, Arts</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Data Science, MBA, MSc Mechanical Engineering</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €11,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/TUS.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.tus.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 13. DKIT -->
+        <div id="uni-dkit" class="institution-card" data-type="tech">
+          <div class="card-image" style="background-image: url('img2/dundalkinstituteoftechnology-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Dundalk Institute of Technology <img src="img2/dundalkinstituteoftechnology.png" alt="DKIT Logo"></h3>
+            <div class="card-info">📍 Dundalk, Co. Louth &nbsp;|&nbsp; Est. 1970</div>
+            <p class="card-desc" data-i18n="uni_dkit_desc">DkIT is a leading institute of technology in the north-east of Ireland, with strong links to the cross-border economy and a focus on applied learning.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Computing, Business, Engineering, Nursing, Sport</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Computing, MBA, MSc Engineering, MA Education</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/DKIT.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.dkit.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 14. RCSI -->
+        <div id="uni-rcsi" class="institution-card is-featured" data-type="specialist">
+          <div class="card-image" style="background-image: url('img2/rcsi-2.png');"><span class="card-badge" data-i18n="badge_health">Health Sciences</span></div>
+          <div class="card-content">
+            <h3 class="card-title">RCSI University of Medicine &amp; Health Sciences <img src="img2/rcsi.png" alt="RCSI Logo"></h3>
+            <div class="card-info">📍 St. Stephen's Green, Dublin 2 &nbsp;|&nbsp; Est. 1784</div>
+            <p class="card-desc" data-i18n="uni_rcsi_desc">One of the world's leading health sciences universities, RCSI is consistently ranked in the top 250 globally and is dedicated entirely to health and medicine.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Medicine, Pharmacy, Physiotherapy, Nursing, Radiography</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Surgical Sciences, MSc Nursing, MSc Healthcare Management</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_56med_12">5–6 yrs (UG Medicine) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €25,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/RCSI.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.rcsi.com"  class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 15. Griffith College -->
+        <div id="uni-griffith" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/griffithcollege-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Griffith College <img src="img2/griffithcollege.png" alt="Griffith College Logo"></h3>
+            <div class="card-info">📍 South Circular Road, Dublin 8 &nbsp;|&nbsp; Est. 1974</div>
+            <p class="card-desc" data-i18n="uni_griffith_desc">Ireland's largest independent third-level college, offering a wide range of programmes in business, law, journalism, design and computing.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Law, Journalism, Computing, Design</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, LLM, MA Journalism, MSc Computing</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €12,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/Griffith.htm"           class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.griffith.ie" class="btn-card btn-web" target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 16. DBS -->
+        <div id="uni-dbs" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/dbs-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Dublin Business School <img src="img2/dbs.png" alt="DBS Logo"></h3>
+            <div class="card-info">📍 Aungier Street, Dublin 2 &nbsp;|&nbsp; Est. 1975</div>
+            <p class="card-desc" data-i18n="uni_dbs_desc">DBS is one of Ireland's largest private colleges, specialising in business, law, arts and psychology with a strong focus on professional development.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Law, Psychology, Marketing, Accounting</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, LLM, MSc Psychology, MA Human Resource Management</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €11,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/DBS.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.dbs.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 17. NCI -->
+        <div id="uni-nci" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/nationalcollegeofireland-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">National College of Ireland <img src="img2/nationalcollegeofireland.png" alt="NCI Logo"></h3>
+            <div class="card-info">📍 IFSC, Dublin 1 &nbsp;|&nbsp; Est. 1951</div>
+            <p class="card-desc" data-i18n="uni_nci_desc">Located in Dublin's financial district, NCI specialises in business, computing and human resources, with a strong emphasis on lifelong learning.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Computing, Human Resources, Finance</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Data Analytics, MBA, MSc HRM, MSc FinTech</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/NCI.htm"               class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.ncirl.ie"  class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 18. IBAT -->
+        <div id="uni-ibat" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/ibat-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">IBAT College Dublin <img src="img2/ibat.png" alt="IBAT Logo"></h3>
+            <div class="card-info">📍 Fleet Street, Dublin 2 &nbsp;|&nbsp; Est. 2004</div>
+            <p class="card-desc" data-i18n="uni_ibat_desc">A modern private college in the heart of Dublin, offering flexible business and technology programmes designed for working professionals and international students.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Computing, Accounting, Marketing</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Computing, MSc Project Management</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/IBAT.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.ibat.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 19. CCT College -->
+        <div id="uni-cct" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/cct-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">CCT College Dublin <img src="img2/cct.png" alt="CCT Logo"></h3>
+            <div class="card-info">📍 Chancery Lane, Dublin 8 &nbsp;|&nbsp; Est. 2004</div>
+            <p class="card-desc" data-i18n="uni_cct_desc">CCT specialises in technology and business programmes, offering a highly international campus environment with strong pathways to employment in Ireland's tech sector.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Computing, Business, Cybersecurity, Data Science</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Cybersecurity, MBA, MSc Cloud Computing, MSc AI</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/CCT.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.cct.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 20. DIFC -->
+        <div id="uni-difc" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/difc-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">DIFC – Dublin International Foundation College <img src="img2/difc.png" alt="DIFC Logo"></h3>
+            <div class="card-info">📍 Dublin City Centre &nbsp;|&nbsp; Est. 2005</div>
+            <p class="card-desc" data-i18n="uni_difc_desc">DIFC provides foundation and undergraduate programmes that serve as pathways into Ireland's leading universities, with a focus on international student support.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Computing, Foundation Year Programmes</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Business Analytics</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_1">3–4 yrs (UG) | 1 yr (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €9,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/DIFC.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.difc.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 21. Dorset College -->
+        <div id="uni-dorset" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/dorsetcollege-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Dorset College Dublin <img src="img2/dorsetcollege.png" alt="Dorset College Logo"></h3>
+            <div class="card-info">📍 Dorset Street, Dublin 1 &nbsp;|&nbsp; Est. 1999</div>
+            <p class="card-desc" data-i18n="uni_dorset_desc">Dorset College offers a range of business and computing programmes in a welcoming environment, with a strong track record of student progression to top universities.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Computing, Marketing, Accounting</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Computing, MSc Business Management</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €9,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/Dorset.htm"             class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.dorset.ie"  class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 22. Independent College -->
+        <div id="uni-independent" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/independentcollege-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Independent College Dublin <img src="img2/independentcollege.png" alt="Independent College Logo"></h3>
+            <div class="card-info">📍 Lower Pembroke Street, Dublin 2 &nbsp;|&nbsp; Est. 2004</div>
+            <p class="card-desc" data-i18n="uni_independent_desc">A boutique private college offering specialised programmes in psychology, counselling, business and social sciences in a supportive, student-centred environment.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Psychology, Counselling, Business, Social Science</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc Psychology, MA Counselling, MBA</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/Independent.htm"                      class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.independentcollege.ie"    class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 23. ICD Business School -->
+        <div id="uni-icd" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/icdbusinessschool-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">ICD Business School <img src="img2/icdbusinessschool.png" alt="ICD Logo"></h3>
+            <div class="card-info">📍 Parnell Square, Dublin 1 &nbsp;|&nbsp; Est. 2002</div>
+            <p class="card-desc" data-i18n="uni_icd_desc">ICD Business School focuses exclusively on business and management education, offering internationally recognised qualifications with a strong emphasis on entrepreneurship.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Management, Entrepreneurship, Marketing</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc International Business, MSc Marketing</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/ICD.htm"                           class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.icdbusinessschool.ie"  class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 24. City Education Group -->
+        <div id="uni-citygroup" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/cityeducationgroup-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">City Education Group <img src="img2/cityeducationgroup.png" alt="City Education Group Logo"></h3>
+            <div class="card-info">📍 Dublin City Centre &nbsp;|&nbsp; Est. 2006</div>
+            <p class="card-desc" data-i18n="uni_citygroup_desc">City Education Group offers a diverse portfolio of undergraduate and postgraduate programmes across business, hospitality, computing and social sciences.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Hospitality, Computing, Social Care</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Hospitality Management, MSc Computing</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €9,500/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/CityGroup.htm"                      class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.cityeducationgroup.ie"  class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 25. Holmes Institute -->
+        <div id="uni-holmes" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/holmesInstitute-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Holmes Institute Dublin <img src="img2/holmesInstitute.png" alt="Holmes Institute Logo"></h3>
+            <div class="card-info">📍 Dublin City Centre &nbsp;|&nbsp; Est. 2010</div>
+            <p class="card-desc" data-i18n="uni_holmes_desc">Holmes Institute offers Australian-accredited business and computing programmes in Dublin, providing students with internationally recognised qualifications.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Computing, Information Technology</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc IT, MSc Business Administration</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_3_12">3 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €10,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/Holmes.htm"              class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.holmes.ie"   class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 26. Galway Business School -->
+        <div id="uni-gbs" class="institution-card" data-type="private">
+          <div class="card-image" style="background-image: url('img2/galwaybusinessschool-2.png');"></div>
+          <div class="card-content">
+            <h3 class="card-title">Galway Business School <img src="img2/galwaybusinessschool.png" alt="GBS Logo"></h3>
+            <div class="card-info">📍 Galway City &nbsp;|&nbsp; Est. 2003</div>
+            <p class="card-desc" data-i18n="uni_gbs_desc">Galway Business School offers affordable, flexible business and computing programmes in the vibrant city of Galway, with strong links to the local tech and pharma industries.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Business, Computing, Accounting, Marketing</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MBA, MSc Business Computing, MSc Management</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_34_12">3–4 yrs (UG) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €9,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/GBS.htm"                            class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.galwaybusinessschool.ie" class="btn-card btn-web" target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+        <!-- 27. Shannon College of Hotel Management -->
+        <div id="uni-shannon" class="institution-card is-featured" data-type="specialist">
+          <div class="card-image" style="background-image: url('img2/shannoncollege-2.png');"><span class="card-badge" data-i18n="badge_hospitality">Hospitality</span></div>
+          <div class="card-content">
+            <h3 class="card-title">Shannon College of Hotel Management <img src="img2/shannoncollege.png" alt="Shannon College Logo"></h3>
+            <div class="card-info">📍 Shannon, Co. Clare &nbsp;|&nbsp; Est. 1951</div>
+            <p class="card-desc" data-i18n="uni_shannon_desc">A world-renowned specialist college affiliated with NUI Galway, offering elite hospitality and hotel management programmes with guaranteed international internships.</p>
+            <table class="card-table">
+              <tr><th colspan="2" data-i18n="table_highlights">Programme Highlights</th></tr>
+              <tr><td data-i18n="table_bachelor">🎓 Bachelor's</td><td>Hotel Management, International Hospitality Management</td></tr>
+              <tr><td data-i18n="table_master">🎓 Master's</td><td>MSc International Hospitality Management, MBA (Hospitality)</td></tr>
+              <tr><td data-i18n="table_duration">📅 Duration</td><td data-i18n="dur_4intern_12">4 yrs (UG, incl. internship) | 1–2 yrs (PG)</td></tr>
+              <tr><td data-i18n="table_fees">💶 Fees (non-EU)</td><td>From €15,000/yr</td></tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="img2/Shannon.htm"                                    class="btn-card btn-more" data-i18n="card_view_courses">View All Courses</a>
+            <a href="https://www.shannoncollegehotelmanagement.com"  class="btn-card btn-web"  target="_blank" data-i18n="card_website">Website ↗</a>
+          </div>
+        </div>
+
+      </div><!-- /institution-grid -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-bottom">
+        <p data-i18n="footer_rights">© 2026 EduNexusLingo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════
+       MODAL
+  ══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════ -->
+  <script src="translations.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+  (function () {
+
+    /* ── BILINGUAL TRANSLATIONS (grado-specific keys) ── */
+    var gradoTranslations = {
+      en: {
+        grado_h1:             "Bachelor's & Master's Degrees in Ireland",
+        grado_p1:             "Explore undergraduate and postgraduate programmes at Ireland's leading universities and colleges.",
+        grado_p2:             "We negotiate the best offer tailored to your profile and budget.",
+        grado_back:           "← Back to Home",
+        grado_section_title:  "Universities & Colleges",
+        grado_section_subtitle: "Click on any institution to view the full list of undergraduate and postgraduate programmes available.",
+        filter_all:           "All",
+        filter_public:        "Public Universities",
+        filter_tech:          "Technological Universities",
+        filter_private:       "Private Colleges",
+        filter_specialist:    "Specialist",
+        table_highlights:     "Programme Highlights",
+        table_bachelor:       "🎓 Bachelor's",
+        table_master:         "🎓 Master's",
+        table_duration:       "📅 Duration",
+        table_fees:           "💶 Fees (non-EU)",
+        dur_34_12:            "3–4 yrs (UG) | 1–2 yrs (PG)",
+        dur_4coop_12:         "4 yrs (UG, incl. co-op) | 1–2 yrs (PG)",
+        dur_4intern_12:       "4 yrs (UG, incl. internship) | 1–2 yrs (PG)",
+        dur_56med_12:         "5–6 yrs (UG Medicine) | 1–2 yrs (PG)",
+        dur_34_1:             "3–4 yrs (UG) | 1 yr (PG)",
+        dur_3_12:             "3 yrs (UG) | 1–2 yrs (PG)",
+        card_view_courses:    "View All Courses",
+        card_website:         "Website ↗",
+        badge_top_ranked:     "Top Ranked",
+        badge_innovation:     "Innovation Leader",
+        badge_coop:           "Co-op Leader",
+        badge_humanities:     "Humanities Hub",
+        badge_research:       "Research Leader",
+        badge_health:         "Health Sciences",
+        badge_hospitality:    "Hospitality",
+        uni_ucd_desc:         "Ireland's largest university and a member of the prestigious Research Universities Ireland network, offering over 500 programmes across all disciplines.",
+        uni_tcd_desc:         "Ireland's oldest university and consistently ranked among the world's top 100, renowned for research excellence and its historic campus in the heart of Dublin.",
+        uni_ucc_desc:         "A world-class research university in the heart of Cork, offering a wide range of programmes with a strong focus on sustainability and innovation.",
+        uni_dcu_desc:         "A young, dynamic university with a strong focus on technology, business and communications, known for its industry partnerships and high graduate employment rates.",
+        uni_ul_desc:          "Renowned for its cooperative education model, UL offers students real-world work placements integrated into their degree programmes.",
+        uni_maynooth_desc:    "A vibrant campus university 25 km from Dublin, celebrated for its humanities, social sciences and computer science programmes.",
+        uni_nuig_desc:        "Located in one of Ireland's most vibrant cities, the University of Galway is a leading research institution with a strong international community.",
+        uni_tudublin_desc:    "Ireland's first technological university, offering a broad range of applied and professional programmes across science, technology, business and the arts.",
+        uni_atu_desc:         "A multi-campus technological university serving the west and north-west of Ireland, with strong links to regional industry and enterprise.",
+        uni_mtu_desc:         "MTU combines the strengths of Cork IT and IT Tralee to deliver applied programmes with a strong focus on industry collaboration and innovation.",
+        uni_setu_desc:        "SETU serves the south-east of Ireland with a wide portfolio of applied programmes and a growing research profile in health, engineering and business.",
+        uni_tus_desc:         "TUS is Ireland's midlands and midwest technological university, offering career-focused programmes with strong industry connections across the Shannon region.",
+        uni_dkit_desc:        "DkIT is a leading institute of technology in the north-east of Ireland, with strong links to the cross-border economy and a focus on applied learning.",
+        uni_rcsi_desc:        "One of the world's leading health sciences universities, RCSI is consistently ranked in the top 250 globally and is dedicated entirely to health and medicine.",
+        uni_griffith_desc:    "Ireland's largest independent third-level college, offering a wide range of programmes in business, law, journalism, design and computing.",
+        uni_dbs_desc:         "DBS is one of Ireland's largest private colleges, specialising in business, law, arts and psychology with a strong focus on professional development.",
+        uni_nci_desc:         "Located in Dublin's financial district, NCI specialises in business, computing and human resources, with a strong emphasis on lifelong learning.",
+        uni_ibat_desc:        "A modern private college in the heart of Dublin, offering flexible business and technology programmes designed for working professionals and international students.",
+        uni_cct_desc:         "CCT specialises in technology and business programmes, offering a highly international campus environment with strong pathways to employment in Ireland's tech sector.",
+        uni_difc_desc:        "DIFC provides foundation and undergraduate programmes that serve as pathways into Ireland's leading universities, with a focus on international student support.",
+        uni_dorset_desc:      "Dorset College offers a range of business and computing programmes in a welcoming environment, with a strong track record of student progression to top universities.",
+        uni_independent_desc: "A boutique private college offering specialised programmes in psychology, counselling, business and social sciences in a supportive, student-centred environment.",
+        uni_icd_desc:         "ICD Business School focuses exclusively on business and management education, offering internationally recognised qualifications with a strong emphasis on entrepreneurship.",
+        uni_citygroup_desc:   "City Education Group offers a diverse portfolio of undergraduate and postgraduate programmes across business, hospitality, computing and social sciences.",
+        uni_holmes_desc:      "Holmes Institute offers Australian-accredited business and computing programmes in Dublin, providing students with internationally recognised qualifications.",
+        uni_gbs_desc:         "Galway Business School offers affordable, flexible business and computing programmes in the vibrant city of Galway, with strong links to the local tech and pharma industries.",
+        uni_shannon_desc:     "A world-renowned specialist college affiliated with NUI Galway, offering elite hospitality and hotel management programmes with guaranteed international internships."
+      },
+      es: {
+        grado_h1:             "Grados y Másteres en Irlanda",
+        grado_p1:             "Explora programas de grado y posgrado en las principales universidades e institutos de Irlanda.",
+        grado_p2:             "Negociamos la mejor oferta adaptada a tu perfil y presupuesto.",
+        grado_back:           "← Volver al inicio",
+        grado_section_title:  "Universidades e Institutos",
+        grado_section_subtitle: "Haz clic en cualquier institución para ver la lista completa de programas de grado y posgrado disponibles.",
+        filter_all:           "Todos",
+        filter_public:        "Universidades Públicas",
+        filter_tech:          "Universidades Tecnológicas",
+        filter_private:       "Colegios Privados",
+        filter_specialist:    "Especialistas",
+        table_highlights:     "Programas Destacados",
+        table_bachelor:       "🎓 Grado",
+        table_master:         "🎓 Máster",
+        table_duration:       "📅 Duración",
+        table_fees:           "💶 Tasas (no-UE)",
+        dur_34_12:            "3–4 años (Grado) | 1–2 años (Posgrado)",
+        dur_4coop_12:         "4 años (Grado, incl. prácticas) | 1–2 años (Posgrado)",
+        dur_4intern_12:       "4 años (Grado, incl. internship) | 1–2 años (Posgrado)",
+        dur_56med_12:         "5–6 años (Medicina) | 1–2 años (Posgrado)",
+        dur_34_1:             "3–4 años (Grado) | 1 año (Posgrado)",
+        dur_3_12:             "3 años (Grado) | 1–2 años (Posgrado)",
+        card_view_courses:    "Ver todos los cursos",
+        card_website:         "Sitio web ↗",
+        badge_top_ranked:     "Top Ranking",
+        badge_innovation:     "Líder en Innovación",
+        badge_coop:           "Líder en Prácticas",
+        badge_humanities:     "Hub de Humanidades",
+        badge_research:       "Líder en Investigación",
+        badge_health:         "Ciencias de la Salud",
+        badge_hospitality:    "Hostelería",
+        uni_ucd_desc:         "La universidad más grande de Irlanda y miembro de la red Research Universities Ireland, con más de 500 programas en todas las disciplinas.",
+        uni_tcd_desc:         "La universidad más antigua de Irlanda, clasificada entre las 100 mejores del mundo, reconocida por su excelencia investigadora y su histórico campus en el corazón de Dublín.",
+        uni_ucc_desc:         "Una universidad de investigación de clase mundial en el corazón de Cork, con una amplia oferta de programas centrados en la sostenibilidad y la innovación.",
+        uni_dcu_desc:         "Una universidad joven y dinámica con fuerte enfoque en tecnología, negocios y comunicación, conocida por sus alianzas con la industria y altas tasas de empleo.",
+        uni_ul_desc:          "Reconocida por su modelo de educación cooperativa, UL integra prácticas laborales reales en los programas de grado.",
+        uni_maynooth_desc:    "Una vibrante universidad de campus a 25 km de Dublín, celebrada por sus programas de humanidades, ciencias sociales e informática.",
+        uni_nuig_desc:        "Ubicada en una de las ciudades más vibrantes de Irlanda, la Universidad de Galway es una institución de investigación líder con una sólida comunidad internacional.",
+        uni_tudublin_desc:    "La primera universidad tecnológica de Irlanda, con una amplia oferta de programas aplicados y profesionales en ciencias, tecnología, negocios y artes.",
+        uni_atu_desc:         "Universidad tecnológica multicampus que sirve al oeste y noroeste de Irlanda, con fuertes vínculos con la industria y la empresa regional.",
+        uni_mtu_desc:         "MTU combina las fortalezas del CIT y el IT Tralee para ofrecer programas aplicados con un fuerte enfoque en la colaboración industrial y la innovación.",
+        uni_setu_desc:        "SETU sirve al sureste de Irlanda con una amplia cartera de programas aplicados y un creciente perfil investigador en salud, ingeniería y negocios.",
+        uni_tus_desc:         "TUS es la universidad tecnológica del midlands y midwest de Irlanda, con programas orientados a la carrera profesional y fuertes conexiones con la industria de la región de Shannon.",
+        uni_dkit_desc:        "DkIT es un instituto de tecnología líder en el noreste de Irlanda, con fuertes vínculos con la economía transfronteriza y enfoque en el aprendizaje aplicado.",
+        uni_rcsi_desc:        "Una de las principales universidades de ciencias de la salud del mundo, RCSI está clasificada entre las 250 mejores a nivel global y se dedica íntegramente a la salud y la medicina.",
+        uni_griffith_desc:    "El mayor colegio independiente de tercer nivel de Irlanda, con una amplia oferta en negocios, derecho, periodismo, diseño e informática.",
+        uni_dbs_desc:         "DBS es uno de los mayores colegios privados de Irlanda, especializado en negocios, derecho, artes y psicología con fuerte enfoque en el desarrollo profesional.",
+        uni_nci_desc:         "Ubicado en el distrito financiero de Dublín, NCI se especializa en negocios, informática y recursos humanos, con fuerte énfasis en el aprendizaje permanente.",
+        uni_ibat_desc:        "Un moderno colegio privado en el corazón de Dublín, con programas flexibles de negocios y tecnología diseñados para profesionales en activo y estudiantes internacionales.",
+        uni_cct_desc:         "CCT se especializa en tecnología y negocios, ofreciendo un campus altamente internacional con sólidas vías de empleo en el sector tecnológico irlandés.",
+        uni_difc_desc:        "DIFC ofrece programas de acceso y grado como vías de entrada a las principales universidades irlandesas, con especial atención al apoyo al estudiante internacional.",
+        uni_dorset_desc:      "Dorset College ofrece programas de negocios e informática en un entorno acogedor, con un sólido historial de progresión de estudiantes a las mejores universidades.",
+        uni_independent_desc: "Un colegio privado boutique con programas especializados en psicología, orientación, negocios y ciencias sociales en un entorno centrado en el estudiante.",
+        uni_icd_desc:         "ICD Business School se centra exclusivamente en educación empresarial y de gestión, ofreciendo titulaciones reconocidas internacionalmente con fuerte énfasis en el emprendimiento.",
+        uni_citygroup_desc:   "City Education Group ofrece una cartera diversa de programas de grado y posgrado en negocios, hostelería, informática y ciencias sociales.",
+        uni_holmes_desc:      "Holmes Institute ofrece programas de negocios e informática con acreditación australiana en Dublín, proporcionando titulaciones reconocidas internacionalmente.",
+        uni_gbs_desc:         "Galway Business School ofrece programas asequibles y flexibles de negocios e informática en la vibrante ciudad de Galway, con fuertes vínculos con las industrias tecnológica y farmacéutica locales.",
+        uni_shannon_desc:     "Un colegio especialista de renombre mundial afiliado a la Universidad de Galway, con programas de élite en hostelería y gestión hotelera con internships internacionales garantizados."
+      }
+    };
+
+    /* ── MERGE INTO GLOBAL translations OBJECT ── */
+    function mergeTranslations() {
+      if (typeof translations !== 'undefined') {
+        ['en', 'es'].forEach(function(lang) {
+          if (!translations[lang]) translations[lang] = {};
+          Object.assign(translations[lang], gradoTranslations[lang]);
+        });
+      } else {
+        /* fallback: use local object only */
+        window.translations = gradoTranslations;
+      }
+    }
+
+    /* ── APPLY TRANSLATIONS ── */
+    function applyTranslations(lang) {
+      mergeTranslations();
+      var t = (window.translations && window.translations[lang]) || gradoTranslations[lang] || gradoTranslations['en'];
+      if (!t) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      document.querySelectorAll('.lang-flag').forEach(function(flag) {
+        flag.classList.toggle('active', flag.getAttribute('data-lang') === lang);
+      });
+
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('selectedLanguage', lang); } catch(e) {}
+    }
+
+    /* ── PUBLIC API (same as ingles.irlanda.html) ── */
+    window.changeLanguage = function(lang) { applyTranslations(lang); };
+
+    /* ── STAR BURST EFFECT ── */
+    var STAR_COLORS = ['#FFD700','#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#DDA0DD','#98FB98','#FF8C69','#87CEEB'];
+    var STAR_SHAPES = ['★','✦','✧','✨','•','◆','▲','✶','✵','✴'];
+    function createStar(card) {
+      var s = document.createElement('span');
+      s.className = 'star-particle';
+      var size  = Math.random() * 16 + 7;
+      var color = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
+      var shape = STAR_SHAPES[Math.floor(Math.random() * STAR_SHAPES.length)];
+      var startX = Math.random() * card.offsetWidth;
+      var startY = Math.random() * card.offsetHeight;
+      var angle  = Math.random() * 2 * Math.PI;
+      var dist   = Math.random() * 90 + 35;
+      var tx = Math.cos(angle) * dist;
+      var ty = Math.sin(angle) * dist;
+      var dur   = (Math.random() * 0.5 + 0.65).toFixed(2);
+      var delay = (Math.random() * 0.25).toFixed(2);
+      s.textContent = shape;
+      s.style.cssText = 'left:'+startX+'px;top:'+startY+'px;font-size:'+size+'px;color:'+color+
+                        ';--tx:'+tx+'px;--ty:'+ty+'px;animation-duration:'+dur+
+                        's;animation-delay:'+delay+'s;text-shadow:0 0 8px '+color+';';
+      card.appendChild(s);
+      s.addEventListener('animationend', function(){ s.remove(); });
+    }
+    function burst(card, n) { for (var i = 0; i < n; i++) createStar(card); }
+
+    /* ── DOM READY ── */
+    document.addEventListener('DOMContentLoaded', function() {
+
+      /* Default language: always English on first load, then respect localStorage */
+      var saved = 'en';
+      try { saved = localStorage.getItem('selectedLanguage') || 'en'; } catch(e) {}
+      applyTranslations(saved);
+
+      /* Star burst on featured cards */
+      document.querySelectorAll('.institution-card.is-featured').forEach(function(card) {
+        var iv = null;
+        card.addEventListener('mouseenter', function() {
+          burst(card, 20);
+          iv = setInterval(function(){ burst(card, 9); }, 550);
+        });
+        card.addEventListener('mouseleave', function() {
+          if (iv) { clearInterval(iv); iv = null; }
+        });
+      });
+
+      /* Filter buttons */
+      document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelector('.filter-btn.active').classList.remove('active');
+          btn.classList.add('active');
+          var val = btn.getAttribute('data-type');
+          document.querySelectorAll('.institution-card').forEach(function(card) {
+            card.style.display = (val === 'all' || card.getAttribute('data-type') === val) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      /* Logo carousel → scroll to card */
+      document.querySelectorAll('.logo-item').forEach(function(logo) {
+        logo.addEventListener('click', function() {
+          var id = 'uni-' + logo.getAttribute('data-uni');
+          var target = document.getElementById(id);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+
+      /* Modal close */
+      var overlay      = document.getElementById('modalOverlay');
+      var modalClose   = document.getElementById('modalClose');
+      if (modalClose) {
+        modalClose.addEventListener('click', function() {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
