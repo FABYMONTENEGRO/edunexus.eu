@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduNexus - Educate | Elevate | Excel</title>
-    <meta name="description" content="EduNexus - Entrenamiento de inglés, coaching ontológico y herramientas de mejoramiento personal">
+    <title>Edu Nexus - Educate | Elevate | Excel</title>
+    <meta name="description" content="Edu Nexus - Entrenamiento de inglés, coaching ontológico y herramientas de mejoramiento personal">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -21,6 +21,50 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- POK additions: only header companion logo and floating logo -->
+    <style id="pok-additions">
+        .pok-header-logo {
+            height: 80px;
+            width: auto;
+            max-width: 92px;
+            object-fit: contain;
+            margin-left: 2px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .pok-floating-logo {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 1100;
+            width: 90px;
+            height: 90px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #c9a84c;
+            border-radius: 80%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .28);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .pok-floating-logo:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(201, 168, 76, .45);
+        }
+        .pok-floating-logo img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        @media (max-width: 576px) {
+            .pok-header-logo { height: 28px; max-width: 78px; margin-right: 5px; }
+            .pok-floating-logo { right: 60px; bottom: 60px; width: 80px; height: 80px; padding: 3px; }
+        }
+    </style>
 </head>
 <body>
     <!-- Language Toggle -->
@@ -34,10 +78,29 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#home">
-                <img src="assets/img/logo.png" alt="EduNexus Logo" height="40" class="me-2">
-                <span class="fw-bold">EduNexus</span>
-            </a>
+            <div class="navbar-brand d-flex align-items-center">
+                <!-- Logo EduNexus -->
+                <a href="#home" class="d-flex align-items-center text-decoration-none">
+                    <img src="assets/img/logo.png"
+                         alt="EduNexus Logo"
+                         height="60"
+                         class="me-2">
+                    <span class="fw-bold">Edu Nexus</span>
+                </a>
+
+                <!-- Logo POK enlazado a LingoPOK -->
+                <a id="pok-header-btn"
+                   href="https://www.Edunexus.eu/LingoPok/index.html"
+                   title="Go to Edu Nexus POK"
+                   aria-label="GO to Edu Nexus POK — Credenciales Digitales"
+                   target="_blank"
+                   rel="noopener"
+                   class="ms-3 d-flex align-items-center">
+                    <img src="assets/img/pok2.png"
+                         alt="Edu Nexus POK"
+                         class="pok-header-logo">
+                </a>
+            </div>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -413,7 +476,7 @@
                              <img src="assets/img/about/about_us_2.png" alt="Founders" class="img-fluid">
                         </div>
                         <div class="team-content featured-content">
-                            <H5 data-es="Fundadores EduNexus" data-en="EduNexus Founders">Fundadores EduNexus</H5>
+                            <H5 data-es="Fundadores EduNexus" data-en="EduNexus Founders">Fundadores Edu Nexus</H5>
                             <p class="team-role featured-role" data-es="Coaches Certificados & Educadores" data-en="Certified Coaches & Educators">Coaches Certificados & Educadores</p>
                             <p class="featured-description" data-es="Matrimonio argentino-sueco con décadas de experiencia en educación, digitalización y crecimiento personal. Líderes visionarios que combinan estructura y empatía para inspirar el desarrollo integral y la transformación significativa." data-en="Argentine-Swedish couple with decades of experience in education, digitalization and personal growth. Visionary leaders who combine structure and empathy to inspire integral development and significant transformation.">Matrimonio argentino-sueco con décadas de experiencia en educación, digitalización y crecimiento personal. Líderes visionarios que combinan estructura y empatía para inspirar el desarrollo integral y la transformación significativa.</p>
                             <div class="social-links">
@@ -709,5 +772,10 @@
             }
         }
     </script>
+
+    <!-- Botón flotante LingoPOK -->
+    <a id="pok-float-btn" class="pok-floating-logo" href="https://www.Edunexus.eu/LingoPok/index.html" title="go to Edu Nexus POK" aria-label="Ir a LingoPOK — Credenciales Digitales" target="_blank" rel="noopener">
+        <img src="assets/img/pok2.png" alt="Edu Nexus POK">
+    </a>
 </body>
 </html>
