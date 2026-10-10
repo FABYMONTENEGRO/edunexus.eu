@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A gift for you · The Tired Teacher's Survival Kit</title>
+<meta name="description" content="Free Check-In Pack and 5-Minute Reset Menu poster for readers of The Tired Teacher's Survival Kit by Kajsa Kinsella Montenegro.">
+<meta property="og:title" content="A gift for you, to keep going.">
+<meta property="og:description" content="Twelve more weekly check-ins and a reset menu for your wall, free to download and print.">
+<meta property="og:image" content="../assets/img/bookform/backpack.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate:#4F7086; --slate-dark:#3f5c70; --cream:#F4F0E8; --paper:#ffffff;
+    --ink:#1f2528; --mute:#4a5357; --line:#c9cfd2; --err:#a3332a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);background:var(--paper);font-size:19px;line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* Hero */
+  .hero{background:var(--slate);color:var(--cream);padding:64px 0}
+  .hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;align-items:center;gap:40px}
+  .eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:14px;opacity:.9}
+  .hero h1{font-size:clamp(40px,5.4vw,60px);line-height:1.08;font-weight:600;margin:18px 0 16px}
+  .hero p.lede{font-style:italic;font-size:clamp(20px,2.2vw,24px);opacity:.95;max-width:34ch}
+  .hero-art{justify-self:center;width:min(320px,70vw);aspect-ratio:1;border-radius:50%;background:var(--cream);overflow:hidden;display:grid;place-items:center}
+  .hero-art img{width:84%;height:auto;mix-blend-mode:multiply}
+
+  /* Offer */
+  .offer{background:var(--cream);padding:56px 0}
+  .offer .wrap{display:grid;grid-template-columns:1fr 470px;gap:48px;align-items:start}
+  .offer .wrap>*,.item>*{min-width:0}
+  .offer h2{font-size:32px;font-weight:600;margin-bottom:20px}
+  .item{display:grid;grid-template-columns:100px 1fr;gap:20px;align-items:center;margin-bottom:22px}
+  .thumb{width:100px;box-shadow:0 2px 8px rgba(0,0,0,.12);background:#fff;display:block}
+  .thumb img{width:100%;display:block}
+  .item h3{font-size:22px;font-weight:600;line-height:1.2;margin-bottom:4px}
+  .item p{color:var(--mute)}
+  /* Mini cover for the Check-In Pack */
+  .cover{aspect-ratio:1/1.4;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+  .cover small{font-size:5px;letter-spacing:.15em;text-transform:uppercase;color:#777}
+  .cover img{width:46px;mix-blend-mode:multiply}
+  .cover b{font-size:9px;line-height:1.15;color:var(--ink)}
+  .cover span{font-size:5px;color:#888}
+  .envelope img{mix-blend-mode:multiply}
+  .tagline{font-family:'Caveat',cursive;color:var(--slate);font-size:34px;margin-top:10px}
+
+  /* Card / form */
+  .card{background:#fff;border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,.08);padding:34px 32px}
+  .card h2{margin-bottom:18px}
+  label{display:block;font-weight:600;font-size:18px;margin:14px 0 8px}
+  input[type=text],input[type=email]{width:100%;height:52px;border:1px solid #9aa3a8;border-radius:4px;padding:0 14px;font:inherit;font-size:18px;background:#fff}
+  input:focus{outline:2px solid var(--slate);border-color:var(--slate)}
+  .consent{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;margin:22px 0;font-size:16px;color:var(--mute);font-weight:400}
+  .consent input{width:20px;height:20px;margin-top:3px;accent-color:var(--slate)}
+  button{width:100%;height:58px;border:0;border-radius:4px;background:var(--slate);color:#fff;font:inherit;font-size:24px;font-weight:600;cursor:pointer;transition:background .2s}
+  button:hover{background:var(--slate-dark)}
+  button[disabled]{opacity:.7;cursor:wait}
+  .fine{font-size:15px;color:var(--mute);margin-top:16px;line-height:1.5}
+  .status{display:none;margin-top:16px;padding:14px 16px;border-radius:4px;font-size:17px}
+  .status.ok{display:block;background:#e7eef2;color:var(--slate-dark)}
+  .status.bad{display:block;background:#f8e9e7;color:var(--err)}
+  .hp{position:absolute;left:-9999px}
+
+  /* Review */
+  .review{padding:64px 0;text-align:center}
+  .review img{width:110px;height:auto}
+  .review h2{font-size:34px;font-weight:600;margin:10px 0 14px}
+  .review p{max-width:640px;margin:0 auto 26px;color:var(--mute)}
+  .stores{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+  .stores a{border:1px solid var(--slate);color:var(--slate);text-decoration:none;font-weight:600;padding:10px 22px;border-radius:3px;transition:all .2s}
+  .stores a:hover{background:var(--slate);color:#fff}
+
+  /* Privacy */
+  details{max-width:760px;margin:0 auto 48px;padding:0 24px;font-size:16px;color:var(--mute)}
+  details summary{cursor:pointer;font-weight:600;color:var(--ink)}
+  details p{margin-top:10px}
+
+  footer{background:var(--slate);color:var(--cream);text-align:center;padding:22px 16px;font-size:16px}
+
+  @media (max-width:900px){
+    .hero .wrap,.offer .wrap{grid-template-columns:1fr}
+    .hero{padding:44px 0}
+    .hero-art{grid-row:1;width:220px}
+    .card{padding:26px 20px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">For readers of The Tired Teacher's Survival Kit</div>
+      <h1>A gift for you,<br>to keep going.</h1>
+      <p class="lede">Twelve more weekly check-ins and a reset menu for your wall, free to download and print.</p>
+    </div>
+    <div class="hero-art"><img src="../assets/img/bookform/backpack.png" alt="Watercolour drawing of a school backpack"></div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap">
+    <div>
+      <h2>What you will receive</h2>
+
+      <div class="item">
+        <div class="thumb cover" aria-hidden="true">
+          <small>A companion to the Survival Kit</small>
+          <img src="../assets/img/bookform/backpack.png" alt="">
+          <b>The Tired Teacher's<br>Check-In Pack</b>
+          <span>Kajsa Kinsella Montenegro</span>
+        </div>
+        <div><h3>The Check-In Pack</h3><p>Twelve weekly check-ins, enough for a whole term, in the same layout as the book.</p></div>
+      </div>
+
+      <div class="item">
+        <div class="thumb"><img src="../assets/img/bookform/reset-menu-colour.jpg" alt="The 5-Minute Reset Menu poster"></div>
+        <div><h3>The 5-Minute Reset Menu poster</h3><p>For the staffroom or the fridge door, in colour and in black and white.</p></div>
+      </div>
+
+      <div class="item">
+        <div class="thumb envelope"><img src="../assets/img/bookform/envelope.png" alt="Envelope addressed To a Dear Friend"></div>
+        <div><h3>An occasional letter from Kajsa</h3><p>News of new books, videos and ideas for teachers. Never more than you would want.</p></div>
+      </div>
+
+      <p class="tagline">You are a teacher. You are also a person.</p>
+    </div>
+
+    <div class="card">
+      <h2>Send me my gift</h2>
+      <form id="giftForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="b3ec6aae-0cac-4b93-a152-1e8070d3c1a6">
+        <input type="hidden" name="subject" value="New gift request – The Tired Teacher's Survival Kit">
+        <input type="hidden" name="from_name" value="edunexus.eu – BookForm">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <label for="name">First name</label>
+        <input type="text" id="name" name="name" autocomplete="given-name" required>
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" value="Yes – gift and occasional emails" required>
+          <span>Yes, please send me the gift and occasional emails from Kajsa Kinsella Montenegro and Edu Nexus about new books, videos and resources for teachers.</span>
+        </label>
+
+        <button type="submit" id="sendBtn">Send me my gift</button>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <p class="fine">Your details are held by Edu Nexus Consulting CLG and are never shared or sold. You can unsubscribe at any time with one click. <a href="#privacy">Privacy notice</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="review">
+  <div class="wrap">
+    <img src="../assets/img/bookform/leaf.png" alt="">
+    <h2>Did the book help?</h2>
+    <p>An honest review on Amazon, even one or two sentences, helps other tired teachers to find it. Choose your Amazon store:</p>
+    <!-- Replace each href with the book's direct review link once the ASIN is available -->
+    <div class="stores">
+      <a href="https://www.amazon.ie/s?k=The+Tired+Teacher%27s+Survival+Kit+Kinsella+Montenegro" target="_blank" rel="noopener">Ireland</a>
+      <a href="https://www.amazon.co.uk/s?k=The+Tired+Teacher%27s+Survival+Kit+Kinsella+Montenegro" target="_blank" rel="noopener">United Kingdom</a>
+      <a href="https://www.amazon.com/s?k=The+Tired+Teacher%27s+Survival+Kit+Kinsella+Montenegro" target="_blank" rel="noopener">United States</a>
+      <a href="https://www.amazon.ca/s?k=The+Tired+Teacher%27s+Survival+Kit+Kinsella+Montenegro" target="_blank" rel="noopener">Canada</a>
+      <a href="https://www.amazon.com.au/s?k=The+Tired+Teacher%27s+Survival+Kit+Kinsella+Montenegro" target="_blank" rel="noopener">Australia</a>
+      <a href="https://www.amazon.es/s?k=The+Tired+Teacher%27s+Survival+Kit+Kinsella+Montenegro" target="_blank" rel="noopener">Spain</a>
+    </div>
+  </div>
+</section>
+
+<details id="privacy">
+  <summary>Privacy notice</summary>
+  <p>Edu Nexus Consulting CLG (Ireland) is the data controller for the first name and email address you give us on this page. We use them only to send you the gift you requested and, if you ticked the box, occasional emails about new books, videos and resources for teachers. Form submissions are processed by our form provider, Web3Forms, on our behalf. We never share or sell your details. You can unsubscribe at any time using the link in any email, or ask us to access, correct or delete your data by replying to any of our emails. You also have the right to complain to the Data Protection Commission (Ireland).</p>
+</details>
+
+<footer>Edu Nexus Consulting CLG · a not-for-profit educational organisation · edunexus.eu</footer>
+
+<script>
+  const form = document.getElementById('giftForm');
+  const btn = document.getElementById('sendBtn');
+  const status = document.getElementById('status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'status';
+    if (!form.checkValidity()) {
+      status.className = 'status bad';
+      status.textContent = 'Please add your first name, a valid email address, and tick the box so we can send your gift.';
+      form.reportValidity();
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        const name = form.name.value.trim();
+        form.reset();
+        status.className = 'status ok';
+        status.textContent = 'Thank you' + (name ? ', ' + name : '') + '! Your gift is on its way. Please check your inbox (and your spam folder) in the next day or so.';
+      } else {
+        throw new Error(data.message || 'error');
+      }
+    } catch (err) {
+      status.className = 'status bad';
+      status.textContent = 'Sorry, something went wrong. Please try again in a moment.';
+    }
+    btn.disabled = false; btn.textContent = 'Send me my gift';
+  });
+</script>
+</body>
+</html>
